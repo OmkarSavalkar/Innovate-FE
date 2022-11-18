@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 
 export const Container = styled.div`
-  background-image: linear-gradient(to right, #ad30be, #307cbe, #00f2fe);
+  background-image: linear-gradient(to right, #3d156b, #df3562, #feb97e);
   height: 100vh;
 `;
 

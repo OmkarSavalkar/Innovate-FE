@@ -7,7 +7,7 @@ export const LoginSignupContainer = styled.div`
   align-items: center;
   min-height: 100vh;
   flex-direction: column;
-  background-image: linear-gradient(to right, #ad30be, #307cbe, #00f2fe);
+  background-image: linear-gradient(to right, #3d156b, #df3562, #feb97e);
 `;
 
 const animate = keyframes`
@@ -20,7 +20,7 @@ const animate = keyframes`
 
 export const LoginBox = styled.div`
   position: relative;
-  width: 380px;
+  width: 70%;
   height: 460px;
   background: #fdf900;
   border-radius: 10px;
@@ -54,7 +54,7 @@ export const LoginBox = styled.div`
 
 export const SignupBox = styled(LoginBox)`
   width: 80%;
-  height: 520px;
+  height: 550px;
   &:hover:before {
     width: 80%;
     height: 520px;
@@ -65,10 +65,10 @@ export const SignupBox = styled(LoginBox)`
   }
 `;
 
-export const FormBox = styled.form`
+export const FormBox = styled.div`
   position: absolute;
   inset: 2px;
-  background: #303ce4;
+  background: #ffffff;
   padding: 0px 35px;
   border-radius: 8px;
   z-index: 2;
@@ -77,24 +77,20 @@ export const FormBox = styled.form`
 `;
 
 export const FormTitle = styled.h2`
-  color: #303ce4;
-  font-weight: 500;
+  color: #341e73;
+  font-weight: 50px;
+  font-size: 50px;
   text-align: center;
   letter-spacing: 0.1em;
   background-color: white;
   border-radius: 0px 0px 170px 170px;
-  padding-top: 20px;
-  padding-bottom: 40px;
-  padding-left: 15px;
-  padding-right: 15px;
 `;
 
 export const FormLinks = styled.div`
   display: flex;
   justify-content: space-between;
   margin: 10px 0;
-  font-size: 0.75em;
-  color: white;
+  font-size: 0.9em;
   text-decoration: beige;
   cursor: pointer;
   &:hover {
@@ -105,18 +101,17 @@ export const FormLinks = styled.div`
 export const FormButtons = styled.button`
   border: none;
   padding: 10px 30px;
-  background: #45f3ff;
+  background: #341e73;
   cursor: pointer;
   border-radius: 10px;
   font-size: 0.9rem;
   font-weight: 600;
-  width: 100px;
+  width: 100%;
   margin-top: 20px;
-  color: #303ce4;
+  color: white;
   &:hover {
-    color: white !important;
     border: 2px solid #45f3ff !important;
-    background-color: #303ce4 !important;
+    background-color: #341e73 !important;
   }
 `;
 
