@@ -1,0 +1,12 @@
+.footer-style {
+  background-image: linear-gradient(to right, #3d156b, #df3562, #feb97e);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  flex: 1;
+  padding: 1rem 0;
+  border-top: 1px solid #eaeaea;
+  justify-content: center;
+  align-items: center;
+}

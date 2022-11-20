@@ -60,7 +60,7 @@ const LoginComponent = () => {
                   <FormTitle>Login</FormTitle>
                   <Grid item md={12}>
                     <TextField
-                      label="Username"
+                      label="Email"
                       type={"text"}
                       aria-label="username Input"
                       variant="standard"
