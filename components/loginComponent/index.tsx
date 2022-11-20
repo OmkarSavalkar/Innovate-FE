@@ -21,7 +21,7 @@ const LoginComponent = () => {
   const handleForgetPassword = () => {};
 
   const handleLogin = (e: any) => {
-    //e.preventDefault();
+    e.preventDefault();
     const configuration = {
       method: "post",
       url: "https://x-innovate-be.herokuapp.com/login",
@@ -31,8 +31,9 @@ const LoginComponent = () => {
       },
     };
     axios(configuration)
-      .then((result) => {
-        console.log(result.data);
+      .then((result: any) => {
+        sessionStorage.setItem("user", JSON.stringify(result.data.user));
+        sessionStorage.setItem("token", result.data.token);
         router.push("/dashboard");
       })
       .catch((error) => {
@@ -55,12 +56,7 @@ const LoginComponent = () => {
                 <Image src={loginImage} alt="Login Image" />
               </Grid>
               <Grid item md={6}>
-                <Grid
-                  container
-                  component="form"
-                  onSubmit={handleLogin}
-                  ref={formReference}
-                >
+                <Grid container component="form">
                   <FormTitle>Login</FormTitle>
                   <Grid item md={12}>
                     <TextField
@@ -98,9 +94,7 @@ const LoginComponent = () => {
                       </span>
                       <span onClick={handleSignup}>Signup</span>
                     </FormLinks>
-                    <FormButtons onClick={(e) => handleLogin(e)} type="submit">
-                      Login
-                    </FormButtons>
+                    <FormButtons onClick={handleLogin}>Login</FormButtons>
                   </Grid>
                 </Grid>
               </Grid>

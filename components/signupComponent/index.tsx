@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import style from "./index.module.css";
 import {
   TextField,
@@ -23,6 +23,7 @@ import {
 import UserSignUp from "../../public/User.jpg";
 import ExpertSignUp from "../../public/Expert.jpg";
 import Image from "next/image";
+import axios from "axios";
 const SignupComponent = () => {
   const router = useRouter();
   let roleList = [
@@ -35,23 +36,80 @@ const SignupComponent = () => {
     "Software Engineer",
     "Senior Software Engineer",
   ];
+  const [managerNameList, setManagerNameList] = useState<any>([]);
+  const [manager, setManager] = useState<any>();
+  const [techNameList, setTechNameList] = useState<any>([]);
+  const [tech, setTech] = useState<any>();
   const [role, setRole] = useState<string>("");
+  const [signupRole, setSignupRole] = useState<string>("");
+  const [fullname, setFullName] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [confirmPassword, setConfirmPassword] = useState<string>("");
+  const [summary, setSummary] = useState<string>("");
+  useEffect(() => {
+    const configuration = {
+      method: "get",
+      url: "https://x-innovate-be.herokuapp.com/manager",
+    };
+    axios(configuration)
+      .then((response: any) => {
+        setManagerNameList(response.data.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    const techConfiguration = {
+      method: "get",
+      url: "https://x-innovate-be.herokuapp.com/techstack",
+    };
+    axios(techConfiguration)
+      .then((response: any) => {
+        setTechNameList(response.data.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
   const handleSignupExpert = () => {
-    router.push("/dashboard");
+    let tempTechStackId: any = [];
+    tech.map((tech: any) => {
+      tempTechStackId.push(tech.techId);
+    });
+    const signupConfig = {
+      method: "post",
+      url: "https://x-innovate-be.herokuapp.com/register",
+      data: {
+        fullName: fullname,
+        email: email,
+        role: role,
+        signupRole: signupRole,
+        managerEmpId: manager.empId,
+        password: password,
+        techStackId: tempTechStackId,
+        summary: summary,
+      },
+    };
+    axios(signupConfig)
+      .then((response: any) => {
+        sessionStorage.setItem("user", response.result);
+        router.push("/login");
+      })
+      .catch((error) => {});
   };
 
   const handleSignupUser = () => {
     router.push("/dashboard");
   };
   const handleSetRole = (role: string) => {
-    setRole(role);
+    setSignupRole(role);
   };
   return (
     <>
       <LoginSignupContainer>
         <SignupBox>
           <FormBox>
-            {role === "" ? (
+            {signupRole === "" ? (
               <Grid container>
                 <Grid item xs={12} md={6}>
                   <Card
@@ -102,8 +160,8 @@ const SignupComponent = () => {
             ) : (
               <>
                 <FormTitle>Signup</FormTitle>
-                <Grid container spacing={{ md: 4 }}>
-                  <Grid item md={4}>
+                <Grid container spacing={{ md: 4 }} component="form">
+                  <Grid item md={3}>
                     <TextField
                       label="Full Name"
                       type={"text"}
@@ -111,46 +169,40 @@ const SignupComponent = () => {
                       variant="standard"
                       required
                       fullWidth
-                      //   value={username}
-                      //   onChange={(e) => setUsername(e.target.value)}
-
+                      value={fullname}
+                      onChange={(e) => setFullName(e.target.value)}
                       sx={{
                         marginTop: "10px",
                         marginBottom: "5px",
                       }}
                     />
                   </Grid>
-                  <Grid item md={4}>
+                  <Grid item md={3}>
                     <TextField
-                      label="Username or Email"
+                      label="Email"
                       type={"text"}
                       aria-label="email Input"
                       variant="standard"
                       required
                       fullWidth
-                      //   value={username}
-                      //   onChange={(e) => setUsername(e.target.value)}
-
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
                       sx={{
                         marginTop: "10px",
                         marginBottom: "5px",
                       }}
                     />
                   </Grid>
-                  <Grid item md={4}>
+                  <Grid item md={3}>
                     <Autocomplete
                       options={roleList || []}
                       getOptionLabel={(option: any) => option}
                       isOptionEqualToValue={(option: any, value: any) =>
                         option.value === value.value
                       }
-                      value={null}
-                      //   onChange={(event: any, newValue: any | null) => {
-                      //     setOutreachEventValues({
-                      //       ...outreachEventValues,
-                      //       agencyId: newValue,
-                      //     });
-                      //   }}
+                      onChange={(event: any, newValue: any | null) => {
+                        setRole(newValue);
+                      }}
                       sx={{
                         marginTop: "10px",
                         marginBottom: "5px",
@@ -168,24 +220,33 @@ const SignupComponent = () => {
                       )}
                     />
                   </Grid>
-                  <Grid item md={4}>
-                    <TextField //dropdown
-                      label="Manager Name"
-                      type={"text"}
-                      aria-label="manager name Input"
-                      variant="standard"
-                      required
-                      fullWidth
-                      //   value={username}
-                      //   onChange={(e) => setUsername(e.target.value)}
-
+                  <Grid item md={3}>
+                    <Autocomplete
+                      options={managerNameList || []}
+                      getOptionLabel={(option: any) =>
+                        `${option.name} (Emp ID: ${option.empId})`
+                      }
+                      onChange={(event: any, newValue: any | null) => {
+                        setManager(newValue);
+                      }}
                       sx={{
-                        marginTop: "5px",
+                        marginTop: "10px",
                         marginBottom: "5px",
                       }}
+                      renderInput={(params: any) => (
+                        <TextField
+                          autoComplete="off"
+                          {...params}
+                          label="Manager Name"
+                          role="textbox"
+                          aria-label="Manager Name"
+                          variant="standard"
+                          required
+                        />
+                      )}
                     />
                   </Grid>
-                  <Grid item md={4}>
+                  <Grid item md={3}>
                     <TextField
                       label="Set Password"
                       type={"password"}
@@ -193,16 +254,15 @@ const SignupComponent = () => {
                       variant="standard"
                       required
                       fullWidth
-                      //   value={password}
-                      //   onChange={(e) => setPassword(e.target.value)}
-
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
                       sx={{
                         marginTop: "5px",
                         marginBottom: "5px",
                       }}
                     />
                   </Grid>
-                  <Grid item md={4}>
+                  <Grid item md={3}>
                     <TextField
                       label="Confirm Password"
                       type={"password"}
@@ -210,9 +270,8 @@ const SignupComponent = () => {
                       variant="standard"
                       required
                       fullWidth
-                      //   value={password}
-                      //   onChange={(e) => setPassword(e.target.value)}
-
+                      value={confirmPassword}
+                      onChange={(e) => setConfirmPassword(e.target.value)}
                       sx={{
                         marginTop: "5px",
                         marginBottom: "5px",
@@ -220,28 +279,34 @@ const SignupComponent = () => {
                     />
                   </Grid>
                   <Grid item md={6}>
-                    <TextField
-                      label="Summary"
-                      type={"text"}
-                      aria-label="summmary Input"
-                      variant="outlined"
-                      multiline
-                      rows={3}
-                      required
-                      fullWidth
-                      //   value={password}
-                      //   onChange={(e) => setPassword(e.target.value)}
-
+                    <Autocomplete
+                      multiple
+                      options={techNameList || []}
+                      getOptionLabel={(option: any) => option?.techName}
+                      onChange={(event: any, newValue: any | null) => {
+                        setTech(newValue);
+                      }}
                       sx={{
-                        marginTop: "5px",
+                        marginTop: "10px",
                         marginBottom: "5px",
                       }}
+                      renderInput={(params: any) => (
+                        <TextField
+                          autoComplete="off"
+                          {...params}
+                          label="Technology Stack"
+                          role="textbox"
+                          aria-label="Technology Stack"
+                          variant="standard"
+                          required
+                        />
+                      )}
                     />
                   </Grid>
-                  {role === "Expert" && (
-                    <Grid item md={6}>
+                  {signupRole === "Expert" && (
+                    <Grid item md={12}>
                       <TextField
-                        label="Technology Stack"
+                        label="Summary"
                         type={"text"}
                         aria-label="summmary Input"
                         variant="outlined"
@@ -249,9 +314,8 @@ const SignupComponent = () => {
                         rows={3}
                         required
                         fullWidth
-                        //   value={password}
-                        //   onChange={(e) => setPassword(e.target.value)}
-
+                        value={summary}
+                        onChange={(e) => setSummary(e.target.value)}
                         sx={{
                           marginTop: "5px",
                           marginBottom: "5px",
