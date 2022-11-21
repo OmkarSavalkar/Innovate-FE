@@ -13,25 +13,26 @@ import {
 import axios from "axios";
 import loginImage from "../../public/LoginImage.jpg";
 import Image from "next/image";
+import { postLoginData } from "../../apis/loginSignup";
+
 const LoginComponent = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const formReference = useRef<any>(null);
   const router = useRouter();
-  const handleForgetPassword = () => {};
+
+  const handleForgetPassword = () => {
+    router.push("/recoverPassword");
+  };
 
   const handleLogin = (e: any) => {
     e.preventDefault();
-    const configuration = {
-      method: "post",
-      url: "https://x-innovate-be.herokuapp.com/login",
-      data: {
-        email: username,
-        password: password,
-      },
+    let payload = {
+      email: username,
+      password: password,
     };
-    axios(configuration)
-      .then((result: any) => {
+    postLoginData(payload)
+      .then((result) => {
         sessionStorage.setItem("user", JSON.stringify(result.data.user));
         sessionStorage.setItem("token", result.data.token);
         router.push("/dashboard");
