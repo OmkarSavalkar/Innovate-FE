@@ -7,5 +7,12 @@ export const postLoginData = (payload: Object) => {
 
 export const postVerifyEmail = (payload: Object) => {
   return axios.post(`${url}/recoverPassword`, payload);
+};
+
+export const postResetPasswordEmail = (
+  urlResetToken: string,
+  payload: Object
+) => {
+  return axios.post(`${url}/reset-Password/${urlResetToken}`, payload);
   // return axios.post(`http://localhost:3000/recoverPassword`, payload);
 };

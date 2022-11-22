@@ -10,12 +10,34 @@ import {
 } from "../../styledComponents/loginSignupStyled";
 import Image from "next/image";
 import resetImage from "../../public/reset.jpg";
+import { postResetPasswordEmail } from "../../apis/loginSignup";
+import { useRouter } from "next/router";
 
-const ForgetComponent = () => {
-  const [newPass, setNewPass] = useState("");
-  const [confirmPass, setConfirmPass] = useState("");
+const ForgetComponent = (props: any) => {
+  const router = useRouter();
+  const { urlResetToken } = props;
+  const [newPass, setNewPass] = useState<String>("");
+  const [confirmPass, setConfirmPass] = useState<String>("");
+  const [err, seterr] = useState(false);
 
-  const handleReset = (e: any) => {};
+  const handleReset = (e: any) => {
+    if (newPass === confirmPass) {
+      seterr(false);
+      let payload = {
+        password: newPass,
+      };
+      postResetPasswordEmail(String(urlResetToken), payload)
+        .then((result) => {
+          console.log(result.data);
+          router.push("/login");
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    } else {
+      seterr(true);
+    }
+  };
 
   return (
     <>
@@ -25,6 +47,14 @@ const ForgetComponent = () => {
             <Grid container spacing={{ md: 4 }}>
               <Grid item md={6}>
                 <FormTitle>Reset Password</FormTitle>
+                {err ? (
+                  <span>
+                    Please check - Both new password and confirm password should
+                    be exactly same
+                  </span>
+                ) : (
+                  <></>
+                )}
                 <Grid item md={12}>
                   <TextField
                     label="New Password"
