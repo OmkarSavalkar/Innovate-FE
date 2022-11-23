@@ -4,9 +4,9 @@
   align-items: center;
   min-height: 100vh;
   flex-direction: column;
-  background-image: linear-gradient(to right, #3d156b, #df3562, #feb97e)
+  background-image: linear-gradient(to right, #3d156b, #df3562, #feb97e);
 }
-.box {
+.innerBox {
   position: relative;
   width: 80%;
   height: 520px;
@@ -15,7 +15,7 @@
   border-radius: 8px;
   overflow: hidden;
 }
-.box::before {
+.innerBox::before {
   content: "";
   z-index: 1;
   position: absolute;
@@ -27,7 +27,7 @@
   background: linear-gradient(0deg, transparent, #0aa6ee, #0aa6ee);
   animation: animate 6s linear infinite;
 }
-.box::after {
+.innerBox::after {
   content: "";
   z-index: 1;
   position: absolute;
@@ -51,7 +51,7 @@
 .formBox {
   position: absolute;
   inset: 2px;
-  background: #303ce4;
+  background: #ffffff;
   padding: 25px 35px;
   border-radius: 8px;
   z-index: 2;
@@ -65,16 +65,25 @@
   letter-spacing: 0.1em;
 }
 .loginButton {
-  padding: 11px 75px !important;
-  background: #45f3ff !important;
+  background: #341e73 !important;
   cursor: pointer;
-  border-radius: 10px !important;
-  font-weight: 600 !important;
-  color: #303ce4 !important;
-  /* width: 100px; */
-  /* margin: 10px 20px 10px 20px; */
+  color: #ffffff !important;
 }
 .loginButton:hover {
-  border: 3px solid #45f3ff !important;
-  background-color: #303ce4 !important;
+  border: 2px solid #45f3ff !important;
+  background-color: #341e73 !important;
+}
+@media screen and (max-width: 1024px) {
+  .innerBox {
+    overflow-y: scroll;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .formBox {
+    height: 800px;
+  }
+  .user-image {
+    visibility: hidden;
+    display: none;
+  }
 }

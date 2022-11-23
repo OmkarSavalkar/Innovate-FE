@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import style from "./index.module.css";
+import React, { useEffect, useRef, useState } from "react";
+import styles from "./index.module.css";
 import {
   TextField,
   Grid,
@@ -10,25 +10,18 @@ import {
   CardContent,
   Typography,
   CardActions,
+  Box,
 } from "@mui/material";
 import { useRouter } from "next/router";
-import {
-  FormBox,
-  LoginSignupContainer,
-  SignupBox,
-  FormTitle,
-  FormButtons,
-  FormSignupButtons,
-} from "../../styledComponents/loginSignupStyled";
 import UserSignUp from "../../public/User.jpg";
 import ExpertSignUp from "../../public/Expert.jpg";
 import Image from "next/image";
-import axios from "axios";
 import {
   getManagerList,
   getTechStackList,
   postSignUpData,
 } from "../../apis/loginSignup";
+import { StylesProvider } from "@mui/styles";
 const SignupComponent = () => {
   const router = useRouter();
   let roleList = [
@@ -52,6 +45,7 @@ const SignupComponent = () => {
   const [password, setPassword] = useState<string>("");
   const [confirmPassword, setConfirmPassword] = useState<string>("");
   const [summary, setSummary] = useState<string>("");
+  const formReference = useRef<any>(null);
   useEffect(() => {
     getManagerList()
       .then((response: any) => {
@@ -69,46 +63,48 @@ const SignupComponent = () => {
       });
   }, []);
   const handleSignupExpert = () => {
-    let tempTechStackId: any = [];
-    tech.map((tech: any) => {
-      tempTechStackId.push(tech.techId);
-    });
-    let payload = {
-      fullName: fullname,
-      email: email,
-      role: role,
-      signupRole: signupRole,
-      managerEmpId: manager.empId,
-      password: password,
-      techStackId: tempTechStackId,
-      summary: summary,
-    };
-    postSignUpData(payload)
-      .then((response: any) => {
-        sessionStorage.setItem("user", response.result);
-        router.push("/login");
-      })
-      .catch((error: any) => {});
-  };
-
-  const handleSignupUser = () => {
-    router.push("/dashboard");
+    if (!formReference) {
+      let tempTechStackId: any = [];
+      tech.map((tech: any) => {
+        tempTechStackId.push(tech.techId);
+      });
+      let payload = {
+        fullName: fullname,
+        email: email,
+        role: role,
+        signupRole: signupRole,
+        managerEmpId: manager.empId,
+        password: password,
+        techStackId: tempTechStackId,
+        summary: summary,
+      };
+      postSignUpData(payload)
+        .then((response: any) => {
+          sessionStorage.setItem("user", response.result);
+          router.push("/login");
+        })
+        .catch((error: any) => {});
+    }
   };
   const handleSetRole = (role: string) => {
     setSignupRole(role);
   };
   return (
-    <>
-      <LoginSignupContainer>
-        <SignupBox>
-          <FormBox>
+    <StylesProvider injectFirst>
+      <Box className={styles["signupContainer"]}>
+        <Box className={styles["innerBox"]}>
+          <Box className={styles["formBox"]}>
             {signupRole === "" ? (
               <Grid container>
                 <Grid item xs={12} md={6}>
                   <Card
                     sx={{ maxWidth: "100%", elevation: 0, boxShadow: "none" }}
                   >
-                    <Image src={UserSignUp} alt="user signup image" />
+                    <Image
+                      src={UserSignUp}
+                      alt="user signup image"
+                      className={styles["user-image"]}
+                    />
                     <CardContent>
                       <Typography variant="body2" color="text.secondary">
                         Signing up as user you will be able to take help from
@@ -119,9 +115,12 @@ const SignupComponent = () => {
                       </Typography>
                     </CardContent>
                     <CardActions>
-                      <FormSignupButtons onClick={() => handleSetRole("User")}>
+                      <Button
+                        onClick={() => handleSetRole("User")}
+                        className={styles["loginButton"]}
+                      >
                         Sign Up As User
-                      </FormSignupButtons>
+                      </Button>
                     </CardActions>
                   </Card>
                 </Grid>
@@ -140,20 +139,30 @@ const SignupComponent = () => {
                       </Typography>
                     </CardContent>
                     <CardActions>
-                      <FormSignupButtons
+                      <Button
                         onClick={() => handleSetRole("Expert")}
+                        className={styles["loginButton"]}
                       >
                         Sign Up As Expert
-                      </FormSignupButtons>
+                      </Button>
                     </CardActions>
-                    <Image src={ExpertSignUp} alt="user signup image" />
+                    <Image
+                      src={ExpertSignUp}
+                      alt="user signup image"
+                      className={styles["user-image"]}
+                    />
                   </Card>
                 </Grid>
               </Grid>
             ) : (
               <>
-                <FormTitle>Signup</FormTitle>
-                <Grid container spacing={{ md: 4 }} component="form">
+                <Typography>Signup</Typography>
+                <Grid
+                  container
+                  spacing={{ md: 4 }}
+                  component="form"
+                  ref={formReference}
+                >
                   <Grid item md={3}>
                     <TextField
                       label="Full Name"
@@ -291,7 +300,7 @@ const SignupComponent = () => {
                           role="textbox"
                           aria-label="Technology Stack"
                           variant="standard"
-                          required
+                          required={tech ? tech.length == 0 : true}
                         />
                       )}
                     />
@@ -317,17 +326,21 @@ const SignupComponent = () => {
                     </Grid>
                   )}
                   <Grid item md={6}>
-                    <FormSignupButtons onClick={handleSignupExpert}>
+                    <Button
+                      type="submit"
+                      onClick={handleSignupExpert}
+                      className={styles["loginButton"]}
+                    >
                       Signup
-                    </FormSignupButtons>
+                    </Button>
                   </Grid>
                 </Grid>
               </>
             )}
-          </FormBox>
-        </SignupBox>
-      </LoginSignupContainer>
-    </>
+          </Box>
+        </Box>
+      </Box>
+    </StylesProvider>
   );
 };
 export default SignupComponent;
