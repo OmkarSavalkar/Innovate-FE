@@ -102,7 +102,9 @@ const LoginComponent = () => {
                       </Link>
                     </Grid>
                     <Grid item xs={12} md={6}>
-                      <Link onClick={handleSignup}>Don't have an account?</Link>
+                      <Link onClick={handleSignup}>
+                        Don&apos;t have an account?
+                      </Link>
                     </Grid>
                   </Grid>
                 </Grid>
