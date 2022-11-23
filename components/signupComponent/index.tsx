@@ -24,6 +24,11 @@ import UserSignUp from "../../public/User.jpg";
 import ExpertSignUp from "../../public/Expert.jpg";
 import Image from "next/image";
 import axios from "axios";
+import {
+  getManagerList,
+  getTechStackList,
+  postSignUpData,
+} from "../../apis/loginSignup";
 const SignupComponent = () => {
   const router = useRouter();
   let roleList = [
@@ -48,22 +53,14 @@ const SignupComponent = () => {
   const [confirmPassword, setConfirmPassword] = useState<string>("");
   const [summary, setSummary] = useState<string>("");
   useEffect(() => {
-    const configuration = {
-      method: "get",
-      url: "https://x-innovate-be.herokuapp.com/manager",
-    };
-    axios(configuration)
+    getManagerList()
       .then((response: any) => {
         setManagerNameList(response.data.data);
       })
       .catch((error) => {
         console.log(error);
       });
-    const techConfiguration = {
-      method: "get",
-      url: "https://x-innovate-be.herokuapp.com/techstack",
-    };
-    axios(techConfiguration)
+    getTechStackList()
       .then((response: any) => {
         setTechNameList(response.data.data);
       })
@@ -76,26 +73,22 @@ const SignupComponent = () => {
     tech.map((tech: any) => {
       tempTechStackId.push(tech.techId);
     });
-    const signupConfig = {
-      method: "post",
-      url: "https://x-innovate-be.herokuapp.com/register",
-      data: {
-        fullName: fullname,
-        email: email,
-        role: role,
-        signupRole: signupRole,
-        managerEmpId: manager.empId,
-        password: password,
-        techStackId: tempTechStackId,
-        summary: summary,
-      },
+    let payload = {
+      fullName: fullname,
+      email: email,
+      role: role,
+      signupRole: signupRole,
+      managerEmpId: manager.empId,
+      password: password,
+      techStackId: tempTechStackId,
+      summary: summary,
     };
-    axios(signupConfig)
+    postSignUpData(payload)
       .then((response: any) => {
         sessionStorage.setItem("user", response.result);
         router.push("/login");
       })
-      .catch((error) => {});
+      .catch((error: any) => {});
   };
 
   const handleSignupUser = () => {

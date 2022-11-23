@@ -16,3 +16,13 @@ export const postResetPasswordEmail = (
   return axios.post(`${url}/reset-Password/${urlResetToken}`, payload);
   // return axios.post(`http://localhost:3000/recoverPassword`, payload);
 };
+
+export const getManagerList = () => {
+  return axios.get(`${url}/manager`);
+};
+export const getTechStackList = () => {
+  return axios.get(`${url}/techstack`);
+};
+export const postSignUpData = (payload: Object) => {
+  return axios.post(`${url}/register`, payload);
+};
