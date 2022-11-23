@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import AskToLoginMsg from "../../components/askToLoginMsg";
 import FooterComponent from "../../components/layout/footerComponent";
 import HeaderComponent from "../../components/layout/headerComponent";
 import ProfileComponent from "../../components/profileComponent";
