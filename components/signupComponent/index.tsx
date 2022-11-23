@@ -119,7 +119,7 @@ const SignupComponent = () => {
                     <CardContent>
                       <Typography variant="body2" color="text.secondary">
                         Signing up as user you will be able to take help from
-                        organization's experts.
+                        organization&apos;s experts.
                       </Typography>
                       <Typography variant="h6" color="text.secondary">
                         You can do anything but not every thing ...
@@ -139,7 +139,7 @@ const SignupComponent = () => {
                     <CardContent>
                       <Typography variant="body2" color="text.secondary">
                         Signing up as expert you will be able to help
-                        organization's employee to solve their problem. By
+                        organization&apos;s employee to solve their problem. By
                         helping us to be more productive,
                       </Typography>
                       <Typography variant="h6" color="text.secondary">
