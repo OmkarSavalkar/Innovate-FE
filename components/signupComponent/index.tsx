@@ -90,257 +90,255 @@ const SignupComponent = () => {
     setSignupRole(role);
   };
   return (
-    <StylesProvider injectFirst>
-      <Box className={styles["signupContainer"]}>
-        <Box className={styles["innerBox"]}>
-          <Box className={styles["formBox"]}>
-            {signupRole === "" ? (
-              <Grid container>
-                <Grid item xs={12} md={6}>
-                  <Card
-                    sx={{ maxWidth: "100%", elevation: 0, boxShadow: "none" }}
-                  >
-                    <Image
-                      src={UserSignUp}
-                      alt="user signup image"
-                      className={styles["user-image"]}
-                    />
-                    <CardContent>
-                      <Typography variant="body2" color="text.secondary">
-                        Signing up as user you will be able to take help from
-                        organization&apos;s experts.
-                      </Typography>
-                      <Typography variant="h6" color="text.secondary">
-                        You can do anything but not every thing ...
-                      </Typography>
-                    </CardContent>
-                    <CardActions>
-                      <Button
-                        onClick={() => handleSetRole("User")}
-                        className={styles["loginButton"]}
-                      >
-                        Sign Up As User
-                      </Button>
-                    </CardActions>
-                  </Card>
-                </Grid>
-                <Grid item xs={12} md={6}>
-                  <Card
-                    sx={{ maxWidth: "100%", elevation: 0, boxShadow: "none" }}
-                  >
-                    <CardContent>
-                      <Typography variant="body2" color="text.secondary">
-                        Signing up as expert you will be able to help
-                        organization&apos;s employee to solve their problem. By
-                        helping us to be more productive,
-                      </Typography>
-                      <Typography variant="h6" color="text.secondary">
-                        Helping hand can be ray of sunshine in cloudy world...
-                      </Typography>
-                    </CardContent>
-                    <CardActions>
-                      <Button
-                        onClick={() => handleSetRole("Expert")}
-                        className={styles["loginButton"]}
-                      >
-                        Sign Up As Expert
-                      </Button>
-                    </CardActions>
-                    <Image
-                      src={ExpertSignUp}
-                      alt="user signup image"
-                      className={styles["user-image"]}
-                    />
-                  </Card>
-                </Grid>
-              </Grid>
-            ) : (
-              <>
-                <Typography>Signup</Typography>
-                <Grid
-                  container
-                  spacing={{ md: 4 }}
-                  component="form"
-                  ref={formReference}
+    <Box className={styles["signupContainer"]}>
+      <Box className={styles["innerBox"]}>
+        <Box className={styles["formBox"]}>
+          {signupRole === "" ? (
+            <Grid container>
+              <Grid item xs={12} md={6}>
+                <Card
+                  sx={{ maxWidth: "100%", elevation: 0, boxShadow: "none" }}
                 >
-                  <Grid item md={3}>
-                    <TextField
-                      label="Full Name"
-                      type={"text"}
-                      aria-label="fullname Input"
-                      variant="standard"
-                      required
-                      fullWidth
-                      value={fullname}
-                      onChange={(e) => setFullName(e.target.value)}
-                      sx={{
-                        marginTop: "10px",
-                        marginBottom: "5px",
-                      }}
-                    />
-                  </Grid>
-                  <Grid item md={3}>
-                    <TextField
-                      label="Email"
-                      type={"text"}
-                      aria-label="email Input"
-                      variant="standard"
-                      required
-                      fullWidth
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      sx={{
-                        marginTop: "10px",
-                        marginBottom: "5px",
-                      }}
-                    />
-                  </Grid>
-                  <Grid item md={3}>
-                    <Autocomplete
-                      options={roleList || []}
-                      getOptionLabel={(option: any) => option}
-                      isOptionEqualToValue={(option: any, value: any) =>
-                        option.value === value.value
-                      }
-                      onChange={(event: any, newValue: any | null) => {
-                        setRole(newValue);
-                      }}
-                      sx={{
-                        marginTop: "10px",
-                        marginBottom: "5px",
-                      }}
-                      renderInput={(params: any) => (
-                        <TextField
-                          autoComplete="off"
-                          {...params}
-                          label="Designation or Role"
-                          role="textbox"
-                          aria-label="Organizer Input"
-                          variant="standard"
-                          required
-                        />
-                      )}
-                    />
-                  </Grid>
-                  <Grid item md={3}>
-                    <Autocomplete
-                      options={managerNameList || []}
-                      getOptionLabel={(option: any) =>
-                        `${option.name} (Emp ID: ${option.empId})`
-                      }
-                      onChange={(event: any, newValue: any | null) => {
-                        setManager(newValue);
-                      }}
-                      sx={{
-                        marginTop: "10px",
-                        marginBottom: "5px",
-                      }}
-                      renderInput={(params: any) => (
-                        <TextField
-                          autoComplete="off"
-                          {...params}
-                          label="Manager Name"
-                          role="textbox"
-                          aria-label="Manager Name"
-                          variant="standard"
-                          required
-                        />
-                      )}
-                    />
-                  </Grid>
-                  <Grid item md={3}>
-                    <TextField
-                      label="Set Password"
-                      type={"password"}
-                      aria-label="password Input"
-                      variant="standard"
-                      required
-                      fullWidth
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
-                      sx={{
-                        marginTop: "5px",
-                        marginBottom: "5px",
-                      }}
-                    />
-                  </Grid>
-                  <Grid item md={3}>
-                    <TextField
-                      label="Confirm Password"
-                      type={"password"}
-                      aria-label="password Input"
-                      variant="standard"
-                      required
-                      fullWidth
-                      value={confirmPassword}
-                      onChange={(e) => setConfirmPassword(e.target.value)}
-                      sx={{
-                        marginTop: "5px",
-                        marginBottom: "5px",
-                      }}
-                    />
-                  </Grid>
-                  <Grid item md={6}>
-                    <Autocomplete
-                      multiple
-                      options={techNameList || []}
-                      getOptionLabel={(option: any) => option?.techName}
-                      onChange={(event: any, newValue: any | null) => {
-                        setTech(newValue);
-                      }}
-                      sx={{
-                        marginTop: "10px",
-                        marginBottom: "5px",
-                      }}
-                      renderInput={(params: any) => (
-                        <TextField
-                          autoComplete="off"
-                          {...params}
-                          label="Technology Stack"
-                          role="textbox"
-                          aria-label="Technology Stack"
-                          variant="standard"
-                          required={tech ? tech.length == 0 : true}
-                        />
-                      )}
-                    />
-                  </Grid>
-                  {signupRole === "Expert" && (
-                    <Grid item md={12}>
-                      <TextField
-                        label="Summary"
-                        type={"text"}
-                        aria-label="summmary Input"
-                        variant="outlined"
-                        multiline
-                        rows={3}
-                        required
-                        fullWidth
-                        value={summary}
-                        onChange={(e) => setSummary(e.target.value)}
-                        sx={{
-                          marginTop: "5px",
-                          marginBottom: "5px",
-                        }}
-                      />
-                    </Grid>
-                  )}
-                  <Grid item md={6}>
+                  <Image
+                    src={UserSignUp}
+                    alt="user signup image"
+                    className={styles["user-image"]}
+                  />
+                  <CardContent>
+                    <Typography variant="body2" color="text.secondary">
+                      Signing up as user you will be able to take help from
+                      organization&apos;s experts.
+                    </Typography>
+                    <Typography variant="h6" color="text.secondary">
+                      You can do anything but not every thing ...
+                    </Typography>
+                  </CardContent>
+                  <CardActions>
                     <Button
-                      type="submit"
-                      onClick={handleSignupExpert}
+                      onClick={() => handleSetRole("User")}
                       className={styles["loginButton"]}
                     >
-                      Signup
+                      Sign Up As User
                     </Button>
-                  </Grid>
+                  </CardActions>
+                </Card>
+              </Grid>
+              <Grid item xs={12} md={6}>
+                <Card
+                  sx={{ maxWidth: "100%", elevation: 0, boxShadow: "none" }}
+                >
+                  <CardContent>
+                    <Typography variant="body2" color="text.secondary">
+                      Signing up as expert you will be able to help
+                      organization&apos;s employee to solve their problem. By
+                      helping us to be more productive,
+                    </Typography>
+                    <Typography variant="h6" color="text.secondary">
+                      Helping hand can be ray of sunshine in cloudy world...
+                    </Typography>
+                  </CardContent>
+                  <CardActions>
+                    <Button
+                      onClick={() => handleSetRole("Expert")}
+                      className={styles["loginButton"]}
+                    >
+                      Sign Up As Expert
+                    </Button>
+                  </CardActions>
+                  <Image
+                    src={ExpertSignUp}
+                    alt="user signup image"
+                    className={styles["user-image"]}
+                  />
+                </Card>
+              </Grid>
+            </Grid>
+          ) : (
+            <>
+              <Typography>Signup</Typography>
+              <Grid
+                container
+                spacing={{ md: 4 }}
+                component="form"
+                ref={formReference}
+              >
+                <Grid item md={3}>
+                  <TextField
+                    label="Full Name"
+                    type={"text"}
+                    aria-label="fullname Input"
+                    variant="standard"
+                    required
+                    fullWidth
+                    value={fullname}
+                    onChange={(e) => setFullName(e.target.value)}
+                    sx={{
+                      marginTop: "10px",
+                      marginBottom: "5px",
+                    }}
+                  />
                 </Grid>
-              </>
-            )}
-          </Box>
+                <Grid item md={3}>
+                  <TextField
+                    label="Email"
+                    type={"text"}
+                    aria-label="email Input"
+                    variant="standard"
+                    required
+                    fullWidth
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    sx={{
+                      marginTop: "10px",
+                      marginBottom: "5px",
+                    }}
+                  />
+                </Grid>
+                <Grid item md={3}>
+                  <Autocomplete
+                    options={roleList || []}
+                    getOptionLabel={(option: any) => option}
+                    isOptionEqualToValue={(option: any, value: any) =>
+                      option.value === value.value
+                    }
+                    onChange={(event: any, newValue: any | null) => {
+                      setRole(newValue);
+                    }}
+                    sx={{
+                      marginTop: "10px",
+                      marginBottom: "5px",
+                    }}
+                    renderInput={(params: any) => (
+                      <TextField
+                        autoComplete="off"
+                        {...params}
+                        label="Designation or Role"
+                        role="textbox"
+                        aria-label="Organizer Input"
+                        variant="standard"
+                        required
+                      />
+                    )}
+                  />
+                </Grid>
+                <Grid item md={3}>
+                  <Autocomplete
+                    options={managerNameList || []}
+                    getOptionLabel={(option: any) =>
+                      `${option.name} (Emp ID: ${option.empId})`
+                    }
+                    onChange={(event: any, newValue: any | null) => {
+                      setManager(newValue);
+                    }}
+                    sx={{
+                      marginTop: "10px",
+                      marginBottom: "5px",
+                    }}
+                    renderInput={(params: any) => (
+                      <TextField
+                        autoComplete="off"
+                        {...params}
+                        label="Manager Name"
+                        role="textbox"
+                        aria-label="Manager Name"
+                        variant="standard"
+                        required
+                      />
+                    )}
+                  />
+                </Grid>
+                <Grid item md={3}>
+                  <TextField
+                    label="Set Password"
+                    type={"password"}
+                    aria-label="password Input"
+                    variant="standard"
+                    required
+                    fullWidth
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    sx={{
+                      marginTop: "5px",
+                      marginBottom: "5px",
+                    }}
+                  />
+                </Grid>
+                <Grid item md={3}>
+                  <TextField
+                    label="Confirm Password"
+                    type={"password"}
+                    aria-label="password Input"
+                    variant="standard"
+                    required
+                    fullWidth
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
+                    sx={{
+                      marginTop: "5px",
+                      marginBottom: "5px",
+                    }}
+                  />
+                </Grid>
+                <Grid item md={6}>
+                  <Autocomplete
+                    multiple
+                    options={techNameList || []}
+                    getOptionLabel={(option: any) => option?.techName}
+                    onChange={(event: any, newValue: any | null) => {
+                      setTech(newValue);
+                    }}
+                    sx={{
+                      marginTop: "10px",
+                      marginBottom: "5px",
+                    }}
+                    renderInput={(params: any) => (
+                      <TextField
+                        autoComplete="off"
+                        {...params}
+                        label="Technology Stack"
+                        role="textbox"
+                        aria-label="Technology Stack"
+                        variant="standard"
+                        required={tech ? tech.length == 0 : true}
+                      />
+                    )}
+                  />
+                </Grid>
+                {signupRole === "Expert" && (
+                  <Grid item md={12}>
+                    <TextField
+                      label="Summary"
+                      type={"text"}
+                      aria-label="summmary Input"
+                      variant="outlined"
+                      multiline
+                      rows={3}
+                      required
+                      fullWidth
+                      value={summary}
+                      onChange={(e) => setSummary(e.target.value)}
+                      sx={{
+                        marginTop: "5px",
+                        marginBottom: "5px",
+                      }}
+                    />
+                  </Grid>
+                )}
+                <Grid item md={6}>
+                  <Button
+                    type="submit"
+                    onClick={handleSignupExpert}
+                    className={styles["loginButton"]}
+                  >
+                    Signup
+                  </Button>
+                </Grid>
+              </Grid>
+            </>
+          )}
         </Box>
       </Box>
-    </StylesProvider>
+    </Box>
   );
 };
 export default SignupComponent;
