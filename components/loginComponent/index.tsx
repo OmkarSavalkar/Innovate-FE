@@ -26,22 +26,23 @@ const LoginComponent = () => {
   };
 
   const handleLogin = (e: any) => {
-    e.preventDefault();
-    let payload = {
-      email: username,
-      password: password,
-    };
-    username &&
-      password &&
-      postLoginData(payload)
-        .then((result) => {
-          sessionStorage.setItem("user", JSON.stringify(result.data.user));
-          sessionStorage.setItem("token", result.data.token);
-          router.push("/dashboard");
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+    if (formReference.current.reportValidity()) {
+      let payload = {
+        email: username,
+        password: password,
+      };
+      username &&
+        password &&
+        postLoginData(payload)
+          .then((result) => {
+            sessionStorage.setItem("user", JSON.stringify(result.data.user));
+            sessionStorage.setItem("token", result.data.token);
+            router.push("/dashboard");
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+    }
   };
 
   const handleSignup = () => {
@@ -61,7 +62,7 @@ const LoginComponent = () => {
               />
             </Grid>
             <Grid item md={6}>
-              <Grid container component="form" rowGap={2}>
+              <Grid container component="form" rowGap={2} ref={formReference}>
                 <Grid item xs={12}>
                   <h1 className={style["loginTitle"]}>Login</h1>
                 </Grid>

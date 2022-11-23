@@ -63,7 +63,7 @@ const SignupComponent = () => {
       });
   }, []);
   const handleSignupExpert = () => {
-    if (!formReference) {
+    if (formReference.current.reportValidity()) {
       let tempTechStackId: any = [];
       tech.map((tech: any) => {
         tempTechStackId.push(tech.techId);
@@ -327,9 +327,8 @@ const SignupComponent = () => {
                 )}
                 <Grid item xs={12}>
                   <Button
-                    type="submit"
-                    onClick={handleSignupExpert}
                     className={styles["loginButton"]}
+                    onClick={() => handleSignupExpert()}
                   >
                     Signup
                   </Button>
