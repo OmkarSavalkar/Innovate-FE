@@ -280,31 +280,33 @@ const SignupComponent = () => {
                     }}
                   />
                 </Grid>
-                <Grid item xs={12} lg={6}>
-                  <Autocomplete
-                    multiple
-                    options={techNameList || []}
-                    getOptionLabel={(option: any) => option?.techName}
-                    onChange={(event: any, newValue: any | null) => {
-                      setTech(newValue);
-                    }}
-                    sx={{
-                      marginTop: "10px",
-                      marginBottom: "5px",
-                    }}
-                    renderInput={(params: any) => (
-                      <TextField
-                        autoComplete="off"
-                        {...params}
-                        label="Technology Stack"
-                        role="textbox"
-                        aria-label="Technology Stack"
-                        variant="standard"
-                        required={tech ? tech.length == 0 : true}
-                      />
-                    )}
-                  />
-                </Grid>
+                {signupRole === "Expert" && (
+                  <Grid item xs={12} lg={6}>
+                    <Autocomplete
+                      multiple
+                      options={techNameList || []}
+                      getOptionLabel={(option: any) => option?.techName}
+                      onChange={(event: any, newValue: any | null) => {
+                        setTech(newValue);
+                      }}
+                      sx={{
+                        marginTop: "10px",
+                        marginBottom: "5px",
+                      }}
+                      renderInput={(params: any) => (
+                        <TextField
+                          autoComplete="off"
+                          {...params}
+                          label="Technology Stack"
+                          role="textbox"
+                          aria-label="Technology Stack"
+                          variant="standard"
+                          required={tech ? tech.length == 0 : true}
+                        />
+                      )}
+                    />
+                  </Grid>
+                )}
                 {signupRole === "Expert" && (
                   <Grid item xs={12}>
                     <TextField
