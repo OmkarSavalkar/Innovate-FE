@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
+import AskToLoginMsg from "../../components/askToLoginMsg";
 import FooterComponent from "../../components/layout/footerComponent";
 import HeaderComponent from "../../components/layout/headerComponent";
+import ProfileComponent from "../../components/profileComponent";
 
-const Dashboard = () => {
+const Profile = () => {
   const [userData, setUserData] = useState<any>();
 
   useEffect(() => {
@@ -11,13 +13,17 @@ const Dashboard = () => {
     setUserData(userdata);
   }, []);
 
-  return (
-    <>
+  return !!userData ? (
+    <div style={{ backgroundColor: "#F6F3EE", height: "100vh" }}>
       <HeaderComponent userData={userData} />
-      <h1>This is our dashboard</h1>
-      <h3>Little complex</h3>
+      <ProfileComponent userData={userData} />
+      <FooterComponent />
+    </div>
+  ) : (
+    <>
+      <HeaderComponent />
       <FooterComponent />
     </>
   );
 };
-export default Dashboard;
+export default Profile;

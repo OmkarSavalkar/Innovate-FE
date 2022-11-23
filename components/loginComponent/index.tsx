@@ -31,15 +31,17 @@ const LoginComponent = () => {
       email: username,
       password: password,
     };
-    postLoginData(payload)
-      .then((result) => {
-        sessionStorage.setItem("user", JSON.stringify(result.data.user));
-        sessionStorage.setItem("token", result.data.token);
-        router.push("/dashboard");
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    username &&
+      password &&
+      postLoginData(payload)
+        .then((result) => {
+          sessionStorage.setItem("user", JSON.stringify(result.data.user));
+          sessionStorage.setItem("token", result.data.token);
+          router.push("/dashboard");
+        })
+        .catch((error) => {
+          console.log(error);
+        });
   };
 
   const handleSignup = () => {

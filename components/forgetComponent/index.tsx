@@ -26,14 +26,15 @@ const ForgetComponent = (props: any) => {
       let payload = {
         password: newPass,
       };
-      postResetPasswordEmail(String(urlResetToken), payload)
-        .then((result) => {
-          console.log(result.data);
-          router.push("/login");
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+      newPass &&
+        postResetPasswordEmail(String(urlResetToken), payload)
+          .then((result) => {
+            console.log(result.data);
+            router.push("/login");
+          })
+          .catch((error) => {
+            console.log(error);
+          });
     } else {
       seterr(true);
     }

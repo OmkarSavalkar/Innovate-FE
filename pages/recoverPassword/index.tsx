@@ -14,9 +14,9 @@ import { postVerifyEmail } from "../../apis/loginSignup";
 const RecoverPassword = () => {
   const [verifyEmail, setVerifyEmail] = useState<String>("");
 
-  const handleVerifyEmail = (e: any) => {
+  const handleVerifyEmail = () => {
     let payload = { email: verifyEmail };
-    postVerifyEmail(payload);
+    verifyEmail && postVerifyEmail(payload);
   };
 
   return (
@@ -50,7 +50,7 @@ const RecoverPassword = () => {
                   }}
                 />
               </Grid>
-              <FormButtons onClick={(e) => handleVerifyEmail(e)}>
+              <FormButtons onClick={handleVerifyEmail}>
                 Verify Email
               </FormButtons>
             </Grid>
