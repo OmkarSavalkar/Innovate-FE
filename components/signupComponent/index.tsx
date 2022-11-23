@@ -21,7 +21,7 @@ import {
   getTechStackList,
   postSignUpData,
 } from "../../apis/loginSignup";
-import { StylesProvider } from "@mui/styles";
+
 const SignupComponent = () => {
   const router = useRouter();
   let roleList = [
