@@ -65,9 +65,10 @@ const SignupComponent = () => {
   const handleSignupExpert = () => {
     if (formReference.current.reportValidity()) {
       let tempTechStackId: any = [];
-      tech.map((tech: any) => {
-        tempTechStackId.push(tech.techId);
-      });
+      tech &&
+        tech.map((tech: any) => {
+          tempTechStackId.push(tech.techId);
+        });
       let payload = {
         fullName: fullname,
         email: email,
