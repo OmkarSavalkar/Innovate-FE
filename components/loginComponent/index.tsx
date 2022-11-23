@@ -1,15 +1,15 @@
 import { useRouter } from "next/router";
 import React, { useRef, useState } from "react";
 import style from "./index.module.css";
-import { TextField, Grid, Button } from "@mui/material";
-import {
-  FormBox,
-  FormButtons,
-  FormLinks,
-  FormTitle,
-  LoginBox,
-  LoginSignupContainer,
-} from "../../styledComponents/loginSignupStyled";
+import { TextField, Grid, Button, Box, Typography, Link } from "@mui/material";
+// import {
+//   FormBox,
+//   FormButtons,
+//   FormLinks,
+//   FormTitle,
+//   LoginBox,
+//   LoginSignupContainer,
+// } from "../../styledComponents/loginSignupStyled";
 import axios from "axios";
 import loginImage from "../../public/LoginImage.jpg";
 import Image from "next/image";
@@ -49,63 +49,77 @@ const LoginComponent = () => {
   };
 
   return (
-    <>
-      {/* require to refactor using mui */}
-      <LoginSignupContainer>
-        <LoginBox>
-          <FormBox>
-            <Grid container spacing={{ md: 4 }}>
-              <Grid item md={6} className={style["image-grid"]}>
-                <Image src={loginImage} alt="Login Image" />
-              </Grid>
-              <Grid item md={6}>
-                <Grid container component="form">
-                  <FormTitle>Login</FormTitle>
-                  <Grid item md={12}>
-                    <TextField
-                      label="Email"
-                      type={"text"}
-                      aria-label="username Input"
-                      variant="standard"
-                      required
-                      fullWidth
-                      value={username}
-                      onChange={(e) => setUsername(e.target.value)}
-                      sx={{
-                        marginTop: "20px",
-                        marginBottom: "10px",
-                      }}
-                    />
-                  </Grid>
-                  <Grid item md={12}>
-                    <TextField
-                      label="Password"
-                      type={"password"}
-                      aria-label="password Input"
-                      variant="standard"
-                      required
-                      fullWidth
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
-                      sx={{ marginBottom: "15px" }}
-                    />
-                  </Grid>
-                  <Grid item md={12}>
-                    <FormLinks>
-                      <span onClick={handleForgetPassword}>
+    <Box className={style["loginContainer"]}>
+      <Box className={style["innerBox"]}>
+        <Box className={style["formBox"]}>
+          <Grid container spacing={{ md: 4 }}>
+            <Grid item md={6} className={style["image-grid"]}>
+              <Image
+                src={loginImage}
+                alt="Login Image"
+                className={style["user-image"]}
+              />
+            </Grid>
+            <Grid item md={6}>
+              <Grid container component="form" rowGap={2}>
+                <Grid item xs={12}>
+                  <h1 className={style["loginTitle"]}>Login</h1>
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField
+                    label="Email"
+                    type={"text"}
+                    aria-label="username Input"
+                    variant="standard"
+                    required
+                    fullWidth
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                    sx={{
+                      marginTop: "20px",
+                      marginBottom: "10px",
+                    }}
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField
+                    label="Password"
+                    type={"password"}
+                    aria-label="password Input"
+                    variant="standard"
+                    required
+                    fullWidth
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    sx={{ marginBottom: "15px" }}
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <Grid container>
+                    <Grid item xs={12} md={6}>
+                      <Link onClick={handleForgetPassword}>
                         Forgot Password ?
-                      </span>
-                      <span onClick={handleSignup}>Signup</span>
-                    </FormLinks>
-                    <FormButtons onClick={handleLogin}>Login</FormButtons>
+                      </Link>
+                    </Grid>
+                    <Grid item xs={12} md={6}>
+                      <Link onClick={handleSignup}>Don't have an account?</Link>
+                    </Grid>
                   </Grid>
+                </Grid>
+                <Grid item xs={12}>
+                  <Button
+                    onClick={handleLogin}
+                    className={style["loginButton"]}
+                  >
+                    Login
+                  </Button>
                 </Grid>
               </Grid>
             </Grid>
-          </FormBox>
-        </LoginBox>
-      </LoginSignupContainer>
-    </>
+          </Grid>
+        </Box>
+      </Box>
+    </Box>
   );
 };
 export default LoginComponent;

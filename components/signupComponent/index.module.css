@@ -52,15 +52,16 @@
   position: absolute;
   inset: 2px;
   background: #ffffff;
-  padding: 25px 35px;
+  padding: 5px 35px;
   border-radius: 8px;
   z-index: 2;
   display: flex;
   flex-direction: column;
 }
 .signupTitle {
-  color: white;
-  font-weight: 500;
+  color: #341e73;
+  font-weight: 50px;
+  font-size: 50px;
   text-align: center;
   letter-spacing: 0.1em;
 }
@@ -68,6 +69,7 @@
   background: #341e73 !important;
   cursor: pointer;
   color: #ffffff !important;
+  width: 30%;
 }
 .loginButton:hover {
   border: 2px solid #45f3ff !important;
@@ -80,7 +82,7 @@
     margin-bottom: 10px;
   }
   .formBox {
-    height: 800px;
+    height: 850px;
   }
   .user-image {
     visibility: hidden;

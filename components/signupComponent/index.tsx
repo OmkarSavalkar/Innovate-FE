@@ -95,7 +95,7 @@ const SignupComponent = () => {
         <Box className={styles["formBox"]}>
           {signupRole === "" ? (
             <Grid container>
-              <Grid item xs={12} md={6}>
+              <Grid item xs={12} lg={6}>
                 <Card
                   sx={{ maxWidth: "100%", elevation: 0, boxShadow: "none" }}
                 >
@@ -123,7 +123,7 @@ const SignupComponent = () => {
                   </CardActions>
                 </Card>
               </Grid>
-              <Grid item xs={12} md={6}>
+              <Grid item xs={12} lg={6}>
                 <Card
                   sx={{ maxWidth: "100%", elevation: 0, boxShadow: "none" }}
                 >
@@ -155,14 +155,15 @@ const SignupComponent = () => {
             </Grid>
           ) : (
             <>
-              <Typography>Signup</Typography>
+              <h1 className={styles["signupTitle"]}>Signup</h1>
               <Grid
                 container
-                spacing={{ md: 4 }}
+                rowSpacing={2}
+                columnSpacing={2}
                 component="form"
                 ref={formReference}
               >
-                <Grid item md={3}>
+                <Grid item xs={12} lg={3}>
                   <TextField
                     label="Full Name"
                     type={"text"}
@@ -178,7 +179,7 @@ const SignupComponent = () => {
                     }}
                   />
                 </Grid>
-                <Grid item md={3}>
+                <Grid item xs={12} lg={3}>
                   <TextField
                     label="Email"
                     type={"text"}
@@ -194,7 +195,7 @@ const SignupComponent = () => {
                     }}
                   />
                 </Grid>
-                <Grid item md={3}>
+                <Grid item xs={12} lg={3}>
                   <Autocomplete
                     options={roleList || []}
                     getOptionLabel={(option: any) => option}
@@ -221,7 +222,7 @@ const SignupComponent = () => {
                     )}
                   />
                 </Grid>
-                <Grid item md={3}>
+                <Grid item xs={12} lg={3}>
                   <Autocomplete
                     options={managerNameList || []}
                     getOptionLabel={(option: any) =>
@@ -247,7 +248,7 @@ const SignupComponent = () => {
                     )}
                   />
                 </Grid>
-                <Grid item md={3}>
+                <Grid item xs={12} lg={3}>
                   <TextField
                     label="Set Password"
                     type={"password"}
@@ -263,7 +264,7 @@ const SignupComponent = () => {
                     }}
                   />
                 </Grid>
-                <Grid item md={3}>
+                <Grid item xs={12} lg={3}>
                   <TextField
                     label="Confirm Password"
                     type={"password"}
@@ -279,7 +280,7 @@ const SignupComponent = () => {
                     }}
                   />
                 </Grid>
-                <Grid item md={6}>
+                <Grid item xs={12} lg={6}>
                   <Autocomplete
                     multiple
                     options={techNameList || []}
@@ -305,7 +306,7 @@ const SignupComponent = () => {
                   />
                 </Grid>
                 {signupRole === "Expert" && (
-                  <Grid item md={12}>
+                  <Grid item xs={12}>
                     <TextField
                       label="Summary"
                       type={"text"}
@@ -324,7 +325,7 @@ const SignupComponent = () => {
                     />
                   </Grid>
                 )}
-                <Grid item md={6}>
+                <Grid item xs={12}>
                   <Button
                     type="submit"
                     onClick={handleSignupExpert}
