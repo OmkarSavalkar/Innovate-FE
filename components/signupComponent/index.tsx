@@ -227,7 +227,7 @@ const SignupComponent = () => {
                   <Autocomplete
                     options={managerNameList || []}
                     getOptionLabel={(option: any) =>
-                      `${option.name} (Emp ID: ${option.empId})`
+                      `${option.fullName} (${option.email})`
                     }
                     onChange={(event: any, newValue: any | null) => {
                       setManager(newValue);
