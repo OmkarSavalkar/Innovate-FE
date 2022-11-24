@@ -74,7 +74,7 @@ const SignupComponent = () => {
         email: email,
         role: role,
         signupRole: signupRole,
-        managerEmpId: manager.empId,
+        managerEmpId: manager._id,
         password: password,
         techStackId: tempTechStackId,
         summary: summary,
