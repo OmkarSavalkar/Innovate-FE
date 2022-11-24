@@ -37,7 +37,11 @@ const LoginComponent = () => {
           .then((result) => {
             sessionStorage.setItem("user", JSON.stringify(result.data.user));
             sessionStorage.setItem("token", result.data.token);
-            router.push("/dashboard");
+            if (result.data.user.isApproved) {
+              router.push("/dashboard");
+            } else {
+              //snackbar
+            }
           })
           .catch((error) => {
             console.log(error);
