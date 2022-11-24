@@ -18,12 +18,17 @@ export const RouteGuard = ({ children }: any) => {
       setPathAllowed(true);
     } else {
       let url = router.asPath;
-      let path = url.split("?")[0];
-      if (isPublicPath(path)) {
+      let checkResetUrl = url.split("/")[1];
+      if (checkResetUrl == "reset-password") {
         setPathAllowed(true);
       } else {
-        setPathAllowed(false);
-        router.replace("/login");
+        let path = url.split("?")[0];
+        if (isPublicPath(path)) {
+          setPathAllowed(true);
+        } else {
+          setPathAllowed(false);
+          router.replace("/login");
+        }
       }
     }
 
