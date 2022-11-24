@@ -69,6 +69,7 @@ const SignupComponent = () => {
         tech.map((tech: any) => {
           tempTechStackId.push(tech.techId);
         });
+      console.log("^^", manager._id);
       let payload = {
         fullName: fullname,
         email: email,
