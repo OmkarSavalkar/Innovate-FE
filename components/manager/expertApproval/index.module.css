@@ -1,0 +1,9 @@
+.main-card {
+  background-color: #d3d3d386 !important;
+  border-radius: 10px;
+  box-shadow: 2px;
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  color: #ffffff !important;
+}

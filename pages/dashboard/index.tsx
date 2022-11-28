@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import FooterComponent from "../../components/layout/footerComponent";
-import HeaderComponent from "../../components/layout/headerComponent";
+import UserCard from "../../components/common/userCard";
+import LayoutComponent from "../../components/layout";
+import ExpertApprovalComponent from "../../components/manager/expertApproval";
 
 const Dashboard = () => {
   const [userData, setUserData] = useState<any>();
@@ -13,10 +14,15 @@ const Dashboard = () => {
 
   return (
     <>
-      <HeaderComponent userData={userData} />
-      <h1>This is our dashboard</h1>
-      <h3>Little complex</h3>
-      <FooterComponent />
+      {userData?.role === "Manager" && (
+        <LayoutComponent
+          sideBarList={["Techstacks", "Manage Experts"]}
+          topCard={<UserCard />}
+          main={[<>Main Tech Stack</>, <ExpertApprovalComponent />]}
+          rightTop={[<>Top Tech Stack</>, <>Top Manage Expert</>]}
+          rightBottom={[<>Bottom Tech Stack</>, <>Bottom Manage Expert</>]}
+        />
+      )}
     </>
   );
 };
