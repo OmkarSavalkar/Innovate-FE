@@ -18,7 +18,7 @@ const Dashboard = () => {
         <LayoutComponent
           sideBarList={["Techstacks", "Manage Experts"]}
           topCard={<UserCard />}
-          main={[<>Main Tech Stack</>, <ExpertApprovalComponent />]}
+          main={[<>Main Tech Stack</>, <ExpertApprovalComponent key={1} />]}
           rightTop={[<>Top Tech Stack</>, <>Top Manage Expert</>]}
           rightBottom={[<>Bottom Tech Stack</>, <>Bottom Manage Expert</>]}
         />
