@@ -18,6 +18,8 @@ import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import CancelIcon from "@mui/icons-material/Cancel";
 import { useAppDispatch, useAppSelector } from "../../../side-effects/hooks";
 import { getManager } from "../../../side-effects/manager";
+import approvedExperts from "../../../public/Approved.png";
+import Image from "next/image";
 const ExpertApprovalComponent = () => {
   const [toggleExpert, setToggleExpert] = React.useState<string | null>(
     "pending"
@@ -55,49 +57,84 @@ const ExpertApprovalComponent = () => {
       </ToggleButtonGroup>
 
       {toggleExpert === "pending" ? (
-        <Card sx={{ marginTop: "15px" }}>
+        data?.data?.pendingApproval &&
+        data?.data?.pendingApproval.length > 0 ? (
+          <Card sx={{ marginTop: "15px", height: "300px" }}>
+            <CardHeader
+              avatar={
+                <Avatar aria-label="recipe">
+                  {data?.data?.pendingApproval[nextIndex].fullName[0]}
+                </Avatar>
+              }
+              title={<h1>{data?.data?.pendingApproval[nextIndex].fullName}</h1>}
+            />
+            <CardContent>
+              <Typography variant="body2" color="text.secondary">
+                {data?.data?.pendingApproval[nextIndex].summary}
+              </Typography>
+            </CardContent>
+            <Grid container sx={{ marginTop: "20px" }}>
+              <Grid item xs={12} md={4} sx={{ backgroundColor: "#d8f0e3" }}>
+                <Button
+                  aria-label="add to favorites"
+                  startIcon={<HowToRegIcon />}
+                  color="success"
+                >
+                  Approve
+                </Button>
+              </Grid>
+              <Grid item xs={12} md={4} sx={{ backgroundColor: "#ffeaee" }}>
+                <Button
+                  aria-label="add to favorites"
+                  startIcon={<CancelIcon />}
+                  color="error"
+                >
+                  Rejct
+                </Button>
+              </Grid>
+              <Grid item xs={12} md={4} sx={{ backgroundColor: "#eee6ff" }}>
+                <Button
+                  aria-label="add to favorites"
+                  endIcon={<NavigateNextIcon />}
+                >
+                  Next
+                </Button>
+              </Grid>
+            </Grid>
+          </Card>
+        ) : (
+          <Card sx={{ marginTop: "15px", overflow: "auto", height: "300px" }}>
+            <Image src={approvedExperts} alt="" width={350} height={200} />
+            <Typography variant="h6" color="text.secondary">
+              Nothing here for now, comeback later!!
+            </Typography>
+          </Card>
+        )
+      ) : data?.data?.approvedExperts &&
+        data?.data?.approvedExperts.length > 0 ? (
+        <Card sx={{ marginTop: "15px", height: "300px" }}>
           <CardHeader
             avatar={
               <Avatar aria-label="recipe">
-                {data?.data?.pendingApproval[nextIndex].fullName[0]}
+                {data?.data?.approvedExperts[nextIndex].fullName[0]}
               </Avatar>
             }
-            title={<h1>{data?.data?.pendingApproval[nextIndex].fullName}</h1>}
+            title={<h1>{data?.data?.approvedExperts[nextIndex].fullName}</h1>}
           />
           <CardContent>
             <Typography variant="body2" color="text.secondary">
-              {data?.data?.pendingApproval[nextIndex].summary}
+              {data?.data?.approvedExperts[nextIndex].summary}
             </Typography>
           </CardContent>
         </Card>
       ) : (
-        <Card>approved</Card>
+        <Card sx={{ marginTop: "15px", overflow: "auto", height: "300px" }}>
+          <Image src={approvedExperts} alt="" width={350} height={200} />
+          <Typography variant="h6" color="text.secondary">
+            Nothing here for now, comeback later!!
+          </Typography>
+        </Card>
       )}
-      <Grid container>
-        <Grid item xs={12} md={4}>
-          <Button
-            aria-label="add to favorites"
-            startIcon={<HowToRegIcon />}
-            color="success"
-          >
-            Approve
-          </Button>
-        </Grid>
-        <Grid item xs={12} md={4}>
-          <Button
-            aria-label="add to favorites"
-            startIcon={<CancelIcon />}
-            color="error"
-          >
-            Rejct
-          </Button>
-        </Grid>
-        <Grid item xs={12} md={4}>
-          <Button aria-label="add to favorites" endIcon={<NavigateNextIcon />}>
-            Next
-          </Button>
-        </Grid>
-      </Grid>
     </Paper>
   );
 };

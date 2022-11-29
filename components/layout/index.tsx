@@ -266,8 +266,9 @@ export default function LayoutComponent(props: Props) {
             <Paper
               sx={{
                 backgroundColor: "#e4dbff",
-                height: "150px",
+                height: "160px",
                 marginLeft: "30px",
+                overflow: "auto",
               }}
               elevation={10}
             >
@@ -275,7 +276,13 @@ export default function LayoutComponent(props: Props) {
                 <Grid item xs={12} md={9}>
                   {topCard}
                 </Grid>
-                <Grid item xs={12} md={3} sx={{ textAlign: "end" }}>
+                <Grid
+                  item
+                  xs={12}
+                  md={3}
+                  sx={{ textAlign: "end" }}
+                  className={styles["user-image"]}
+                >
                   <Image
                     src={DashboardImage}
                     alt="dashboard image"

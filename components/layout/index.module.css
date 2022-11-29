@@ -2,3 +2,9 @@
   color: white;
   font-weight: bold;
 }
+@media screen and (max-width: 786px) {
+  .user-image {
+    visibility: hidden;
+    display: none;
+  }
+}
