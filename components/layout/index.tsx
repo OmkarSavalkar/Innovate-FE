@@ -174,7 +174,7 @@ export default function LayoutComponent(props: Props) {
         sx={{
           flexGrow: 1,
           p: 2,
-          width: { sm: `calc(100% - ${drawerWidth + 60}px)` },
+          width: { sm: `calc(100% - ${drawerWidth}px)` },
           backgroundColor: "white",
           margin: "20px 20px 20px 20px",
           borderRadius: "20px",
@@ -292,7 +292,7 @@ export default function LayoutComponent(props: Props) {
               </Grid>
             </Paper>
           </Grid>
-          <Grid item xs={8}>
+          <Grid item md={8}>
             <Paper
               sx={{
                 backgroundImage: "linear-gradient(to bottom, #3d156b, #772168)",
@@ -305,7 +305,7 @@ export default function LayoutComponent(props: Props) {
               {main[drawerValue]}
             </Paper>
           </Grid>
-          <Grid item xs={4}>
+          <Grid item md={4}>
             <Paper
               sx={{
                 backgroundImage: "linear-gradient(to bottom, #cd3f66, #a22965)",
