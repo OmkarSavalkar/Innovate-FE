@@ -1,0 +1,51 @@
+.searchBox {
+  border-radius: 40px;
+  color: white;
+}
+
+.searchBox:hover > .searchInput {
+  width: 320px;
+  padding: 0 6px;
+}
+
+.searchInput {
+  padding: 0;
+  color: white;
+  font-size: 16px;
+  transition: 1.5s;
+  width: 70px;
+  border-radius: 5px;
+}
+
+.cardimage {
+  display: flex;
+}
+
+@media screen and (max-width: 1035px) {
+  .searchBox:hover > .searchInput {
+    width: 200px;
+    padding: 0 6px;
+  }
+
+  .cardimage {
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .searchBox:hover > .searchInput {
+    width: 180px;
+    padding: 0 6px;
+  }
+
+  .cardimage {
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .searchBox:hover > .searchInput {
+    width: 100px;
+    padding: 0 6px;
+  }
+}

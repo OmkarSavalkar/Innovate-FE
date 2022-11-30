@@ -1,5 +1,5 @@
-import { Card, CardContent, Grid, Typography } from "@mui/material";
 import React from "react";
+import { Card, CardContent, Grid, Typography } from "@mui/material";
 import Divider from "@mui/material/Divider";
 
 const ProfileComponent = (props: any) => {
@@ -10,16 +10,17 @@ const ProfileComponent = (props: any) => {
       container
       sx={{
         display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        paddingTop: "1%",
+        paddingTop: "5%",
+        backgroundColor: "#F6F3EE",
+        height: "100vh",
+        overflow: "auto",
       }}
     >
       <Grid item md={4}>
         <Card
           sx={{
-            maxWidth: "75%",
-            float: "right",
+            maxWidth: "83%",
+            marginLeft: "8%",
             boxShadow: "8px 8px #bcbcbc",
           }}
         >
@@ -34,7 +35,7 @@ const ProfileComponent = (props: any) => {
             <img
               src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
               alt="pic"
-              width="40%"
+              width="45%"
               style={{ padding: "20px 0px" }}
             />
             <CardContent
@@ -69,8 +70,8 @@ const ProfileComponent = (props: any) => {
       <Grid item md={8}>
         <Card
           sx={{
-            maxWidth: "90%",
-            marginLeft: "5%",
+            maxWidth: "97%",
+
             // border: "1px solid gray",
             boxShadow: "8px 8px #bcbcbc",
           }}

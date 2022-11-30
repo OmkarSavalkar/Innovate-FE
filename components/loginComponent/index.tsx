@@ -14,8 +14,11 @@ import axios from "axios";
 import loginImage from "../../public/LoginImage.jpg";
 import Image from "next/image";
 import { postLoginData } from "../../apis/loginSignup";
+import { useAppDispatch } from "../../side-effects/hooks";
+import { setSnackbar } from "../../side-effects/snackbarRedux";
 
 const LoginComponent = () => {
+  const dispatch = useAppDispatch();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const formReference = useRef<any>(null);
@@ -31,20 +34,52 @@ const LoginComponent = () => {
         email: username,
         password: password,
       };
+
       username &&
         password &&
         postLoginData(payload)
           .then((result) => {
             sessionStorage.setItem("user", JSON.stringify(result.data.user));
             sessionStorage.setItem("token", result.data.token);
-            if (result.data.user.isApproved === false) {
-              //snackbar
+            if (result.data.user.signupRole === "Expert") {
+              if (result.data.user.isApproved) {
+                dispatch(
+                  setSnackbar({
+                    isSnackbarOpen: true,
+                    snackbarMessage: "Successfully logged In as Expert !",
+                    snackbarType: "Success",
+                  })
+                );
+                router.push("/dashboard");
+              } else {
+                dispatch(
+                  setSnackbar({
+                    isSnackbarOpen: true,
+                    snackbarMessage:
+                      "Access is not yet approved by your Manager !",
+                    snackbarType: "Error",
+                  })
+                );
+              }
             } else {
+              dispatch(
+                setSnackbar({
+                  isSnackbarOpen: true,
+                  snackbarMessage: "Successfully logged In !",
+                  snackbarType: "Success",
+                })
+              );
               router.push("/dashboard");
             }
           })
           .catch((error) => {
-            console.log(error);
+            dispatch(
+              setSnackbar({
+                isSnackbarOpen: true,
+                snackbarMessage: error.response.data.message,
+                snackbarType: "Error",
+              })
+            );
           });
     }
   };

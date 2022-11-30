@@ -12,17 +12,18 @@ import Image from "next/image";
 import resetImage from "../../public/reset.jpg";
 import { postResetPasswordEmail } from "../../apis/loginSignup";
 import { useRouter } from "next/router";
+import { useAppDispatch } from "../../side-effects/hooks";
+import { setSnackbar } from "../../side-effects/snackbarRedux";
 
 const ForgetComponent = (props: any) => {
   const router = useRouter();
+  const dispatch = useAppDispatch();
   const { urlResetToken } = props;
   const [newPass, setNewPass] = useState<String>("");
   const [confirmPass, setConfirmPass] = useState<String>("");
-  const [err, seterr] = useState(false);
 
   const handleReset = (e: any) => {
     if (newPass === confirmPass) {
-      seterr(false);
       let payload = {
         password: newPass,
       };
@@ -30,13 +31,32 @@ const ForgetComponent = (props: any) => {
         postResetPasswordEmail(String(urlResetToken), payload)
           .then((result) => {
             console.log(result.data);
+            dispatch(
+              setSnackbar({
+                isSnackbarOpen: true,
+                snackbarMessage: "Password reset successful !",
+                snackbarType: "Error",
+              })
+            );
             router.push("/login");
           })
           .catch((error) => {
-            console.log(error);
+            dispatch(
+              setSnackbar({
+                isSnackbarOpen: true,
+                snackbarMessage: error.message, //error.response.data.message
+                snackbarType: "Error",
+              })
+            );
           });
     } else {
-      seterr(true);
+      dispatch(
+        setSnackbar({
+          isSnackbarOpen: true,
+          snackbarMessage: "New password and confirm password should be same !",
+          snackbarType: "Error",
+        })
+      );
     }
   };
 
@@ -48,14 +68,6 @@ const ForgetComponent = (props: any) => {
             <Grid container spacing={{ md: 4 }}>
               <Grid item md={6}>
                 <FormTitle>Reset Password</FormTitle>
-                {err ? (
-                  <span>
-                    Please check - Both new password and confirm password should
-                    be exactly same
-                  </span>
-                ) : (
-                  <></>
-                )}
                 <Grid item md={12}>
                   <TextField
                     label="New Password"

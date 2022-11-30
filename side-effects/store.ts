@@ -1,10 +1,25 @@
-import { Action, configureStore, ThunkAction } from "@reduxjs/toolkit";
+import {
+  Action,
+  configureStore,
+  ThunkAction,
+  combineReducers,
+} from "@reduxjs/toolkit";
 import managerReducer from "./manager/reducer";
+import { SnackBarReducer } from "./snackbarRedux";
+import dashboardCallReducer from "./dashboard/reducer";
+
+const reducers = combineReducers({
+  snackbarRedux: SnackBarReducer,
+  manager: managerReducer,
+  dashboardCalls: dashboardCallReducer,
+});
 
 export const store = configureStore({
-  reducer: {
-    manager: managerReducer,
-  },
+  reducer: reducers,
+  // middleware: (getDefaultMiddleware) =>
+  //   getDefaultMiddleware({
+  //     serializableCheck: false,
+  //   }),
 });
 
 // Infer the `RootState` and `AppDispatch` types from the store itself

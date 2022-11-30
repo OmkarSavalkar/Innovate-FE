@@ -10,13 +10,36 @@ import {
 import Image from "next/image";
 import resetImage from "../../public/reset.jpg";
 import { postVerifyEmail } from "../../apis/loginSignup";
+import { useAppDispatch } from "../../side-effects/hooks";
+import { setSnackbar } from "../../side-effects/snackbarRedux";
 
 const RecoverPassword = () => {
+  const dispatch = useAppDispatch();
   const [verifyEmail, setVerifyEmail] = useState<String>("");
 
   const handleVerifyEmail = () => {
     let payload = { email: verifyEmail };
-    verifyEmail && postVerifyEmail(payload);
+    if (verifyEmail != "") {
+      verifyEmail &&
+        postVerifyEmail(payload).then(() => {
+          dispatch(
+            setSnackbar({
+              isSnackbarOpen: true,
+              snackbarMessage:
+                "Reset password link sent over email Please check else try again !",
+              snackbarType: "Success",
+            })
+          );
+        });
+    } else {
+      dispatch(
+        setSnackbar({
+          isSnackbarOpen: true,
+          snackbarMessage: "Enter username or Email",
+          snackbarType: "Success",
+        })
+      );
+    }
   };
 
   return (

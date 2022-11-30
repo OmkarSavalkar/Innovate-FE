@@ -21,9 +21,12 @@ import {
   getTechStackList,
   postSignUpData,
 } from "../../apis/loginSignup";
+import { useAppDispatch } from "../../side-effects/hooks";
+import { setSnackbar } from "../../side-effects/snackbarRedux";
 
 const SignupComponent = () => {
   const router = useRouter();
+  const dispatch = useAppDispatch();
   let roleList = [
     "Tech Lead",
     "Principle Architect",
@@ -82,9 +85,36 @@ const SignupComponent = () => {
       postSignUpData(payload)
         .then((response: any) => {
           sessionStorage.setItem("user", response.result);
+          if (signupRole == "Expert") {
+            dispatch(
+              setSnackbar({
+                isSnackbarOpen: true,
+                snackbarMessage:
+                  "Signup successful, Email is sent to manager for approval !",
+                snackbarType: "Success",
+              })
+            );
+          } else {
+            dispatch(
+              setSnackbar({
+                isSnackbarOpen: true,
+                snackbarMessage: "Successfully siggned In !",
+                snackbarType: "Success",
+              })
+            );
+          }
+
           router.push("/login");
         })
-        .catch((error: any) => {});
+        .catch((error: any) => {
+          dispatch(
+            setSnackbar({
+              isSnackbarOpen: true,
+              snackbarMessage: error.message, //error.response.data.message
+              snackbarType: "Error",
+            })
+          );
+        });
     }
   };
   const handleSetRole = (role: string) => {

@@ -37,10 +37,19 @@ interface Props {
   rightTop?: any;
   rightBottom?: any;
   topCard?: any;
+  profileLayout?: boolean;
 }
 
 export default function LayoutComponent(props: Props) {
-  const { window, sideBarList, main, rightTop, rightBottom, topCard } = props;
+  const {
+    window,
+    sideBarList,
+    main,
+    rightTop,
+    rightBottom,
+    topCard,
+    profileLayout,
+  } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
   const handleDrawerToggle = () => {
@@ -198,7 +207,7 @@ export default function LayoutComponent(props: Props) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h5" noWrap component="div">
-            {`Dashboard`}
+            {!profileLayout ? `Dashboard` : `Your Profile`}
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}></Box>
 
@@ -262,72 +271,86 @@ export default function LayoutComponent(props: Props) {
         </Toolbar>
 
         <Grid container rowGap={2}>
-          <Grid item xs={12}>
-            <Paper
-              sx={{
-                backgroundColor: "#e4dbff",
-                height: "160px",
-                marginLeft: "30px",
-                overflow: "auto",
-              }}
-              elevation={10}
-            >
-              <Grid container>
-                <Grid item xs={12} md={9}>
-                  {topCard}
-                </Grid>
-                <Grid
-                  item
-                  xs={12}
-                  md={3}
-                  sx={{ textAlign: "end" }}
-                  className={styles["user-image"]}
+          {!profileLayout ? (
+            <>
+              <Grid item xs={12}>
+                <Paper
+                  sx={{
+                    backgroundColor: "#e4dbff",
+                    height: "160px",
+                    marginLeft: "30px",
+                    overflow: "auto",
+                  }}
+                  elevation={10}
                 >
-                  <Image
-                    src={DashboardImage}
-                    alt="dashboard image"
-                    height={150}
-                  />
-                </Grid>
+                  <Grid container>
+                    <Grid item xs={12} md={9}>
+                      {topCard}
+                    </Grid>
+                    <Grid
+                      item
+                      xs={12}
+                      md={3}
+                      sx={{ textAlign: "end" }}
+                      className={styles["user-image"]}
+                    >
+                      <Image
+                        src={DashboardImage}
+                        alt="dashboard image"
+                        height={150}
+                      />
+                    </Grid>
+                  </Grid>
+                </Paper>
               </Grid>
-            </Paper>
-          </Grid>
-          <Grid item md={8}>
-            <Paper
-              sx={{
-                backgroundImage: "linear-gradient(to bottom, #3d156b, #772168)",
-                height: "500px",
-                marginLeft: "30px",
-                padding: "20px",
-              }}
-              elevation={10}
-            >
-              {main[drawerValue]}
-            </Paper>
-          </Grid>
-          <Grid item md={4}>
-            <Paper
-              sx={{
-                backgroundImage: "linear-gradient(to bottom, #cd3f66, #a22965)",
-                height: "240px",
-                marginLeft: "30px",
-                marginBottom: "20px",
-              }}
-              elevation={10}
-            >
-              {rightTop[drawerValue]}
-            </Paper>
-            <Paper
-              sx={{
-                backgroundImage: "linear-gradient(to bottom, #ea636c, #faab7b)",
-                height: "240px",
-                marginLeft: "30px",
-              }}
-              elevation={10}
-            >
-              {rightBottom[drawerValue]}
-            </Paper>
-          </Grid>
+
+              <Grid item md={8}>
+                <Paper
+                  sx={{
+                    backgroundImage:
+                      "linear-gradient(to bottom, #3d156b, #772168)",
+                    height: "500px",
+                    marginLeft: "30px",
+                    padding: "20px",
+                  }}
+                  elevation={10}
+                >
+                  {main[drawerValue]}
+                </Paper>
+              </Grid>
+              <Grid item md={4}>
+                <Paper
+                  sx={{
+                    backgroundImage:
+                      "linear-gradient(to bottom, #cd3f66, #a22965)",
+                    height: "240px",
+                    marginLeft: "30px",
+                    marginBottom: "20px",
+                  }}
+                  elevation={10}
+                >
+                  {rightTop[drawerValue]}
+                </Paper>
+                <Paper
+                  sx={{
+                    backgroundImage:
+                      "linear-gradient(to bottom, #ea636c, #faab7b)",
+                    height: "240px",
+                    marginLeft: "30px",
+                  }}
+                  elevation={10}
+                >
+                  {rightBottom[drawerValue]}
+                </Paper>
+              </Grid>
+            </>
+          ) : (
+            <>
+              <Grid item md={12}>
+                {main}
+              </Grid>
+            </>
+          )}
         </Grid>
       </Box>
     </Box>

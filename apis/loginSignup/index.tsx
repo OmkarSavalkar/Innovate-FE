@@ -20,8 +20,8 @@ export const postResetPasswordEmail = (
 export const getManagerList = () => {
   return axios.get(`${url}/manager`);
 };
-export const getTechStackList = () => {
-  return axios.get(`${url}/techstack`);
+export const getTechStackList = (payload: Object) => {
+  return axios.post(`${url}/techstack`, payload);
 };
 export const postSignUpData = (payload: Object) => {
   return axios.post(`${url}/register`, payload);

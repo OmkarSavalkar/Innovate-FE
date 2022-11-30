@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import TechStack from "../../components/common/techStack";
 import UserCard from "../../components/common/userCard";
 import LayoutComponent from "../../components/layout";
 import ExpertApprovalComponent from "../../components/manager/expertApproval";
@@ -16,9 +17,48 @@ const Dashboard = () => {
     <>
       {userData?.role === "Manager" && (
         <LayoutComponent
+          profileLayout={false}
           sideBarList={["Techstacks", "Manage Experts"]}
           topCard={<UserCard />}
-          main={[<>Main Tech Stack</>, <ExpertApprovalComponent key={1} />]}
+          main={[
+            <div key={0}>
+              <TechStack />
+            </div>,
+            <div key={1}>
+              {" "}
+              <ExpertApprovalComponent />
+            </div>,
+          ]}
+          rightTop={[<>Top Tech Stack</>, <>Top Manage Expert</>]}
+          rightBottom={[<>Bottom Tech Stack</>, <>Bottom Manage Expert</>]}
+        />
+      )}
+      {userData?.role === "Expert" && (
+        <LayoutComponent
+          profileLayout={false}
+          sideBarList={["Techstacks", "Discuss Forum"]}
+          topCard={<UserCard />}
+          main={[
+            <div key={0}>
+              <TechStack />
+            </div>,
+            <>Sidebar Discuss Form</>,
+          ]}
+          rightTop={[<>Top Tech Stack</>, <>Top Manage Expert</>]}
+          rightBottom={[<>Bottom Tech Stack</>, <>Bottom Manage Expert</>]}
+        />
+      )}
+      {userData?.role === "User" && (
+        <LayoutComponent
+          profileLayout={false}
+          sideBarList={["Techstacks"]}
+          topCard={<UserCard />}
+          main={[
+            <div key={0}>
+              <TechStack />
+            </div>,
+            <>Sidebar Discuss Form</>,
+          ]}
           rightTop={[<>Top Tech Stack</>, <>Top Manage Expert</>]}
           rightBottom={[<>Bottom Tech Stack</>, <>Bottom Manage Expert</>]}
         />
