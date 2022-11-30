@@ -33,7 +33,7 @@ const Dashboard = () => {
           rightBottom={[<>Bottom Tech Stack</>, <>Bottom Manage Expert</>]}
         />
       )}
-      {userData?.role === "Expert" && (
+      {userData?.signupRole === "Expert" && (
         <LayoutComponent
           profileLayout={false}
           sideBarList={["Techstacks", "Discuss Forum"]}
@@ -48,7 +48,7 @@ const Dashboard = () => {
           rightBottom={[<>Bottom Tech Stack</>, <>Bottom Manage Expert</>]}
         />
       )}
-      {userData?.role === "User" && (
+      {userData?.signupRole === "User" && (
         <LayoutComponent
           profileLayout={false}
           sideBarList={["Techstacks"]}
