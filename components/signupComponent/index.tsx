@@ -57,9 +57,9 @@ const SignupComponent = () => {
       .catch((error) => {
         console.log(error);
       });
-    getTechStackList()
+    getTechStackList({})
       .then((response: any) => {
-        setTechNameList(response.data.data);
+        setTechNameList(response.data);
       })
       .catch((error) => {
         console.log(error);

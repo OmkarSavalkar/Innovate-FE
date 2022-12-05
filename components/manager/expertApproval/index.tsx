@@ -20,6 +20,8 @@ import { useAppDispatch, useAppSelector } from "../../../side-effects/hooks";
 import { getManager } from "../../../side-effects/manager";
 import approvedExperts from "../../../public/Approved.png";
 import Image from "next/image";
+import { approveExperts } from "../../../apis/manager";
+import { setSnackbar } from "../../../side-effects/snackbarRedux";
 const ExpertApprovalComponent = () => {
   const [toggleExpert, setToggleExpert] = React.useState<string | null>(
     "pending"
@@ -27,14 +29,38 @@ const ExpertApprovalComponent = () => {
   const [nextIndex, setnextIndex] = useState<number>(0);
   const dispatch = useAppDispatch();
   const { data, loading, error } = useAppSelector((state) => state.manager);
+
   useEffect(() => {
     if (Object.keys(data).length === 0) dispatch(getManager());
   }, [dispatch]);
+
   const handleToggleExpert = (
     event: React.MouseEvent<HTMLElement>,
     newAlignment: string | null
   ) => {
     setToggleExpert(newAlignment);
+  };
+
+  const handleApproveExperts = (expertData: any) => {
+    approveExperts(data.data._id, expertData.email, expertData)
+      .then((response) => {
+        dispatch(
+          setSnackbar({
+            isSnackbarOpen: true,
+            snackbarMessage: "Expert approved successfully",
+            snackbarType: "Success",
+          })
+        );
+      })
+      .catch((error) => {
+        dispatch(
+          setSnackbar({
+            isSnackbarOpen: true,
+            snackbarMessage: "Unable to approve expert",
+            snackbarType: "Error",
+          })
+        );
+      });
   };
   return (
     <Paper className={styles["main-card"]}>
@@ -59,7 +85,7 @@ const ExpertApprovalComponent = () => {
       {toggleExpert === "pending" ? (
         data?.data?.pendingApproval &&
         data?.data?.pendingApproval.length > 0 ? (
-          <Card sx={{ marginTop: "15px", height: "300px" }}>
+          <Card sx={{ marginTop: "15px", height: "300px", overflow: "auto" }}>
             <CardHeader
               avatar={
                 <Avatar aria-label="recipe">
@@ -79,6 +105,9 @@ const ExpertApprovalComponent = () => {
                   aria-label="add to favorites"
                   startIcon={<HowToRegIcon />}
                   color="success"
+                  onClick={() =>
+                    handleApproveExperts(data?.data?.pendingApproval[nextIndex])
+                  }
                 >
                   Approve
                 </Button>
@@ -112,7 +141,7 @@ const ExpertApprovalComponent = () => {
         )
       ) : data?.data?.approvedExperts &&
         data?.data?.approvedExperts.length > 0 ? (
-        <Card sx={{ marginTop: "15px", height: "300px" }}>
+        <Card sx={{ marginTop: "15px", height: "300px", overflow: "auto" }}>
           <CardHeader
             avatar={
               <Avatar aria-label="recipe">

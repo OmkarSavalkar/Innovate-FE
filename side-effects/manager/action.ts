@@ -4,7 +4,7 @@ import axios from "axios";
 export const getManager = createAsyncThunk("manager/getManager", async () => {
   const response = await axios.get(
     `https://x-innovate-be.herokuapp.com/manager/${
-      JSON.parse(sessionStorage.getItem("user") || "")?.id
+      JSON.parse(sessionStorage.getItem("user") || "")?._id
     }`
   );
   return response.data;
