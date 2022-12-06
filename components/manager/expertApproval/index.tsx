@@ -122,9 +122,9 @@ const ExpertApprovalComponent = () => {
             <CardContent>
               <Grid container rowSpacing={1}>
                 {data?.data?.pendingApproval[nextIndex].techStackId.map(
-                  (techStack: any) => {
+                  (techStack: any, index: number) => {
                     return (
-                      <Grid item xs={4}>
+                      <Grid item xs={4} key={index}>
                         <Chip label={techStack.techName} />
                       </Grid>
                     );
@@ -169,9 +169,9 @@ const ExpertApprovalComponent = () => {
           <CardContent>
             <Grid container rowSpacing={1}>
               {data?.data?.approvedExperts[nextIndex].techStackId.map(
-                (techStack: any) => {
+                (techStack: any, index: number) => {
                   return (
-                    <Grid item xs={4}>
+                    <Grid item xs={4} key={index}>
                       <Chip label={techStack.techName} />
                     </Grid>
                   );
