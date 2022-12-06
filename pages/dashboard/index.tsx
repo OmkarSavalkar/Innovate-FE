@@ -10,10 +10,7 @@ import { getManager } from "../../side-effects/manager";
 
 const Dashboard = () => {
   const [userData, setUserData] = useState<any>();
-  const [managerChartData, setManagerChartData] = useState<Object>({
-    labels: ["Pending", "Approved"],
-    datasets: [],
-  });
+  const [managerChartData, setManagerChartData] = useState<Object>({});
   const dispatch = useAppDispatch();
   const { data, loading, error } = useAppSelector(
     (state: any) => state.manager
@@ -44,11 +41,17 @@ const Dashboard = () => {
       });
     console.log("^^", tempManagerData);
     setManagerChartData({
-      ...managerChartData,
-      datasets: {
-        label: "Expert Status",
-        data: tempManagerData,
-      },
+      labels: ["Pending", "Approved"],
+      datasets: [
+        {
+          label: "Expert Status",
+          data: [
+            data?.data?.pendingApproval.length,
+            data?.data?.approvedExperts.length,
+          ],
+          backgroundColor: ["#e4dbff", "#3d156b"],
+        },
+      ],
     });
   }, [data]);
   return (
@@ -70,8 +73,7 @@ const Dashboard = () => {
           rightTop={[<>Top Tech Stack</>, <>Top Manage Expert</>]}
           rightBottom={[
             <>Bottom Tech Stack</>,
-            <></>,
-            // <ExpertChart chartData={managerChartData} key={1} />,
+            <ExpertChart chartData={managerChartData} key={1} />,
           ]}
         />
       )}
