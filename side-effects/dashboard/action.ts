@@ -1,7 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-
-const url = "https://x-innovate-be.herokuapp.com";
+import { url } from "../../utils/constant";
 
 export const getTechStacks = createAsyncThunk(
   "getTechStacks",

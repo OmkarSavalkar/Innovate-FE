@@ -1,5 +1,5 @@
 import axios from "axios";
-const url = `https://x-innovate-be.herokuapp.com`;
+import { url } from "../../utils/constant";
 
 export const postLoginData = (payload: Object) => {
   return axios.post(`${url}/login`, payload);
