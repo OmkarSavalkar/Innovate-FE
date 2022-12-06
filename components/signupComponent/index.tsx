@@ -68,10 +68,6 @@ const SignupComponent = () => {
   const handleSignupExpert = () => {
     if (formReference.current.reportValidity()) {
       let tempTechStackId: any = [];
-      tech &&
-        tech.map((tech: any) => {
-          tempTechStackId.push(tech.techId);
-        });
       let payload = {
         fullName: fullname,
         email: email,
@@ -79,7 +75,7 @@ const SignupComponent = () => {
         signupRole: signupRole,
         managerEmpId: manager._id,
         password: password,
-        techStackId: tempTechStackId,
+        techStackId: tech,
         summary: summary,
       };
       postSignUpData(payload)

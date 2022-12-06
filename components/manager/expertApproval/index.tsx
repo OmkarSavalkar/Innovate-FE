@@ -10,6 +10,9 @@ import {
   CardContent,
   CardActions,
   Button,
+  Toolbar,
+  Chip,
+  Divider,
 } from "@mui/material";
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
@@ -27,18 +30,22 @@ const ExpertApprovalComponent = () => {
     "pending"
   );
   const [nextIndex, setnextIndex] = useState<number>(0);
+  const [refershExpertList, setRefreshExpertList] = useState<boolean>(false);
   const dispatch = useAppDispatch();
-  const { data, loading, error } = useAppSelector((state) => state.manager);
+  const { data, loading, error } = useAppSelector(
+    (state: any) => state.manager
+  );
 
   useEffect(() => {
-    if (Object.keys(data).length === 0) dispatch(getManager());
-  }, [dispatch]);
+    dispatch(getManager());
+  }, [dispatch, refershExpertList]);
 
   const handleToggleExpert = (
     event: React.MouseEvent<HTMLElement>,
     newAlignment: string | null
   ) => {
     setToggleExpert(newAlignment);
+    setnextIndex(0);
   };
 
   const handleApproveExperts = (expertData: any) => {
@@ -51,6 +58,7 @@ const ExpertApprovalComponent = () => {
             snackbarType: "Success",
           })
         );
+        setRefreshExpertList(!refershExpertList);
       })
       .catch((error) => {
         dispatch(
@@ -61,6 +69,13 @@ const ExpertApprovalComponent = () => {
           })
         );
       });
+  };
+  const handleNext = (arrayLength: number) => {
+    if (arrayLength - 1 === nextIndex) {
+      setnextIndex(0);
+    } else {
+      setnextIndex(nextIndex + 1);
+    }
   };
   return (
     <Paper className={styles["main-card"]}>
@@ -85,51 +100,42 @@ const ExpertApprovalComponent = () => {
       {toggleExpert === "pending" ? (
         data?.data?.pendingApproval &&
         data?.data?.pendingApproval.length > 0 ? (
-          <Card sx={{ marginTop: "15px", height: "300px", overflow: "auto" }}>
+          <Card sx={{ marginTop: "15px", height: "260px", overflow: "auto" }}>
             <CardHeader
               avatar={
                 <Avatar aria-label="recipe">
                   {data?.data?.pendingApproval[nextIndex].fullName[0]}
                 </Avatar>
               }
-              title={<h1>{data?.data?.pendingApproval[nextIndex].fullName}</h1>}
+              title={
+                <Toolbar
+                  sx={{
+                    backgroundColor: "#e4dbff",
+                    fontFamily: "fantasy",
+                    textAlign: "center",
+                  }}
+                >
+                  {data?.data?.pendingApproval[nextIndex].fullName}
+                </Toolbar>
+              }
             />
             <CardContent>
+              <Grid container rowSpacing={1}>
+                {data?.data?.pendingApproval[nextIndex].techStackId.map(
+                  (techStack: any) => {
+                    return (
+                      <Grid item xs={4}>
+                        <Chip label={techStack.techName} />
+                      </Grid>
+                    );
+                  }
+                )}
+              </Grid>
+              <br />
               <Typography variant="body2" color="text.secondary">
                 {data?.data?.pendingApproval[nextIndex].summary}
               </Typography>
             </CardContent>
-            <Grid container sx={{ marginTop: "20px" }}>
-              <Grid item xs={12} md={4} sx={{ backgroundColor: "#d8f0e3" }}>
-                <Button
-                  aria-label="add to favorites"
-                  startIcon={<HowToRegIcon />}
-                  color="success"
-                  onClick={() =>
-                    handleApproveExperts(data?.data?.pendingApproval[nextIndex])
-                  }
-                >
-                  Approve
-                </Button>
-              </Grid>
-              <Grid item xs={12} md={4} sx={{ backgroundColor: "#ffeaee" }}>
-                <Button
-                  aria-label="add to favorites"
-                  startIcon={<CancelIcon />}
-                  color="error"
-                >
-                  Rejct
-                </Button>
-              </Grid>
-              <Grid item xs={12} md={4} sx={{ backgroundColor: "#eee6ff" }}>
-                <Button
-                  aria-label="add to favorites"
-                  endIcon={<NavigateNextIcon />}
-                >
-                  Next
-                </Button>
-              </Grid>
-            </Grid>
           </Card>
         ) : (
           <Card sx={{ marginTop: "15px", overflow: "auto", height: "300px" }}>
@@ -141,16 +147,38 @@ const ExpertApprovalComponent = () => {
         )
       ) : data?.data?.approvedExperts &&
         data?.data?.approvedExperts.length > 0 ? (
-        <Card sx={{ marginTop: "15px", height: "300px", overflow: "auto" }}>
+        <Card sx={{ marginTop: "15px", height: "260px", overflow: "auto" }}>
           <CardHeader
             avatar={
               <Avatar aria-label="recipe">
                 {data?.data?.approvedExperts[nextIndex].fullName[0]}
               </Avatar>
             }
-            title={<h1>{data?.data?.approvedExperts[nextIndex].fullName}</h1>}
+            title={
+              <Toolbar
+                sx={{
+                  backgroundColor: "#e4dbff",
+                  fontFamily: "fantasy",
+                  textAlign: "center",
+                }}
+              >
+                {data?.data?.approvedExperts[nextIndex].fullName}
+              </Toolbar>
+            }
           />
           <CardContent>
+            <Grid container rowSpacing={1}>
+              {data?.data?.approvedExperts[nextIndex].techStackId.map(
+                (techStack: any) => {
+                  return (
+                    <Grid item xs={4}>
+                      <Chip label={techStack.techName} />
+                    </Grid>
+                  );
+                }
+              )}
+            </Grid>
+            <br />
             <Typography variant="body2" color="text.secondary">
               {data?.data?.approvedExperts[nextIndex].summary}
             </Typography>
@@ -164,6 +192,53 @@ const ExpertApprovalComponent = () => {
           </Typography>
         </Card>
       )}
+      <Grid container sx={{ marginTop: "20px" }}>
+        {toggleExpert === "pending" && (
+          <>
+            <Grid item xs={12} md={4} sx={{ backgroundColor: "#d8f0e3" }}>
+              <Button
+                aria-label="add to favorites"
+                startIcon={<HowToRegIcon />}
+                color="success"
+                onClick={() =>
+                  handleApproveExperts(data?.data?.pendingApproval[nextIndex])
+                }
+              >
+                Approve
+              </Button>
+            </Grid>
+            <Grid item xs={12} md={4} sx={{ backgroundColor: "#ffeaee" }}>
+              <Button
+                aria-label="add to favorites"
+                startIcon={<CancelIcon />}
+                color="error"
+              >
+                Rejct
+              </Button>
+            </Grid>
+          </>
+        )}
+        <Grid item xs={12} md={4} sx={{ backgroundColor: "#eee6ff" }}>
+          <Button
+            aria-label="add to favorites"
+            endIcon={<NavigateNextIcon />}
+            onClick={() =>
+              handleNext(
+                toggleExpert === "pending"
+                  ? data?.data?.pendingApproval.length
+                  : data?.data?.approvedExperts.length
+              )
+            }
+            disabled={
+              toggleExpert === "pending"
+                ? data?.data?.pendingApproval.length === 1
+                : data?.data?.approvedExperts.length === 1
+            }
+          >
+            Next
+          </Button>
+        </Grid>
+      </Grid>
     </Paper>
   );
 };

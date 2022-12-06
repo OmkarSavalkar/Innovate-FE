@@ -1,11 +1,10 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import { url } from "../../utils/constant";
 
 export const getManager = createAsyncThunk("manager/getManager", async () => {
   const response = await axios.get(
-    `https://x-innovate-be.herokuapp.com/manager/${
-      JSON.parse(sessionStorage.getItem("user") || "")?._id
-    }`
+    `${url}/manager/${JSON.parse(sessionStorage.getItem("user") || "")?._id}`
   );
   return response.data;
 });
