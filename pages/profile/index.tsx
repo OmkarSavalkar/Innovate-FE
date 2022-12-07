@@ -15,7 +15,7 @@ const Profile = () => {
   return !!userData ? (
     <>
       <LayoutComponent
-        profileLayout={true}
+        secondaryLayout={true}
         sideBarList={["Profile"]}
         main={[<ProfileComponent userData={userData} key={0} />]}
         // rightTop={[<>Top Tech Stack</>, <>Top Manage Expert</>]}

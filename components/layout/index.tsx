@@ -38,7 +38,9 @@ interface Props {
   rightTop?: any;
   rightBottom?: any;
   topCard?: any;
-  profileLayout?: boolean;
+  secondaryLayout?: boolean;
+  secondaryLayoutTitle?: String;
+  sideBarNavigationList?: any;
 }
 
 export default function LayoutComponent(props: Props) {
@@ -49,7 +51,9 @@ export default function LayoutComponent(props: Props) {
     rightTop,
     rightBottom,
     topCard,
-    profileLayout,
+    secondaryLayout,
+    secondaryLayoutTitle,
+    sideBarNavigationList,
   } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -119,6 +123,25 @@ export default function LayoutComponent(props: Props) {
                 }}
               >
                 <ListItemText primary={text} />
+              </ListItemButton>
+            </ListItem>
+          ))}
+        {sideBarNavigationList &&
+          sideBarNavigationList.map((sideBarObject: any, index: number) => (
+            <ListItem
+              key={index}
+              disablePadding
+              sx={{
+                color: "white",
+                borderRadius: "20px 20px 20px 20px",
+              }}
+            >
+              <ListItemButton
+                onClick={() => {
+                  router.push(sideBarObject.pageUrl);
+                }}
+              >
+                <ListItemText primary={sideBarObject.page} />
               </ListItemButton>
             </ListItem>
           ))}
@@ -210,11 +233,11 @@ export default function LayoutComponent(props: Props) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h5" noWrap component="div">
-            {!profileLayout
+            {!secondaryLayout
               ? showNews
                 ? "News "
                 : `Dashboard`
-              : `Your Profile`}
+              : secondaryLayoutTitle}
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}></Box>
 
@@ -278,7 +301,7 @@ export default function LayoutComponent(props: Props) {
         </Toolbar>
 
         <Grid container rowGap={2}>
-          {!profileLayout ? (
+          {!secondaryLayout ? (
             !showNews ? (
               //will render when showNews and profileLayout is FALSE or when need to show normal dashboard
               <>

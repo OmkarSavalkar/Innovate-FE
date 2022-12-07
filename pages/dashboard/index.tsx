@@ -79,7 +79,7 @@ const Dashboard = () => {
     <>
       {userData?.role === "Manager" && (
         <LayoutComponent
-          profileLayout={false}
+          secondaryLayout={false}
           sideBarList={["Techstacks", "Manage Experts", "News"]}
           topCard={<UserCard />}
           main={[
@@ -115,7 +115,7 @@ const Dashboard = () => {
       )}
       {userData?.signupRole === "Expert" && (
         <LayoutComponent
-          profileLayout={false}
+          secondaryLayout={false}
           sideBarList={["Techstacks", "Discuss Forum", "News"]}
           topCard={<UserCard />}
           main={[
@@ -135,7 +135,7 @@ const Dashboard = () => {
       )}
       {userData?.signupRole === "User" && (
         <LayoutComponent
-          profileLayout={false}
+          secondaryLayout={false}
           sideBarList={["Techstacks", "News"]}
           topCard={<UserCard />}
           main={[

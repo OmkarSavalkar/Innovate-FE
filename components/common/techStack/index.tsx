@@ -15,10 +15,12 @@ import FindInPageIcon from "@mui/icons-material/FindInPage";
 import { Stack } from "@mui/system";
 import usePagination from "../pagination";
 import { getTechStackList } from "../../../apis/loginSignup";
+import { useRouter } from "next/router";
 
 const TechStack = () => {
   const [techList, setTechList] = useState<any>([]);
   const [searchKeyword, setSearchKeyword] = useState<string>("");
+  const router = useRouter();
   let [page, setPage] = useState(1);
   const PER_PAGE = 6;
 
@@ -105,6 +107,9 @@ const TechStack = () => {
                         "linear-gradient(to bottom, #ea636c, #faab7b)",
                     },
                     backgroundColor: "#edf0ee",
+                  }}
+                  onClick={() => {
+                    router.push("/chatScreen");
                   }}
                 >
                   <Grid item md={4} xs={12} className={style["cardimage"]}>
