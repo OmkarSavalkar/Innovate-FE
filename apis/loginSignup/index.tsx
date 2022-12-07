@@ -14,7 +14,6 @@ export const postResetPasswordEmail = (
   payload: Object
 ) => {
   return axios.post(`${url}/reset-Password/${urlResetToken}`, payload);
-  // return axios.post(`http://localhost:3000/recoverPassword`, payload);
 };
 
 export const getManagerList = () => {

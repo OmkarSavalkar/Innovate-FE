@@ -13,14 +13,11 @@ const Profile = () => {
   }, []);
 
   return !!userData ? (
-    // <div style={{ backgroundColor: "#F6F3EE", width: "100%", height: "100vh" }}>
-    //   <ProfileComponent userData={userData} />
-    // </div>
     <>
       <LayoutComponent
         profileLayout={true}
         sideBarList={["Profile"]}
-        main={<ProfileComponent userData={userData} />}
+        main={[<ProfileComponent userData={userData} key={0} />]}
         // rightTop={[<>Top Tech Stack</>, <>Top Manage Expert</>]}
         // rightBottom={[<>Bottom Tech Stack</>, <>Bottom Manage Expert</>]}
       />

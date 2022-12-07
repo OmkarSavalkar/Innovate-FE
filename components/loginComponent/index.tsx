@@ -76,7 +76,7 @@ const LoginComponent = () => {
             dispatch(
               setSnackbar({
                 isSnackbarOpen: true,
-                snackbarMessage: error.response.data.message,
+                snackbarMessage: error?.response?.data?.message,
                 snackbarType: "Error",
               })
             );

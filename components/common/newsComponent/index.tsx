@@ -1,0 +1,165 @@
+import React, { useEffect, useState } from "react";
+import {
+  Box,
+  Button,
+  Card,
+  CardActionArea,
+  CardActions,
+  CardContent,
+  CardMedia,
+  Grid,
+  Typography,
+} from "@mui/material";
+import { getNews } from "../../../apis/dashboardApis";
+
+const NewsComponent = () => {
+  const [newsData, setNewsData] = useState<any>([]);
+  const [newsCategory, setNewsCategory] = useState<string>("technology");
+  useEffect(() => {
+    getNews(newsCategory).then((res) => {
+      setNewsData(res.data.articles);
+    });
+  }, [newsCategory]);
+
+  return (
+    <>
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          textAlign: "center",
+          margin: "0 auto",
+        }}
+      >
+        <Typography
+          sx={{
+            backgroundImage: "linear-gradient(to bottom, #cd3f66, #a22965)",
+            borderRadius: "15px",
+            margin: "0 5px",
+            padding: "2px 15px",
+            color: "white",
+            cursor: "pointer",
+            "&:hover": {
+              color: "yellow",
+            },
+          }}
+          onClick={() => setNewsCategory("business")}
+        >
+          Business
+        </Typography>
+        <Typography
+          sx={{
+            backgroundImage: "linear-gradient(to bottom, #cd3f66, #a22965)",
+            borderRadius: "15px",
+            margin: "0 5px",
+            padding: "2px 15px",
+            color: "white",
+            cursor: "pointer",
+            "&:hover": {
+              color: "yellow",
+            },
+          }}
+          onClick={() => setNewsCategory("technology")}
+        >
+          Technology
+        </Typography>
+        <Typography
+          sx={{
+            backgroundImage: "linear-gradient(to bottom, #cd3f66, #a22965)",
+            borderRadius: "15px",
+            margin: "0 5px",
+            padding: "2px 15px",
+            color: "white",
+            cursor: "pointer",
+            "&:hover": {
+              color: "yellow",
+            },
+          }}
+          onClick={() => setNewsCategory("science")}
+        >
+          Science
+        </Typography>
+      </Box>
+      <Grid
+        container
+        sx={{
+          backgroundColor: "#F6F3EE",
+          height: "100vh",
+          overflow: "auto",
+          padding: "10px 0px 10px 12px",
+        }}
+        rowGap={3}
+      >
+        {newsData.length > 0 ? (
+          newsData.map((item: any, index: number) => {
+            return (
+              <Grid item md={3} key={index}>
+                <Card
+                  sx={{
+                    width: "90%",
+                    borderRadius: "10px",
+                  }}
+                  elevation={10}
+                >
+                  <CardActionArea>
+                    <CardMedia
+                      component="img"
+                      height="125"
+                      image={item.urlToImage}
+                      alt="green iguana"
+                    />
+                    <CardContent sx={{ paddingTop: "5px", paddingBottom: "0" }}>
+                      <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>
+                        {item.title}
+                      </Typography>
+                      <Typography
+                        variant="body2"
+                        color="text.secondary"
+                        sx={{
+                          overflow: "hidden",
+                          textOverflow: "ellipsis",
+                          display: "-webkit-box",
+                          WebkitLineClamp: "5",
+                          WebkitBoxOrient: "vertical",
+                        }}
+                      >
+                        {item.description}
+                      </Typography>
+                    </CardContent>
+                  </CardActionArea>
+                  <CardActions
+                    sx={{
+                      paddingTop: "5px",
+                      display: "flex",
+                      justifyContent: "center",
+                    }}
+                  >
+                    <Button
+                      size="small"
+                      color="primary"
+                      onClick={() => window.open(item.url, "_blank")}
+                      sx={{
+                        "&:hover": {
+                          borderRadius: "18px",
+                          backgroundImage:
+                            "linear-gradient(to bottom, #cd3f66, #a22965)",
+                          color: "white",
+                          transition: "0.5s",
+                        },
+                      }}
+                    >
+                      Read More
+                    </Button>
+                  </CardActions>
+                </Card>
+              </Grid>
+            );
+          })
+        ) : (
+          <h3>No News on this as of now...</h3>
+        )}
+      </Grid>
+    </>
+  );
+};
+export default NewsComponent;

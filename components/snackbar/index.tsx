@@ -35,6 +35,13 @@ const SnackbarComponent = (props: any) => {
             {message ? message : "Action failed"}
           </MuiAlert>
         )}
+        {messageType === "Warning" && (
+          <MuiAlert onClose={handleSnackbarClose} severity="warning">
+            {message
+              ? message
+              : "Warning: Please check input or try again after sometime"}
+          </MuiAlert>
+        )}
         {messageType === "" && <div></div>}
       </div>
     </Snackbar>

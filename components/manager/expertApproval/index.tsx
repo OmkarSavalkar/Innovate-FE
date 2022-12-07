@@ -25,7 +25,9 @@ import approvedExperts from "../../../public/Approved.png";
 import Image from "next/image";
 import { approveExperts } from "../../../apis/manager";
 import { setSnackbar } from "../../../side-effects/snackbarRedux";
-const ExpertApprovalComponent = () => {
+
+const ExpertApprovalComponent = (props: any) => {
+  const { directExpertOpen } = props;
   const [toggleExpert, setToggleExpert] = React.useState<string | null>(
     "pending"
   );
@@ -38,7 +40,9 @@ const ExpertApprovalComponent = () => {
 
   useEffect(() => {
     dispatch(getManager());
-  }, [dispatch, refershExpertList]);
+    console.log("from expert for pending", directExpertOpen);
+    directExpertOpen && setnextIndex(directExpertOpen);
+  }, [dispatch, refershExpertList, directExpertOpen]);
 
   const handleToggleExpert = (
     event: React.MouseEvent<HTMLElement>,
