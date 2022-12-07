@@ -27,10 +27,10 @@ import { approveExperts } from "../../../apis/manager";
 import { setSnackbar } from "../../../side-effects/snackbarRedux";
 
 const ExpertApprovalComponent = (props: any) => {
-  const { directExpertOpen } = props;
-  const [toggleExpert, setToggleExpert] = React.useState<string | null>(
-    "pending"
-  );
+  const { directExpertOpen, toggleExpert, setToggleExpert } = props;
+  // const [toggleExpert, setToggleExpert] = React.useState<string | null>(
+  //   "pending"
+  // );
   const [nextIndex, setnextIndex] = useState<number>(0);
   const [refershExpertList, setRefreshExpertList] = useState<boolean>(false);
   const dispatch = useAppDispatch();
@@ -108,7 +108,7 @@ const ExpertApprovalComponent = (props: any) => {
             <CardHeader
               avatar={
                 <Avatar aria-label="recipe">
-                  {data?.data?.pendingApproval[nextIndex].fullName[0]}
+                  {data?.data?.pendingApproval[nextIndex]?.fullName[0]}
                 </Avatar>
               }
               title={
@@ -119,13 +119,13 @@ const ExpertApprovalComponent = (props: any) => {
                     textAlign: "center",
                   }}
                 >
-                  {data?.data?.pendingApproval[nextIndex].fullName}
+                  {data?.data?.pendingApproval[nextIndex]?.fullName}
                 </Toolbar>
               }
             />
             <CardContent>
               <Grid container rowSpacing={1}>
-                {data?.data?.pendingApproval[nextIndex].techStackId.map(
+                {data?.data?.pendingApproval[nextIndex]?.techStackId.map(
                   (techStack: any, index: number) => {
                     return (
                       <Grid item xs={4} key={index}>
@@ -137,7 +137,7 @@ const ExpertApprovalComponent = (props: any) => {
               </Grid>
               <br />
               <Typography variant="body2" color="text.secondary">
-                {data?.data?.pendingApproval[nextIndex].summary}
+                {data?.data?.pendingApproval[nextIndex]?.summary}
               </Typography>
             </CardContent>
           </Card>
@@ -155,7 +155,7 @@ const ExpertApprovalComponent = (props: any) => {
           <CardHeader
             avatar={
               <Avatar aria-label="recipe">
-                {data?.data?.approvedExperts[nextIndex].fullName[0]}
+                {data?.data?.approvedExperts[nextIndex]?.fullName[0]}
               </Avatar>
             }
             title={
@@ -166,7 +166,7 @@ const ExpertApprovalComponent = (props: any) => {
                   textAlign: "center",
                 }}
               >
-                {data?.data?.approvedExperts[nextIndex].fullName}
+                {data?.data?.approvedExperts[nextIndex]?.fullName}
               </Toolbar>
             }
           />
@@ -184,7 +184,7 @@ const ExpertApprovalComponent = (props: any) => {
             </Grid>
             <br />
             <Typography variant="body2" color="text.secondary">
-              {data?.data?.approvedExperts[nextIndex].summary}
+              {data?.data?.approvedExperts[nextIndex]?.summary}
             </Typography>
           </CardContent>
         </Card>
@@ -217,7 +217,7 @@ const ExpertApprovalComponent = (props: any) => {
                 startIcon={<CancelIcon />}
                 color="error"
               >
-                Rejct
+                Reject
               </Button>
             </Grid>
           </>

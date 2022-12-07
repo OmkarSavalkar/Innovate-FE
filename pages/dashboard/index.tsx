@@ -16,10 +16,13 @@ const Dashboard = () => {
   const [managerChartData, setManagerChartData] = useState<Object>({});
   const [pendingData, setPendingData] = useState<any>();
   const [approvedData, setApprovedData] = useState<any>();
-  const [directExpertOpen, setDirectExpertOpen] = useState<number>();
+  const [directExpertOpen, setDirectExpertOpen] = useState<number>(0);
   const dispatch = useAppDispatch();
   const { data, loading, error } = useAppSelector(
     (state: any) => state.manager
+  );
+  const [toggleExpert, setToggleExpert] = React.useState<string | null>(
+    "pending"
   );
 
   useEffect(() => {
@@ -48,9 +51,13 @@ const Dashboard = () => {
         };
       });
     if (data) {
-      data?.data?.pendingApproval.length > 0
-        ? setPendingData(data?.data?.pendingApproval)
-        : setApprovedData(data?.data?.approvedExperts);
+      if (data?.data?.pendingApproval?.length > 0) {
+        setPendingData(data?.data?.pendingApproval);
+        setToggleExpert("pending");
+      } else {
+        setApprovedData(data?.data?.approvedExperts);
+        setToggleExpert("approved");
+      }
     }
 
     setManagerChartData({
@@ -81,7 +88,11 @@ const Dashboard = () => {
             </div>,
             <div key={1}>
               {" "}
-              <ExpertApprovalComponent directExpertOpen={directExpertOpen} />
+              <ExpertApprovalComponent
+                directExpertOpen={directExpertOpen}
+                toggleExpert={toggleExpert}
+                setToggleExpert={setToggleExpert}
+              />
             </div>,
           ]}
           rightTop={[

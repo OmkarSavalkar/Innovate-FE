@@ -6,10 +6,10 @@ const PendingList = (props: any) => {
   const [newListData, setNewListData] = useState<any>([]);
   const [showNoData, setShowNoData] = useState<boolean>(false);
   useEffect(() => {
-    if (pendingData.length == 0 && approvedData.length == 0) {
+    if (pendingData?.length == 0 && approvedData?.length == 0) {
       setShowNoData(true);
     }
-    pendingData.length > 0
+    pendingData?.length > 0
       ? setNewListData(pendingData)
       : setNewListData(approvedData);
   }, [approvedData, pendingData]);
@@ -33,17 +33,12 @@ const PendingList = (props: any) => {
         >
           {showNoData
             ? "Expert List"
-            : pendingData.length > 0
+            : pendingData?.length > 0
             ? "Pending Expert List"
             : "Approved Expert List"}
         </Typography>
       </Box>
-      <Grid
-        container
-        p={2}
-        rowGap={1}
-        sx={{ height: "200px", overflow: "auto" }}
-      >
+      <Grid container p={2} sx={{ height: "200px", overflow: "auto" }}>
         {!showNoData ? (
           newListData &&
           newListData?.map((item: any, index: number) => {
@@ -62,7 +57,7 @@ const PendingList = (props: any) => {
                       variant="subtitle2"
                       sx={{ padding: "2px 0px", fontWeight: "bold" }}
                     >
-                      {item.fullName}
+                      {item?.fullName}
                     </Typography>
                   </Card>
                 </Grid>
