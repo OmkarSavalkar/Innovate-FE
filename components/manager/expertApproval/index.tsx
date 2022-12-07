@@ -63,6 +63,7 @@ const ExpertApprovalComponent = (props: any) => {
           })
         );
         setRefreshExpertList(!refershExpertList);
+        setnextIndex(nextIndex - 1);
       })
       .catch((error) => {
         dispatch(
@@ -172,7 +173,7 @@ const ExpertApprovalComponent = (props: any) => {
           />
           <CardContent>
             <Grid container rowSpacing={1}>
-              {data?.data?.approvedExperts[nextIndex].techStackId.map(
+              {data?.data?.approvedExperts[nextIndex]?.techStackId.map(
                 (techStack: any, index: number) => {
                   return (
                     <Grid item xs={4} key={index}>
