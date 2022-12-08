@@ -109,7 +109,10 @@ const TechStack = () => {
                     backgroundColor: "#edf0ee",
                   }}
                   onClick={() => {
-                    router.push("/chatScreen");
+                    router.push({
+                      pathname: "/chatScreen",
+                      query: { techId: item._id },
+                    });
                   }}
                 >
                   <Grid item md={4} xs={12} className={style["cardimage"]}>
