@@ -10,6 +10,8 @@ import { getManager } from "../../side-effects/manager";
 import UserAddStack from "../../components/common/addStack/userAddStack";
 import ManagerAddStack from "../../components/common/addStack/managerAddStack";
 import PendingList from "../../components/manager/pendingList";
+import DiscussComponent from "../../components/discussComponent";
+import NewsComponent from "../../components/common/newsComponent";
 
 const Dashboard = () => {
   const [userData, setUserData] = useState<any>();
@@ -78,7 +80,11 @@ const Dashboard = () => {
       {userData?.role === "Manager" && (
         <LayoutComponent
           secondaryLayout={false}
-          sideBarList={["Techstacks", "Manage Experts", "News"]}
+          sideBarList={[
+            { sideBarName: "Techstacks", secondaryLayout: false },
+            { sideBarName: "Manage Experts", secondaryLayout: false },
+            { sideBarName: "News", secondaryLayout: true },
+          ]}
           topCard={<UserCard />}
           main={[
             <div key={0}>
@@ -92,6 +98,7 @@ const Dashboard = () => {
                 setToggleExpert={setToggleExpert}
               />
             </div>,
+            <NewsComponent key={2} />,
           ]}
           rightTop={[
             <>Top Tech Stack</>,
@@ -114,13 +121,18 @@ const Dashboard = () => {
       {userData?.signupRole === "Expert" && (
         <LayoutComponent
           secondaryLayout={false}
-          sideBarList={["Techstacks", "Discuss Forum", "News"]}
+          sideBarList={[
+            { sideBarName: "Techstacks", secondaryLayout: false },
+            { sideBarName: "Discuss Forum", secondaryLayout: true },
+            { sideBarName: "News", secondaryLayout: true },
+          ]}
           topCard={<UserCard />}
           main={[
             <div key={0}>
               <TechStack />
             </div>,
-            <>Sidebar Discuss Form</>,
+            <DiscussComponent key={1} />,
+            <NewsComponent key={2} />,
           ]}
           rightTop={[<>Top Tech Stack</>, <>Top Manage Expert</>]}
           rightBottom={[
@@ -134,13 +146,16 @@ const Dashboard = () => {
       {userData?.signupRole === "User" && (
         <LayoutComponent
           secondaryLayout={false}
-          sideBarList={["Techstacks", "News"]}
+          sideBarList={[
+            { sideBarName: "Techstacks", secondaryLayout: false },
+            { sideBarName: "News", secondaryLayout: true },
+          ]}
           topCard={<UserCard />}
           main={[
             <div key={0}>
               <TechStack />
             </div>,
-            <>Sidebar Discuss Form</>,
+            <NewsComponent key={1} />,
           ]}
           rightTop={[<>Top Tech Stack</>, <>Top Manage Expert</>]}
           rightBottom={[

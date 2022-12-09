@@ -16,7 +16,8 @@ const Profile = () => {
     <>
       <LayoutComponent
         secondaryLayout={true}
-        sideBarList={["Profile"]}
+        sideBarList={[{ sideBarName: "Profile", secondaryLayout: true }]}
+        sideBarNavigationList={[{ page: "Dashboard", pageUrl: "/dashboard" }]}
         main={[<ProfileComponent userData={userData} key={0} />]}
         // rightTop={[<>Top Tech Stack</>, <>Top Manage Expert</>]}
         // rightBottom={[<>Bottom Tech Stack</>, <>Bottom Manage Expert</>]}

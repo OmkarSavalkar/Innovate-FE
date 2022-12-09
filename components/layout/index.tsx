@@ -24,6 +24,7 @@ import { Grid, Paper, Stack } from "@mui/material";
 import Image from "next/image";
 import DashboardImage from "../../public/ManagerDashboard.gif";
 import NewsComponent from "../common/newsComponent";
+import DiscussComponent from "../discussComponent";
 
 const drawerWidth = 200;
 
@@ -33,7 +34,7 @@ interface Props {
    * You won't need it on your project.
    */
   window?: () => Window;
-  sideBarList?: Array<String>;
+  sideBarList?: Array<any>;
   main?: any;
   rightTop?: any;
   rightBottom?: any;
@@ -66,6 +67,7 @@ export default function LayoutComponent(props: Props) {
   const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
   const [drawerValue, setDrawerValue] = useState<number>(0);
   const [showNews, setShowNews] = useState<boolean>(false);
+  const [showDiscussParent, setShowDiscussParent] = useState<boolean>(false);
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
@@ -119,10 +121,13 @@ export default function LayoutComponent(props: Props) {
               <ListItemButton
                 onClick={() => {
                   setDrawerValue(index);
+                  text === "Discuss Forum"
+                    ? setShowDiscussParent(true)
+                    : setShowDiscussParent(false);
                   text === "News" ? setShowNews(true) : setShowNews(false);
                 }}
               >
-                <ListItemText primary={text} />
+                <ListItemText primary={text.sideBarName} />
               </ListItemButton>
             </ListItem>
           ))}
@@ -234,9 +239,11 @@ export default function LayoutComponent(props: Props) {
           </IconButton>
           <Typography variant="h5" noWrap component="div">
             {!secondaryLayout
-              ? showNews
-                ? "News "
-                : `Dashboard`
+              ? !showNews
+                ? showDiscussParent
+                  ? "Discuss Forum"
+                  : "Dashboard"
+                : `News`
               : secondaryLayoutTitle}
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}></Box>
@@ -301,94 +308,83 @@ export default function LayoutComponent(props: Props) {
         </Toolbar>
 
         <Grid container rowGap={2}>
-          {!secondaryLayout ? (
-            !showNews ? (
-              //will render when showNews and profileLayout is FALSE or when need to show normal dashboard
-              <>
-                <Grid item xs={12}>
-                  <Paper
-                    sx={{
-                      backgroundColor: "#e4dbff",
-                      height: "160px",
-                      marginLeft: "30px",
-                      overflow: "auto",
-                    }}
-                    elevation={10}
-                  >
-                    <Grid container>
-                      <Grid item xs={12} md={9}>
-                        {topCard}
-                      </Grid>
-                      <Grid
-                        item
-                        xs={12}
-                        md={3}
-                        sx={{ textAlign: "end" }}
-                        className={styles["user-image"]}
-                      >
-                        <Image
-                          src={DashboardImage}
-                          alt="dashboard image"
-                          height={150}
-                        />
-                      </Grid>
-                    </Grid>
-                  </Paper>
-                </Grid>
-
-                <Grid item md={8}>
-                  <Paper
-                    sx={{
-                      backgroundImage:
-                        "linear-gradient(to bottom, #3d156b, #772168)",
-                      height: "500px",
-                      marginLeft: "30px",
-                      padding: "20px",
-                    }}
-                    elevation={10}
-                  >
-                    {main[drawerValue]}
-                  </Paper>
-                </Grid>
-                <Grid item md={4}>
-                  <Paper
-                    sx={{
-                      backgroundImage:
-                        "linear-gradient(to bottom, #cd3f66, #a22965)",
-                      height: "240px",
-                      marginLeft: "30px",
-                      marginBottom: "20px",
-                    }}
-                    elevation={10}
-                  >
-                    {rightTop[drawerValue]}
-                  </Paper>
-                  <Paper
-                    sx={{
-                      backgroundImage:
-                        "linear-gradient(to bottom, #ea636c, #faab7b)",
-                      height: "240px",
-                      marginLeft: "30px",
-                    }}
-                    elevation={10}
-                  >
-                    {rightBottom[drawerValue]}
-                  </Paper>
-                </Grid>
-              </>
-            ) : (
-              //will render when showNews is TRUE or when user clicks on News from sidebar
-              <>
-                <NewsComponent />
-              </>
-            )
-          ) : (
-            //will render when profileLayout is TRUE and call a component from pages -> profile
+          {sideBarList && !sideBarList[drawerValue].secondaryLayout ? (
+            //will render when showNews AND profileLayout AND Discuss Forum is FALSE or when need to show normal dashboard
             <>
-              <Grid item md={12}>
-                {main}
+              <Grid item xs={12}>
+                <Paper
+                  sx={{
+                    backgroundColor: "#e4dbff",
+                    height: "160px",
+                    marginLeft: "30px",
+                    overflow: "auto",
+                  }}
+                  elevation={10}
+                >
+                  <Grid container>
+                    <Grid item xs={12} md={9}>
+                      {topCard}
+                    </Grid>
+                    <Grid
+                      item
+                      xs={12}
+                      md={3}
+                      sx={{ textAlign: "end" }}
+                      className={styles["user-image"]}
+                    >
+                      <Image
+                        src={DashboardImage}
+                        alt="dashboard image"
+                        height={150}
+                      />
+                    </Grid>
+                  </Grid>
+                </Paper>
+              </Grid>
+
+              <Grid item md={8}>
+                <Paper
+                  sx={{
+                    backgroundImage:
+                      "linear-gradient(to bottom, #3d156b, #772168)",
+                    height: "500px",
+                    marginLeft: "30px",
+                    padding: "20px",
+                  }}
+                  elevation={10}
+                >
+                  {main[drawerValue]}
+                </Paper>
+              </Grid>
+              <Grid item md={4}>
+                <Paper
+                  sx={{
+                    backgroundImage:
+                      "linear-gradient(to bottom, #cd3f66, #a22965)",
+                    height: "240px",
+                    marginLeft: "30px",
+                    marginBottom: "20px",
+                  }}
+                  elevation={10}
+                >
+                  {rightTop[drawerValue]}
+                </Paper>
+                <Paper
+                  sx={{
+                    backgroundImage:
+                      "linear-gradient(to bottom, #ea636c, #faab7b)",
+                    height: "240px",
+                    marginLeft: "30px",
+                  }}
+                  elevation={10}
+                >
+                  {rightBottom[drawerValue]}
+                </Paper>
               </Grid>
             </>
+          ) : (
+            //will render when showDiscussParent is TRUE or when user clicks on discuss forum from sidebar
+            <>{main[drawerValue]}</>
           )}
         </Grid>
       </Box>

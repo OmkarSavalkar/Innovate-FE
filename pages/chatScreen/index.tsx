@@ -6,7 +6,7 @@ const ChatScreen = () => {
     <LayoutComponent
       secondaryLayout={true}
       secondaryLayoutTitle={"Welcome to discuss forum"}
-      sideBarList={["Discuss Forum"]}
+      sideBarList={[{ sideBarName: "Discuss Forum", secondaryLayout: true }]}
       sideBarNavigationList={[{ page: "Dashboard", pageUrl: "/dashboard" }]}
       main={[<ChatComponent key={0} />]}
     />
