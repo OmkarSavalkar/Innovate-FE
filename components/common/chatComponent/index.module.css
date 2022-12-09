@@ -52,3 +52,7 @@
   height: 450px;
   overflow: auto;
 }
+.chat-box {
+  background-color: #e4dbff;
+  padding: 20px;
+}

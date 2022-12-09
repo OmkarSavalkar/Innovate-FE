@@ -40,7 +40,6 @@ const ExpertApprovalComponent = (props: any) => {
 
   useEffect(() => {
     dispatch(getManager());
-    console.log("from expert for pending", directExpertOpen);
     directExpertOpen && setnextIndex(directExpertOpen);
   }, [dispatch, refershExpertList, directExpertOpen]);
 

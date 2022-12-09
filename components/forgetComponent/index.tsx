@@ -30,7 +30,6 @@ const ForgetComponent = (props: any) => {
       newPass &&
         postResetPasswordEmail(String(urlResetToken), payload)
           .then((result) => {
-            console.log(result.data);
             dispatch(
               setSnackbar({
                 isSnackbarOpen: true,

@@ -29,14 +29,12 @@ const Dashboard = () => {
     let tempUserdata: any = sessionStorage.getItem("user");
     tempUserdata = JSON.parse(tempUserdata);
     setUserData(tempUserdata);
-    console.log("^^");
     if (tempUserdata?.role === "Manager") {
       dispatch(getManager());
     }
   }, [dispatch]);
 
   useEffect(() => {
-    console.log("^^", data?.data?.pendingApproval, data?.data?.approvedExperts);
     let totalExpert =
       data?.data?.pendingApproval && data?.data?.approvedExperts
         ? [...data?.data?.pendingApproval, ...data?.data?.approvedExperts]

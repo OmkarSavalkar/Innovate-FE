@@ -19,20 +19,17 @@ export const managerSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(getManager.pending, (state, action) => {
       if (state.loading === "idle") {
-        console.log("idle");
         state.loading = "pending";
       }
     });
     builder.addCase(getManager.fulfilled, (state, action) => {
       if (state.loading === "pending") {
-        console.log("pending");
         state.data = action.payload;
         state.loading = "idle";
       }
     });
     builder.addCase(getManager.rejected, (state, action) => {
       if (state.loading === "pending") {
-        console.log("error");
         state.loading = "idle";
         state.error = "Error occured";
       }
