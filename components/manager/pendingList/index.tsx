@@ -38,7 +38,12 @@ const PendingList = (props: any) => {
             : "Approved Expert List"}
         </Typography>
       </Box>
-      <Grid container p={2} sx={{ height: "200px", overflow: "auto" }}>
+      <Grid
+        container
+        p={2}
+        spacing={1}
+        sx={{ height: "200px", overflow: "auto" }}
+      >
         {!showNoData ? (
           newListData &&
           newListData?.map((item: any, index: number) => {

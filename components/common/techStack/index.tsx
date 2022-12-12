@@ -21,12 +21,12 @@ const TechStack = () => {
   const [techList, setTechList] = useState<any>([]);
   const [searchKeyword, setSearchKeyword] = useState<string>("");
   const router = useRouter();
+
+  //for pagination on FE level
   let [page, setPage] = useState(1);
   const PER_PAGE = 6;
-
   const count = Math.ceil(techList?.length / PER_PAGE);
   const newDATA = usePagination(techList, PER_PAGE);
-
   const handleChange = (e: any, p: any) => {
     setPage(p);
     newDATA.jump(p);

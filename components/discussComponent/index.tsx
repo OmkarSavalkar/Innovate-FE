@@ -1,65 +1,46 @@
-import { Box, Card, CardMedia, Grid, Typography } from "@mui/material";
-import React from "react";
-import ManagerImg from "../../public/reset.jpg";
+import React, { useEffect, useState } from "react";
+import Carousel from "react-elastic-carousel";
+import ExpertTechUsers from "./expertTechUsers";
 
-const DiscussComponent = () => {
+const DiscussComponent = (props: any) => {
+  const { userData } = props;
+  const [expertStack, setExpertStack] = useState([]);
+  const [currentTechObjId, setCurrentTechObjId] = React.useState(null);
+
+  const onCurrentChange = (current: any) => {
+    setCurrentTechObjId(current?.item?.children?.props?.item?._id);
+  };
+
+  useEffect(() => {
+    userData && setExpertStack(userData?.techStackId);
+  }, []);
+
   return (
-    <Grid
-      container
-      sx={{
-        height: "100vh",
-        margin: 0,
-        padding: 2,
-        overflow: "auto",
-        display: "flex",
-      }}
-      spacing={2}
-    >
-      <Grid item md={12} sx={{ backgroundColor: "red" }}>
-        <Card
-          elevation={10}
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <Grid item md={2} sx={{ backgroundColor: "green" }}>
-            <CardMedia
-              component="img"
-              image={
-                "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Gmail_icon_%282020%29.svg/512px-Gmail_icon_%282020%29.svg.png?20221017173631"
-              }
-              alt="Tech stack image"
-              sx={{
-                backgroundColor: "blue",
-                width: "70%",
-                padding: "20px",
-                float: "left",
+    <>
+      <Carousel onNextEnd={onCurrentChange} onPrevEnd={onCurrentChange}>
+        {expertStack.map((item: any, index: number) => {
+          return (
+            <div
+              key={index}
+              style={{
+                width: "100%",
+                height: "100vh",
+                backgroundImage: `url(https://connectwell-5f9f8.web.app/forumBackground.png)`,
+                borderRadius: "30px",
+                backgroundSize: "cover",
+                padding: "2px",
               }}
-            />
-          </Grid>
-          <Grid item md={8}>
-            <Typography variant="h4">Azure</Typography>
-          </Grid>
-          <Grid item md={2} sx={{ backgroundColor: "green" }}>
-            <CardMedia
-              component="img"
-              image={
-                "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Gmail_icon_%282020%29.svg/512px-Gmail_icon_%282020%29.svg.png?20221017173631"
-              }
-              alt="Tech stack image"
-              sx={{
-                backgroundColor: "blue",
-                width: "70%",
-                padding: "20px",
-                float: "right",
-              }}
-            />
-          </Grid>
-        </Card>
-      </Grid>
-    </Grid>
+            >
+              <ExpertTechUsers
+                item={item}
+                currentTechObjId={currentTechObjId}
+                firstItemTechObjId={userData?.techStackId[0]?._id}
+              />
+            </div>
+          );
+        })}
+      </Carousel>
+    </>
   );
 };
 export default DiscussComponent;

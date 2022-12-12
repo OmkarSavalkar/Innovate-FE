@@ -8,3 +8,7 @@ export const getChat = (userId: any, techId: any) => {
 export const postChat = (payload: any) => {
   return axios.post(`${url}/postChat`, payload);
 };
+
+export const getTechExpertUsers = (techObjectId: any, payload: any) => {
+  return axios.post(`${url}/getTechExpertUsers/${techObjectId}`, payload);
+};

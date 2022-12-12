@@ -131,7 +131,7 @@ const Dashboard = () => {
             <div key={0}>
               <TechStack />
             </div>,
-            <DiscussComponent key={1} />,
+            <DiscussComponent key={1} userData={userData} />,
             <NewsComponent key={2} />,
           ]}
           rightTop={[<>Top Tech Stack</>, <>Top Manage Expert</>]}
