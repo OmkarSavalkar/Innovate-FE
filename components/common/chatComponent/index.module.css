@@ -13,7 +13,6 @@
   padding-left: 20px;
 }
 .box1 {
-  background-color: #b0d3d7;
   height: 100px;
   width: 350px;
   border-radius: 40px;
@@ -25,7 +24,6 @@
   padding: 10px;
 }
 .box2 {
-  background-color: #b0d3d7;
   height: 100px;
   width: 350px;
   border-radius: 40px;
@@ -37,7 +35,6 @@
   padding: 10px;
 }
 .box3 {
-  background-color: #b0d3d7;
   height: 100px;
   width: 350px;
   border-radius: 40px;
@@ -53,6 +50,5 @@
   overflow: auto;
 }
 .chat-box {
-  background-color: #e4dbff;
   padding: 20px;
 }

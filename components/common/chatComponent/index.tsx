@@ -102,7 +102,8 @@ const ChatComponent = () => {
         <Grid item xs={12}>
           <Paper
             sx={{
-              backgroundColor: "#b0d3d7",
+              backgroundColor:
+                router.query.from === "expertTechUser" ? "#D3F5CE" : "#b0d3d7",
               height: "150px",
               overflow: "auto",
               marginBottom: "20px",
@@ -111,11 +112,18 @@ const ChatComponent = () => {
             <Grid container>
               <Grid item xs={12} md={9}>
                 <Typography
-                  variant="h3"
+                  variant="h4"
                   sx={{ fontFamily: "fantasy", padding: "20px 0px 0px 20px" }}
-                >{`Technology, ${techName}`}</Typography>
+                >
+                  {router.query.from === "expertTechUser"
+                    ? `User: ${user.fullName}, `
+                    : ""}
+                  {`Technology: ${techName}`}
+                </Typography>
                 <Typography variant="h6" sx={{ padding: "0px 0px 0px 20px" }}>
-                  Ask your doubts here and get it resolve from experts...
+                  {router.query.from === "expertTechUser"
+                    ? `Help users to solve their issues...`
+                    : `Ask your doubts here and get it resolve from experts...`}
                 </Typography>
               </Grid>
               <Grid
@@ -145,7 +153,11 @@ const ChatComponent = () => {
                       className={styles["expert-toolbar"]}
                       sx={{
                         backgroundColor:
-                          selectedExpert._id === expert._id
+                          router.query.from === "expertTechUser"
+                            ? selectedExpert._id === expert._id
+                              ? "#00AFB9"
+                              : "#9ae2e6"
+                            : selectedExpert._id === expert._id
                             ? "#bca9f5"
                             : "#e4dbff",
                       }}
@@ -176,7 +188,10 @@ const ChatComponent = () => {
             >
               <Box
                 sx={{
-                  backgroundColor: "#b0d3d793",
+                  backgroundColor:
+                    router.query.from === "expertTechUser"
+                      ? "#D3F5CEbb"
+                      : "#b0d3d793",
                   height: "300px",
                   width: "300px",
                   borderRadius: "50%",
@@ -185,7 +200,10 @@ const ChatComponent = () => {
               >
                 <Box
                   sx={{
-                    backgroundColor: "#b0d3d7c0",
+                    backgroundColor:
+                      router.query.from === "expertTechUser"
+                        ? "#D3F5CEd8"
+                        : "#b0d3d7c0",
                     height: "200px",
                     width: "200px",
                     borderRadius: "50%",
@@ -195,11 +213,17 @@ const ChatComponent = () => {
                 >
                   <Box
                     sx={{
-                      backgroundColor: "#666666",
                       height: "100px",
                       width: "100px",
                       borderRadius: "50%",
-                      backgroundImage: `url(https://connectwell-5f9f8.web.app/ChatExperts.jpg)`,
+                      backgroundColor:
+                        router.query.from === "expertTechUser"
+                          ? "#D3F5CE"
+                          : "#b0d3d7",
+                      backgroundImage:
+                        router.query.from === "expertTechUser"
+                          ? `url(https://connectwell-5f9f8.web.app/expertGroupChat.png)`
+                          : `url(https://connectwell-5f9f8.web.app/ChatExperts.jpg)`,
                       backgroundSize: "contain",
                       backgroundRepeat: "no-repeat",
                       backgroundPosition: "center",
@@ -207,7 +231,15 @@ const ChatComponent = () => {
                     }}
                   ></Box>
                 </Box>
-                <Box className={styles["box1"]}>
+                <Box
+                  className={styles["box1"]}
+                  sx={{
+                    backgroundColor:
+                      router.query.from === "expertTechUser"
+                        ? "#D3F5CE"
+                        : "#b0d3d7",
+                  }}
+                >
                   <Typography variant="h5" fontFamily="fantasy">
                     {selectedExpert.fullName}
                   </Typography>
@@ -215,7 +247,15 @@ const ChatComponent = () => {
                     {selectedExpert.role}
                   </Typography>
                 </Box>
-                <Box className={styles["box2"]}>
+                <Box
+                  className={styles["box2"]}
+                  sx={{
+                    backgroundColor:
+                      router.query.from === "expertTechUser"
+                        ? "#D3F5CE"
+                        : "#b0d3d7",
+                  }}
+                >
                   <Typography variant="h5" fontFamily="fantasy">
                     Email
                   </Typography>
@@ -225,7 +265,15 @@ const ChatComponent = () => {
                     </Typography>
                   </Tooltip>
                 </Box>
-                <Box className={styles["box3"]}>
+                <Box
+                  className={styles["box3"]}
+                  sx={{
+                    backgroundColor:
+                      router.query.from === "expertTechUser"
+                        ? "#D3F5CE"
+                        : "#b0d3d7",
+                  }}
+                >
                   <Typography variant="h5" fontFamily="fantasy">
                     Summary
                   </Typography>
@@ -241,6 +289,10 @@ const ChatComponent = () => {
               <Box
                 className={styles["chat-box"]}
                 sx={{
+                  backgroundColor:
+                    router.query.from === "expertTechUser"
+                      ? "#9ae2e6"
+                      : "#e4dbff",
                   maxHeight: "450px",
                   overflow: "auto",
                   listStyle: "none",
@@ -270,7 +322,11 @@ const ChatComponent = () => {
                                   ? "right"
                                   : "left",
                               backgroundColor:
-                                chatItem.userName === loggedInUser.fullName
+                                router.query.from === "expertTechUser"
+                                  ? chatItem.userName === loggedInUser.fullName
+                                    ? "#00AFB9"
+                                    : "white"
+                                  : chatItem.userName === loggedInUser.fullName
                                   ? "#bca9f5"
                                   : "white",
                               borderRadius: "20px",
