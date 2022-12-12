@@ -1,5 +1,6 @@
 import {
   Avatar,
+  Box,
   Card,
   Grid,
   Pagination,
@@ -66,7 +67,25 @@ const ExpertTechUsers = (props: any) => {
   }));
 
   return (
-    <div style={{ height: "100%", overflow: "auto" }}>
+    <Box
+      sx={{
+        height: "100%",
+        overflow: "auto",
+        listStyle: "none",
+        "&::-webkit-scrollbar": {
+          width: "0.4em",
+          height: "0.4em",
+        },
+        "&::-webkit-scrollbar-track": {
+          boxShadow: "inset 0 0 6px rgba(0,0,0,0.00)",
+          webkitBoxShadow: "inset 0 0 6px rgba(0,0,0,0.00)",
+        },
+        "&::-webkit-scrollbar-thumb": {
+          backgroundColor: "rebeccapurple",
+          outline: "1px solid slategrey",
+        },
+      }}
+    >
       <Toolbar>
         <img
           src={item?.techImgUrl}
@@ -153,8 +172,13 @@ const ExpertTechUsers = (props: any) => {
                               currentTechObjId == null
                                 ? firstItemTechObjId
                                 : currentTechObjId,
+                            from: "expertTechUser",
                           },
                         });
+                        sessionStorage.setItem(
+                          "expertTechUser",
+                          JSON.stringify(item)
+                        );
                       }}
                     >
                       <div className={style["card-content"]}>
@@ -265,7 +289,7 @@ const ExpertTechUsers = (props: any) => {
           />
         </Grid>
       </Grid>
-    </div>
+    </Box>
   );
 };
 export default ExpertTechUsers;

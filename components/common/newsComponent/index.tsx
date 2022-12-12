@@ -86,6 +86,18 @@ const NewsComponent = () => {
           backgroundColor: "#F6F3EE",
           height: "100vh",
           overflow: "auto",
+          listStyle: "none",
+          "&::-webkit-scrollbar": {
+            width: "0.4em",
+          },
+          "&::-webkit-scrollbar-track": {
+            boxShadow: "inset 0 0 6px rgba(0,0,0,0.00)",
+            webkitBoxShadow: "inset 0 0 6px rgba(0,0,0,0.00)",
+          },
+          "&::-webkit-scrollbar-thumb": {
+            backgroundColor: "rebeccapurple",
+            outline: "1px solid slategrey",
+          },
           padding: "10px 0px 10px 12px",
         }}
         rowGap={3}

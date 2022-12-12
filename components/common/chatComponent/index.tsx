@@ -17,16 +17,20 @@ import { getChat, postChat } from "../../../apis/chat";
 import moment from "moment";
 
 const ChatComponent = () => {
+  const router = useRouter();
   const [expertList, setExpertList] = useState<any>([]);
   const [selectedExpert, setSelectedExpert] = useState<any>([]);
   const [chat, setChat] = useState<any>([]);
   const [currentChat, setCurrentChat] = useState<String>("");
   const [refreshChat, setRefreshChat] = useState<boolean>(false);
   const [user, setUser] = useState<any>(
+    router.query.from === "expertTechUser"
+      ? JSON.parse(sessionStorage.getItem("expertTechUser") || "")
+      : JSON.parse(sessionStorage.getItem("user") || "")
+  );
+  const [loggedInUser, setLoggedInUser] = useState<any>(
     JSON.parse(sessionStorage.getItem("user") || "")
   );
-  const router = useRouter();
-
   useEffect(() => {
     router.query.techId &&
       getTechStackById(router.query.techId)
@@ -37,13 +41,17 @@ const ChatComponent = () => {
         .catch((error) => {});
   }, [router.query.techId]);
   useEffect(() => {
+    console.log("^^chat 1", router.query.techId, user._id);
     router.query.techId &&
       user._id &&
       getChat(user._id, router.query.techId)
         .then((response) => {
           response?.data?.chatData && setChat(response.data.chatData);
+          console.log("^^chat 2", response?.data);
         })
-        .catch((error) => {});
+        .catch((error) => {
+          console.log("^^chat 3", error);
+        });
   }, [refreshChat, router.query.techId, user]);
   const handleSelectedExpert = (expert: any) => {
     setSelectedExpert(expert);
@@ -51,7 +59,7 @@ const ChatComponent = () => {
   const handleSendChat = () => {
     let tempChat = chat;
     tempChat.push({
-      userName: user.fullName,
+      userName: loggedInUser.fullName,
       date: new Date(),
       chatData: currentChat,
     });
@@ -75,6 +83,7 @@ const ChatComponent = () => {
           display: "flex",
           paddingTop: "5%",
           overflow: "auto",
+          listStyle: "none",
           minHeight:
             expertList === undefined || expertList.length === 0
               ? "100vh"
@@ -194,7 +203,25 @@ const ChatComponent = () => {
               </Box>
             </Grid>
             <Grid item xs={12}>
-              <Box className={styles["chat-box"]}>
+              <Box
+                className={styles["chat-box"]}
+                sx={{
+                  maxHeight: "450px",
+                  overflow: "auto",
+                  listStyle: "none",
+                  "&::-webkit-scrollbar": {
+                    width: "0.4em",
+                  },
+                  "&::-webkit-scrollbar-track": {
+                    boxShadow: "inset 0 0 6px rgba(0,0,0,0.00)",
+                    webkitBoxShadow: "inset 0 0 6px rgba(0,0,0,0.00)",
+                  },
+                  "&::-webkit-scrollbar-thumb": {
+                    backgroundColor: "rebeccapurple",
+                    outline: "1px solid slategrey",
+                  },
+                }}
+              >
                 <Grid container>
                   {chat &&
                     chat.map((chatItem: any, index: number) => {
@@ -204,28 +231,38 @@ const ChatComponent = () => {
                             key={index}
                             sx={{
                               float:
-                                chatItem.userName === user.fullName
+                                chatItem.userName === loggedInUser.fullName
                                   ? "right"
                                   : "left",
                               backgroundColor:
-                                chatItem.userName === user.fullName
+                                chatItem.userName === loggedInUser.fullName
                                   ? "#bca9f5"
-                                  : "wihte",
+                                  : "white",
                               borderRadius: "20px",
                               padding: "10px",
                               textAlign: "left",
+                              maxWidth: "75%",
                             }}
                           >
                             <Typography
                               variant="body1"
-                              sx={{ fontWeight: "bold" }}
+                              sx={{
+                                fontWeight: "bold",
+                                color: "rebeccapurple",
+                              }}
                             >
                               {chatItem.userName}
                             </Typography>
-                            <Typography variant="h6">
+                            <Typography variant="body2">
                               {chatItem.chatData}
                             </Typography>
-                            <Typography variant="caption">
+                            <Typography
+                              variant="caption"
+                              sx={{
+                                fontWeight: "bold",
+                                color: "rebeccapurple",
+                              }}
+                            >
                               {moment.utc(chatItem.date).local().format("L LT")}
                             </Typography>
                           </Box>
@@ -233,7 +270,11 @@ const ChatComponent = () => {
                       );
                     })}
 
-                  <Grid item xs={10}>
+                  <Grid
+                    item
+                    xs={10}
+                    sx={{ display: "inline-block", alignSelf: "flex-end" }}
+                  >
                     <InputBase
                       id="message"
                       placeholder="Enter message"
