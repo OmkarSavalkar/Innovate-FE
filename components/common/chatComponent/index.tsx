@@ -8,6 +8,7 @@ import {
   Tooltip,
   InputBase,
   IconButton,
+  Paper,
 } from "@mui/material";
 import { getTechStackById } from "../../../apis/techStack";
 import { useRouter } from "next/router";
@@ -15,7 +16,8 @@ import styles from "./index.module.css";
 import SendIcon from "@mui/icons-material/Send";
 import { getChat, postChat } from "../../../apis/chat";
 import moment from "moment";
-
+import DashboardImage from "../../../public/ChatQ&A.png";
+import Image from "next/image";
 const ChatComponent = () => {
   const router = useRouter();
   const [expertList, setExpertList] = useState<any>([]);
@@ -31,27 +33,25 @@ const ChatComponent = () => {
   const [loggedInUser, setLoggedInUser] = useState<any>(
     JSON.parse(sessionStorage.getItem("user") || "")
   );
+  const [techName, setTechName] = useState<String>("");
   useEffect(() => {
     router.query.techId &&
       getTechStackById(router.query.techId)
         .then((response) => {
           setExpertList(response.data.techExperts);
           setSelectedExpert(response.data.techExperts[0]);
+          setTechName(response.data.techName);
         })
         .catch((error) => {});
   }, [router.query.techId]);
   useEffect(() => {
-    console.log("^^chat 1", router.query.techId, user._id);
     router.query.techId &&
       user._id &&
       getChat(user._id, router.query.techId)
         .then((response) => {
           response?.data?.chatData && setChat(response.data.chatData);
-          console.log("^^chat 2", response?.data);
         })
-        .catch((error) => {
-          console.log("^^chat 3", error);
-        });
+        .catch((error) => {});
   }, [refreshChat, router.query.techId, user]);
   const handleSelectedExpert = (expert: any) => {
     setSelectedExpert(expert);
@@ -99,6 +99,41 @@ const ChatComponent = () => {
         }}
         columnSpacing={2}
       >
+        <Grid item xs={12}>
+          <Paper
+            sx={{
+              backgroundColor: "#b0d3d7",
+              height: "150px",
+              overflow: "auto",
+              marginBottom: "20px",
+            }}
+          >
+            <Grid container>
+              <Grid item xs={12} md={9}>
+                <Typography
+                  variant="h3"
+                  sx={{ fontFamily: "fantasy", padding: "20px 0px 0px 20px" }}
+                >{`Technology, ${techName}`}</Typography>
+                <Typography variant="h6" sx={{ padding: "0px 0px 0px 20px" }}>
+                  Ask your doubts here and get it resolve from experts...
+                </Typography>
+              </Grid>
+              <Grid
+                item
+                xs={12}
+                md={3}
+                sx={{ textAlign: "end" }}
+                className={styles["user-image"]}
+              >
+                <Image
+                  src={DashboardImage}
+                  alt="dashboard image"
+                  height={130}
+                />
+              </Grid>
+            </Grid>
+          </Paper>
+        </Grid>
         {expertList !== undefined && expertList.length !== 0 ? (
           <>
             <Grid item xs={12} md={5} className={styles["expert-list"]}>
@@ -303,7 +338,7 @@ const ChatComponent = () => {
                     }}
                   >
                     <IconButton onClick={handleSendChat}>
-                      <SendIcon />
+                      <SendIcon sx={{ color: "#3d156b" }} />
                     </IconButton>
                   </Grid>
                 </Grid>
