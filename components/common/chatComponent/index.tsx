@@ -199,7 +199,7 @@ const ChatComponent = () => {
                   {chat &&
                     chat.map((chatItem: any, index: number) => {
                       return (
-                        <Grid item xs={12} sx={{ margin: "10px" }}>
+                        <Grid item xs={12} sx={{ margin: "10px" }} key={index}>
                           <Box
                             key={index}
                             sx={{
