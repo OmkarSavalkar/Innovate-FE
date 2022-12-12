@@ -128,7 +128,7 @@ const ProfileComponent = (props: any) => {
                       color: "white",
                     }}
                   >
-                    {item}
+                    {item.techName}
                   </span>
                 );
               })}
