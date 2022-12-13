@@ -97,9 +97,16 @@ const ForgetComponent = (props: any) => {
                   Reset Password
                 </FormButtons>
               </Grid>
-              <Grid item md={6}>
-                <Image src={resetImage} alt="Login Image" />
-              </Grid>
+              <Grid
+                item
+                md={6}
+                sx={{
+                  backgroundImage: `url(https://connectwell-5f9f8.web.app/reset.jpg)`,
+                  backgroundSize: "contain",
+                  backgroundRepeat: "no-repeat",
+                  backgroundPosition: "center",
+                }}
+              ></Grid>
             </Grid>
           </FormBox>
         </LoginBox>

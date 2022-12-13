@@ -138,10 +138,11 @@ const SignupComponent = () => {
                 <Card
                   sx={{ maxWidth: "100%", elevation: 0, boxShadow: "none" }}
                 >
-                  <Image
-                    src={UserSignUp}
-                    alt="user signup image"
-                    className={styles["user-image"]}
+                  <CardMedia
+                    component="img"
+                    height="300"
+                    image="https://connectwell-5f9f8.web.app/User.jpg"
+                    alt="Paella dish"
                   />
                   <CardContent>
                     <Typography variant="body2" color="text.secondary">
@@ -184,10 +185,11 @@ const SignupComponent = () => {
                       Sign Up As Expert
                     </Button>
                   </CardActions>
-                  <Image
-                    src={ExpertSignUp}
-                    alt="user signup image"
-                    className={styles["user-image"]}
+                  <CardMedia
+                    component="img"
+                    height="300"
+                    image="https://connectwell-5f9f8.web.app/Expert.jpg"
+                    alt="Paella dish"
                   />
                 </Card>
               </Grid>

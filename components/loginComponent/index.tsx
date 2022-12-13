@@ -93,13 +93,17 @@ const LoginComponent = () => {
       <Box className={style["innerBox"]}>
         <Box className={style["formBox"]}>
           <Grid container spacing={{ md: 4 }}>
-            <Grid item md={6} className={style["image-grid"]}>
-              <Image
-                src={loginImage}
-                alt="Login Image"
-                className={style["user-image"]}
-              />
-            </Grid>
+            <Grid
+              item
+              md={6}
+              className={style["image-grid"]}
+              sx={{
+                backgroundImage: `url(https://connectwell-5f9f8.web.app/LoginImage.jpg)`,
+                backgroundSize: "contain",
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "center",
+              }}
+            ></Grid>
             <Grid item md={6}>
               <Grid container component="form" rowGap={2} ref={formReference}>
                 <Grid item xs={12}>
