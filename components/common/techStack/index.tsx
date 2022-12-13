@@ -16,6 +16,8 @@ import { Stack } from "@mui/system";
 import usePagination from "../pagination";
 import { getTechStackList } from "../../../apis/loginSignup";
 import { useRouter } from "next/router";
+import { setSnackbar } from "../../../side-effects/snackbarRedux";
+import { useAppDispatch } from "../../../side-effects/hooks";
 
 const TechStack = () => {
   const [techList, setTechList] = useState<any>([]);
@@ -27,6 +29,7 @@ const TechStack = () => {
   const PER_PAGE = 6;
   const count = Math.ceil(techList?.length / PER_PAGE);
   const newDATA = usePagination(techList, PER_PAGE);
+  const dispatch = useAppDispatch();
   const handleChange = (e: any, p: any) => {
     setPage(p);
     newDATA.jump(p);
@@ -37,9 +40,19 @@ const TechStack = () => {
     if (searchKeyword != "") {
       pay = { techName: searchKeyword };
     }
-    getTechStackList(pay).then((res) => {
-      setTechList(res.data);
-    });
+    getTechStackList(pay)
+      .then((res) => {
+        setTechList(res.data);
+      })
+      .catch((error) => {
+        dispatch(
+          setSnackbar({
+            isSnackbarOpen: true,
+            snackbarMessage: "Something went wrong, please try again later.",
+            snackbarType: "Error",
+          })
+        );
+      });
   }, [searchKeyword]);
 
   return (

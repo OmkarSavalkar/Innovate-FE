@@ -11,14 +11,27 @@ import {
   Typography,
 } from "@mui/material";
 import { getNews } from "../../../apis/dashboardApis";
+import { useAppDispatch } from "../../../side-effects/hooks";
+import { setSnackbar } from "../../../side-effects/snackbarRedux";
 
 const NewsComponent = () => {
   const [newsData, setNewsData] = useState<any>([]);
   const [newsCategory, setNewsCategory] = useState<string>("technology");
+  const dispatch = useAppDispatch();
   useEffect(() => {
-    getNews(newsCategory).then((res) => {
-      setNewsData(res.data.articles);
-    });
+    getNews(newsCategory)
+      .then((res) => {
+        setNewsData(res.data.articles);
+      })
+      .catch((error) => {
+        dispatch(
+          setSnackbar({
+            isSnackbarOpen: true,
+            snackbarMessage: "Something went wrong, please try again later.",
+            snackbarType: "Error",
+          })
+        );
+      });
   }, [newsCategory]);
 
   return (

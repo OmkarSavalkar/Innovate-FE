@@ -46,7 +46,7 @@ const LoginComponent = () => {
                 dispatch(
                   setSnackbar({
                     isSnackbarOpen: true,
-                    snackbarMessage: "Successfully logged In as Expert !",
+                    snackbarMessage: "Successfully logged In as Expert.",
                     snackbarType: "Success",
                   })
                 );
@@ -56,7 +56,7 @@ const LoginComponent = () => {
                   setSnackbar({
                     isSnackbarOpen: true,
                     snackbarMessage:
-                      "Access is not yet approved by your Manager !",
+                      "Access is not yet approved by your manager.",
                     snackbarType: "Error",
                   })
                 );
@@ -65,7 +65,7 @@ const LoginComponent = () => {
               dispatch(
                 setSnackbar({
                   isSnackbarOpen: true,
-                  snackbarMessage: "Successfully logged In !",
+                  snackbarMessage: "Successfully logged In.",
                   snackbarType: "Success",
                 })
               );

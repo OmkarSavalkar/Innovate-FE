@@ -19,6 +19,8 @@ import usePagination from "../../common/pagination";
 import { getTechExpertUsers } from "../../../apis/chat";
 import { styled } from "@mui/material/styles";
 import { useRouter } from "next/router";
+import { useAppDispatch } from "../../../side-effects/hooks";
+import { setSnackbar } from "../../../side-effects/snackbarRedux";
 
 const ExpertTechUsers = (props: any) => {
   const { item, currentTechObjId, firstItemTechObjId } = props;
@@ -31,6 +33,7 @@ const ExpertTechUsers = (props: any) => {
   const PER_PAGE = 8;
   const count = Math.ceil(techUsers?.length / PER_PAGE);
   const newDATA = usePagination(techUsers, PER_PAGE);
+  const dispatch = useAppDispatch();
   const handleChange = (e: any, p: any) => {
     setPage(p);
     newDATA.jump(p);
@@ -43,14 +46,36 @@ const ExpertTechUsers = (props: any) => {
     }
     if (currentTechObjId == null) {
       firstItemTechObjId &&
-        getTechExpertUsers(firstItemTechObjId, payload).then((res) => {
-          setTechUsers(res?.data);
-        });
+        getTechExpertUsers(firstItemTechObjId, payload)
+          .then((res) => {
+            setTechUsers(res?.data);
+          })
+          .catch((error) => {
+            dispatch(
+              setSnackbar({
+                isSnackbarOpen: true,
+                snackbarMessage:
+                  "Something went wrong, please try again later.",
+                snackbarType: "Error",
+              })
+            );
+          });
     } else {
       currentTechObjId &&
-        getTechExpertUsers(currentTechObjId, payload).then((res) => {
-          setTechUsers(res?.data);
-        });
+        getTechExpertUsers(currentTechObjId, payload)
+          .then((res) => {
+            setTechUsers(res?.data);
+          })
+          .catch((error) => {
+            dispatch(
+              setSnackbar({
+                isSnackbarOpen: true,
+                snackbarMessage:
+                  "Something went wrong, please try again later.",
+                snackbarType: "Error",
+              })
+            );
+          });
     }
   }, [currentTechObjId, searchUser]);
 

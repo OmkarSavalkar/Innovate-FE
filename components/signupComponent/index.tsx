@@ -55,14 +55,26 @@ const SignupComponent = () => {
         setManagerNameList(response.data.data);
       })
       .catch((error) => {
-        console.log(error);
+        dispatch(
+          setSnackbar({
+            isSnackbarOpen: true,
+            snackbarMessage: "Something went wrong. Please try again later.",
+            snackbarType: "Error",
+          })
+        );
       });
     getTechStackList({})
       .then((response: any) => {
         setTechNameList(response.data);
       })
       .catch((error) => {
-        console.log(error);
+        dispatch(
+          setSnackbar({
+            isSnackbarOpen: true,
+            snackbarMessage: "Something went wrong. Please try again later.",
+            snackbarType: "Error",
+          })
+        );
       });
   }, []);
   const handleSignupExpert = () => {
@@ -86,7 +98,7 @@ const SignupComponent = () => {
               setSnackbar({
                 isSnackbarOpen: true,
                 snackbarMessage:
-                  "Signup successful, Email is sent to manager for approval !",
+                  "Signup successful, Email is sent to manager for approval.",
                 snackbarType: "Success",
               })
             );
@@ -94,7 +106,7 @@ const SignupComponent = () => {
             dispatch(
               setSnackbar({
                 isSnackbarOpen: true,
-                snackbarMessage: "Successfully siggned In !",
+                snackbarMessage: "Successfully siggned In.",
                 snackbarType: "Success",
               })
             );

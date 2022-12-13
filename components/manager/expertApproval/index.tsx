@@ -57,7 +57,7 @@ const ExpertApprovalComponent = (props: any) => {
         dispatch(
           setSnackbar({
             isSnackbarOpen: true,
-            snackbarMessage: "Expert approved successfully",
+            snackbarMessage: "Expert approved successfully.",
             snackbarType: "Success",
           })
         );
@@ -68,7 +68,7 @@ const ExpertApprovalComponent = (props: any) => {
         dispatch(
           setSnackbar({
             isSnackbarOpen: true,
-            snackbarMessage: "Unable to approve expert",
+            snackbarMessage: "Unable to approve expert.",
             snackbarType: "Error",
           })
         );

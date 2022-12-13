@@ -30,7 +30,13 @@ const ProfileComponent = (props: any) => {
         setTechNameList(response.data);
       })
       .catch((error) => {
-        console.log(error);
+        dispatch(
+          setSnackbar({
+            isSnackbarOpen: true,
+            snackbarMessage: "Something went wrong. Please try again later.",
+            snackbarType: "Error",
+          })
+        );
       });
   }, []);
 

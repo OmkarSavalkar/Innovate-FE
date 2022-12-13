@@ -41,7 +41,7 @@ const CreateNewStackDialog = (props: any) => {
           dispatch(
             setSnackbar({
               isSnackbarOpen: true,
-              snackbarMessage: "Successfully Added Technology !",
+              snackbarMessage: "Successfully added a technology.",
               snackbarType: "Success",
             })
           );
@@ -50,7 +50,7 @@ const CreateNewStackDialog = (props: any) => {
           dispatch(
             setSnackbar({
               isSnackbarOpen: true,
-              snackbarMessage: "Error in Adding TechStack !",
+              snackbarMessage: "Error in adding a technology",
               snackbarType: "Error",
             })
           );

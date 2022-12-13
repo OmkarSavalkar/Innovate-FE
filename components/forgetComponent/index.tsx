@@ -33,8 +33,8 @@ const ForgetComponent = (props: any) => {
             dispatch(
               setSnackbar({
                 isSnackbarOpen: true,
-                snackbarMessage: "Password reset successful !",
-                snackbarType: "Error",
+                snackbarMessage: "Password reset successful.",
+                snackbarType: "Success",
               })
             );
             router.push("/login");

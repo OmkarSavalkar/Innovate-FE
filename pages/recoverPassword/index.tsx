@@ -26,7 +26,7 @@ const RecoverPassword = () => {
             setSnackbar({
               isSnackbarOpen: true,
               snackbarMessage:
-                "Reset password link sent over email Please check else try again !",
+                "Reset password link sent over email Please check else try again.",
               snackbarType: "Success",
             })
           );
@@ -36,7 +36,7 @@ const RecoverPassword = () => {
         setSnackbar({
           isSnackbarOpen: true,
           snackbarMessage: "Enter username or Email",
-          snackbarType: "Success",
+          snackbarType: "Error",
         })
       );
     }

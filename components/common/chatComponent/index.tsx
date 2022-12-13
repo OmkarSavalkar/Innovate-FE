@@ -18,6 +18,8 @@ import { getChat, postChat } from "../../../apis/chat";
 import moment from "moment";
 import DashboardImage from "../../../public/ChatQ&A.png";
 import Image from "next/image";
+import { useAppDispatch } from "../../../side-effects/hooks";
+import { setSnackbar } from "../../../side-effects/snackbarRedux";
 const ChatComponent = () => {
   const router = useRouter();
   const [expertList, setExpertList] = useState<any>([]);
@@ -34,6 +36,7 @@ const ChatComponent = () => {
     JSON.parse(sessionStorage.getItem("user") || "")
   );
   const [techName, setTechName] = useState<String>("");
+  const dispatch = useAppDispatch();
   useEffect(() => {
     router.query.techId &&
       getTechStackById(router.query.techId)
@@ -42,7 +45,15 @@ const ChatComponent = () => {
           setSelectedExpert(response.data.techExperts[0]);
           setTechName(response.data.techName);
         })
-        .catch((error) => {});
+        .catch((error) => {
+          dispatch(
+            setSnackbar({
+              isSnackbarOpen: true,
+              snackbarMessage: "Something went wrong, please try again later.",
+              snackbarType: "Error",
+            })
+          );
+        });
   }, [router.query.techId]);
   useEffect(() => {
     router.query.techId &&
@@ -51,7 +62,15 @@ const ChatComponent = () => {
         .then((response) => {
           response?.data?.chatData && setChat(response.data.chatData);
         })
-        .catch((error) => {});
+        .catch((error) => {
+          dispatch(
+            setSnackbar({
+              isSnackbarOpen: true,
+              snackbarMessage: "Something went wrong, please try again later.",
+              snackbarType: "Error",
+            })
+          );
+        });
   }, [refreshChat, router.query.techId, user]);
   const handleSelectedExpert = (expert: any) => {
     setSelectedExpert(expert);
@@ -73,7 +92,15 @@ const ChatComponent = () => {
         setRefreshChat(!refreshChat);
         setCurrentChat("");
       })
-      .catch((error) => {});
+      .catch((error) => {
+        dispatch(
+          setSnackbar({
+            isSnackbarOpen: true,
+            snackbarMessage: "Something went wrong, please try again later.",
+            snackbarType: "Error",
+          })
+        );
+      });
   };
   return (
     <>

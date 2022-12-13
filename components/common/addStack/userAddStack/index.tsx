@@ -22,7 +22,7 @@ const UserAddStack = () => {
             setSnackbar({
               isSnackbarOpen: true,
               snackbarMessage:
-                "Successfully sent Email request to Manager, Please wait for sometime !",
+                "Sent Email request to Manager, Please wait for sometime.",
               snackbarType: "Success",
             })
           );
@@ -32,7 +32,7 @@ const UserAddStack = () => {
             setSnackbar({
               isSnackbarOpen: true,
               snackbarMessage:
-                "Error in sending request mail, try connecting your manager !",
+                "Error in sending request mail, try connecting to your manager.",
               snackbarType: "Error",
             })
           );
