@@ -12,6 +12,7 @@ import ManagerAddStack from "../../components/common/addStack/managerAddStack";
 import PendingList from "../../components/manager/pendingList";
 import DiscussComponent from "../../components/discussComponent";
 import NewsComponent from "../../components/common/newsComponent";
+import TrendingChat from "../../components/common/trendingChat";
 
 const Dashboard = () => {
   const [userData, setUserData] = useState<any>();
@@ -101,14 +102,13 @@ const Dashboard = () => {
             <NewsComponent key={2} />,
           ]}
           rightTop={[
-            <>Top Tech Stack</>,
-            <>
-              <PendingList
-                pendingData={pendingData}
-                approvedData={approvedData}
-                setDirectExpertOpen={setDirectExpertOpen}
-              />
-            </>,
+            <TrendingChat key={0} />,
+            <PendingList
+              pendingData={pendingData}
+              approvedData={approvedData}
+              setDirectExpertOpen={setDirectExpertOpen}
+              key={1}
+            />,
           ]}
           rightBottom={[
             <div key={0}>
@@ -134,7 +134,7 @@ const Dashboard = () => {
             <DiscussComponent key={1} userData={userData} />,
             <NewsComponent key={2} />,
           ]}
-          rightTop={[<>Top Tech Stack</>, <>Top Manage Expert</>]}
+          rightTop={[<TrendingChat key={0} />]}
           rightBottom={[
             <div key={0}>
               <UserAddStack />
@@ -157,7 +157,7 @@ const Dashboard = () => {
             </div>,
             <NewsComponent key={1} />,
           ]}
-          rightTop={[<>Top Tech Stack</>, <>Top Manage Expert</>]}
+          rightTop={[<TrendingChat key={0} />]}
           rightBottom={[
             <div key={0}>
               <UserAddStack />
