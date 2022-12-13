@@ -30,7 +30,6 @@ const CreateNewStackDialog = (props: any) => {
 
   const handleSubmit = () => {
     let payload = {
-      techId: 17,
       techName: techName,
       techDescription: techDescription,
       techImgUrl: techUrl,

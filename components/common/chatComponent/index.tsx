@@ -86,6 +86,7 @@ const ChatComponent = () => {
       userId: user._id,
       techId: router.query.techId,
       chatData: tempChat,
+      sentAs: router.query.from,
     };
     postChat(payload)
       .then((response) => {
