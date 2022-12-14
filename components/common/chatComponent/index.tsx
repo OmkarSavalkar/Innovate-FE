@@ -256,9 +256,11 @@ const ChatComponent = () => {
                           expert?.availability == "true" ? "success" : "error"
                         }
                       />
-                      <AppreciationCard
-                        handleAppreciation={() => handleAppreciation(expert)}
-                      />
+                      {expert._id !== loggedInUser._id && (
+                        <AppreciationCard
+                          handleAppreciation={() => handleAppreciation(expert)}
+                        />
+                      )}
                     </Toolbar>
                   );
                 })}
