@@ -21,6 +21,7 @@ import Image from "next/image";
 import { useAppDispatch } from "../../../side-effects/hooks";
 import { setSnackbar } from "../../../side-effects/snackbarRedux";
 import AppreciationCard from "../apprecationCard";
+import { appreciateExpert } from "../../../apis/expert";
 const ChatComponent = () => {
   const router = useRouter();
   const [expertList, setExpertList] = useState<any>([]);
@@ -93,6 +94,27 @@ const ChatComponent = () => {
       .then((response) => {
         setRefreshChat(!refreshChat);
         setCurrentChat("");
+      })
+      .catch((error) => {
+        dispatch(
+          setSnackbar({
+            isSnackbarOpen: true,
+            snackbarMessage: "Something went wrong, please try again later.",
+            snackbarType: "Error",
+          })
+        );
+      });
+  };
+  const handleAppreciation = (expert: any) => {
+    appreciateExpert(expert._id)
+      .then((response) => {
+        dispatch(
+          setSnackbar({
+            isSnackbarOpen: true,
+            snackbarMessage: "You have appreciated the expert successfully.",
+            snackbarType: "Success",
+          })
+        );
       })
       .catch((error) => {
         dispatch(
@@ -223,7 +245,9 @@ const ChatComponent = () => {
                       >
                         {expert.fullName}
                       </Typography>
-                      <AppreciationCard />
+                      <AppreciationCard
+                        handleAppreciation={() => handleAppreciation(expert)}
+                      />
                     </Toolbar>
                   );
                 })}

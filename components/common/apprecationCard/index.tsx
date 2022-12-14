@@ -3,24 +3,19 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import ThumbUpIcon from "@mui/icons-material/ThumbUp";
-import { IconButton } from "@mui/material";
-const style = {
-  position: "absolute" as "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: 400,
-  bgcolor: "background.paper",
-  border: "2px solid #000",
-  boxShadow: 24,
-  p: 4,
-  backgroundImage: `url(https://connectwell-5f9f8.web.app/confetti.gif)`,
-  backgroundSize: "contain",
-  backgroundRepeat: "no-repeat",
-  backgroundPosition: "center",
-};
+import {
+  Card,
+  IconButton,
+  CardActionArea,
+  CardContent,
+  CardActions,
+  Button,
+  Toolbar,
+} from "@mui/material";
+import styles from "./index.module.css";
 
-const AppreciationCard = () => {
+const AppreciationCard = (props: any) => {
+  const { handleAppreciation } = props;
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -35,13 +30,79 @@ const AppreciationCard = () => {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            Text in a modal
-          </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-          </Typography>
+        <Box className={styles["modal-style"]}>
+          <Card
+            sx={{
+              borderRadius: "10px",
+              backgroundColor: "rgba(255, 255, 255, 0.753)",
+            }}
+            className={styles["appreciation-style"]}
+            elevation={0}
+          >
+            <CardActionArea>
+              <Box
+                sx={{
+                  borderRadius: "50%",
+                  width: "150px",
+                  height: "150px",
+                  transform: "translate(180%, 46%)",
+                  backgroundImage: `url(https://connectwell-5f9f8.web.app/appreciationCard.png)`,
+                  backgroundSize: "contain",
+                  backgroundRepeat: "no-repeat",
+                  backgroundPosition: "center",
+                }}
+              ></Box>
+              <CardContent
+                sx={{
+                  paddingTop: "5px",
+                  bgcolor: "#e4dbff",
+                  margin: "20px",
+                  textAlign: "center",
+                  overflow: "auto",
+                }}
+              >
+                <Toolbar></Toolbar>
+                <Typography variant="h5" sx={{ fontWeight: 600 }}>
+                  Appreciate the efforts
+                </Typography>
+                <Typography
+                  variant="body2"
+                  color="text.secondary"
+                  sx={{
+                    overflow: "hidden",
+                    textOverflow: "ellipsis",
+                    display: "-webkit-box",
+                    WebkitLineClamp: "5",
+                    WebkitBoxOrient: "vertical",
+                  }}
+                >
+                  No one who achieves success dose so without the help of
+                  others. the wise and confident acknowledge this help with
+                  gratitude.
+                </Typography>
+              </CardContent>
+            </CardActionArea>
+            <CardActions
+              sx={{
+                paddingTop: "5px",
+                display: "flex",
+                justifyContent: "center",
+              }}
+            >
+              <Button
+                size="small"
+                color="primary"
+                variant="contained"
+                sx={{ bgcolor: "#3d156b" }}
+                onClick={() => {
+                  handleAppreciation();
+                  handleClose();
+                }}
+              >
+                Say Thanks
+              </Button>
+            </CardActions>
+          </Card>
         </Box>
       </Modal>
     </>
