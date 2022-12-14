@@ -6,7 +6,7 @@ import { useAppDispatch } from "../../../side-effects/hooks";
 import { setSnackbar } from "../../../side-effects/snackbarRedux";
 const TrendingChat = () => {
   const dispatch = useAppDispatch();
-  const [trendingTech, setTrendingTech] = useState<any>();
+  const [trendingTech, setTrendingTech] = useState<any>([]);
   useEffect(() => {
     getTrendingTech()
       .then((response) => {
@@ -29,23 +29,24 @@ const TrendingChat = () => {
       </Typography>
       <Grid container sx={{ padding: "30px" }}>
         <Grid item xs={12}>
-          <Grid>
-            <Card
-              elevation={0}
-              sx={{
-                display: "flex",
-                cursor: "pointer",
-                justifyContent: "center",
-                alignItems: "center",
-                textAlign: "center",
-                borderRadius: "12px",
-                flexWrap: "wrap",
-                aspectRatio: "18 / 9",
-                backgroundColor: "transparent",
+          <Card
+            elevation={0}
+            sx={{
+              display: "flex",
+              cursor: "pointer",
+              justifyContent: "center",
+              alignItems: "center",
+              textAlign: "center",
+              borderRadius: "12px",
+              flexWrap: "wrap",
+              aspectRatio: "18 / 9",
+              backgroundColor: "transparent",
 
-                border: "dashed rebeccapurple",
-              }}
-            >
+              border: "dashed rebeccapurple",
+            }}
+          >
+            {" "}
+            {trendingTech.length !== 0 && (
               <Grid item md={4} xs={12}>
                 <CardMedia
                   component="img"
@@ -54,15 +55,21 @@ const TrendingChat = () => {
                   sx={{ width: "95%", marginLeft: "5px" }}
                 />
               </Grid>
-              <Grid item md={8} xs={12}>
-                <CardContent>
+            )}
+            <Grid item md={8} xs={12}>
+              <CardContent>
+                {trendingTech.length !== 0 ? (
                   <Typography component="p" variant="h6">
                     {trendingTech && trendingTech?.techName}
                   </Typography>
-                </CardContent>
-              </Grid>
-            </Card>
-          </Grid>
+                ) : (
+                  <Typography component="p" variant="h6">
+                    No data found
+                  </Typography>
+                )}
+              </CardContent>
+            </Grid>
+          </Card>
         </Grid>
       </Grid>
     </Box>
