@@ -20,6 +20,7 @@ import DashboardImage from "../../../public/ChatQ&A.png";
 import Image from "next/image";
 import { useAppDispatch } from "../../../side-effects/hooks";
 import { setSnackbar } from "../../../side-effects/snackbarRedux";
+import AppreciationCard from "../apprecationCard";
 const ChatComponent = () => {
   const router = useRouter();
   const [expertList, setExpertList] = useState<any>([]);
@@ -218,9 +219,11 @@ const ChatComponent = () => {
                       <Typography
                         variant="h6"
                         className={styles["expert-toolbar-name"]}
+                        sx={{ flex: 1 }}
                       >
                         {expert.fullName}
                       </Typography>
+                      <AppreciationCard />
                     </Toolbar>
                   );
                 })}
