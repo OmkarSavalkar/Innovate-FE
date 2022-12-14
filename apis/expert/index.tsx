@@ -7,3 +7,9 @@ export const addExperties = (userId: any, payload: Object) => {
 export const appreciateExpert = (expertId: any) => {
   return axios.put(`${url}/appreciateExpert/${expertId}`);
 };
+export const setAvailability = (expertId: any, status: any) => {
+  return axios.put(`${url}/expertAvailablity/${expertId}/${status}`);
+};
+export const getExpert = (expertId: any) => {
+  return axios.get(`${url}/getExpert/${expertId}`);
+};

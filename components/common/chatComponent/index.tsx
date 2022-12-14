@@ -9,6 +9,7 @@ import {
   InputBase,
   IconButton,
   Paper,
+  Chip,
 } from "@mui/material";
 import { getTechStackById } from "../../../apis/techStack";
 import { useRouter } from "next/router";
@@ -245,6 +246,16 @@ const ChatComponent = () => {
                       >
                         {expert.fullName}
                       </Typography>
+                      <Chip
+                        label={
+                          expert?.availability == "true"
+                            ? "Available"
+                            : "Unavailable"
+                        }
+                        color={
+                          expert?.availability == "true" ? "success" : "error"
+                        }
+                      />
                       <AppreciationCard
                         handleAppreciation={() => handleAppreciation(expert)}
                       />
