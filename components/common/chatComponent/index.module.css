@@ -45,10 +45,6 @@
   text-overflow: ellipsis;
   padding: 10px;
 }
-.expert-list {
-  height: 450px;
-  overflow: auto;
-}
 .chat-box {
   padding: 20px;
 }

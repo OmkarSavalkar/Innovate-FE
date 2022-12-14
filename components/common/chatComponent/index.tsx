@@ -172,7 +172,28 @@ const ChatComponent = () => {
         </Grid>
         {expertList !== undefined && expertList.length !== 0 ? (
           <>
-            <Grid item xs={12} md={5} className={styles["expert-list"]}>
+            <Grid
+              item
+              xs={12}
+              md={5}
+              className={styles["expert-list"]}
+              sx={{
+                height: "450px",
+                overflow: "auto",
+                listStyle: "none",
+                "&::-webkit-scrollbar": {
+                  width: "0.4em",
+                },
+                "&::-webkit-scrollbar-track": {
+                  boxShadow: "inset 0 0 6px rgba(0,0,0,0.00)",
+                  webkitBoxShadow: "inset 0 0 6px rgba(0,0,0,0.00)",
+                },
+                "&::-webkit-scrollbar-thumb": {
+                  backgroundColor: "rebeccapurple",
+                  outline: "1px solid slategrey",
+                },
+              }}
+            >
               {expertList &&
                 expertList.map((expert: any, index: number) => {
                   return (
