@@ -13,3 +13,7 @@ export const setAvailability = (expertId: any, status: any) => {
 export const getExpert = (expertId: any) => {
   return axios.get(`${url}/getExpert/${expertId}`);
 };
+
+export const getExpertLeaderBoardList = () => {
+  return axios.get(`${url}/leaderboardExperts`);
+};

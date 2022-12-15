@@ -18,3 +18,7 @@ export const getNews = (newsCategory: string) => {
     `https://newsapi.org/v2/top-headlines?language=en&category=${newsCategory}&sortBy=popularity&sortBy=relevancy&sortBy=publishedAt&pageSize=50&apiKey=21f7690357db4456b30f9bf04a2f987e`
   );
 };
+
+export const getAllRolesCount = () => {
+  return axios.get(`${url}/allRolesCount`);
+};

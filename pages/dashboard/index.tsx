@@ -13,6 +13,7 @@ import PendingList from "../../components/manager/pendingList";
 import DiscussComponent from "../../components/discussComponent";
 import NewsComponent from "../../components/common/newsComponent";
 import TrendingChat from "../../components/common/trendingChat";
+import ExpertBoard from "../../components/common/expertBoard";
 
 const Dashboard = () => {
   const [userData, setUserData] = useState<any>();
@@ -38,6 +39,7 @@ const Dashboard = () => {
   }, [dispatch]);
 
   useEffect(() => {
+    console.log("data", data);
     let totalExpert =
       data?.data?.pendingApproval && data?.data?.approvedExperts
         ? [...data?.data?.pendingApproval, ...data?.data?.approvedExperts]
@@ -84,6 +86,7 @@ const Dashboard = () => {
           sideBarList={[
             { sideBarName: "Techstacks", secondaryLayout: false },
             { sideBarName: "Manage Experts", secondaryLayout: false },
+            { sideBarName: "Expert Board", secondaryLayout: true },
             { sideBarName: "News", secondaryLayout: true },
           ]}
           topCard={<UserCard />}
@@ -99,7 +102,8 @@ const Dashboard = () => {
                 setToggleExpert={setToggleExpert}
               />
             </div>,
-            <NewsComponent key={2} />,
+            <ExpertBoard key={2} userData={userData} flag={"Non-expert"} />,
+            <NewsComponent key={3} />,
           ]}
           rightTop={[
             <TrendingChat key={0} />,
@@ -124,23 +128,18 @@ const Dashboard = () => {
           sideBarList={[
             { sideBarName: "Techstacks", secondaryLayout: false },
             { sideBarName: "Discuss Forum", secondaryLayout: true },
+            { sideBarName: "Expert Board", secondaryLayout: true },
             { sideBarName: "News", secondaryLayout: true },
           ]}
           topCard={<UserCard />}
           main={[
-            <div key={0}>
-              <TechStack />
-            </div>,
+            <TechStack key={0} />,
             <DiscussComponent key={1} userData={userData} />,
-            <NewsComponent key={2} />,
+            <ExpertBoard key={2} userData={userData} flag={"expert"} />,
+            <NewsComponent key={3} />,
           ]}
           rightTop={[<TrendingChat key={0} />]}
-          rightBottom={[
-            <div key={0}>
-              <UserAddStack />
-            </div>,
-            <>Bottom Manage Expert</>,
-          ]}
+          rightBottom={[<UserAddStack key={0} />, <>Bottom Manage Expert</>]}
         />
       )}
       {userData?.signupRole === "User" && (
@@ -148,22 +147,17 @@ const Dashboard = () => {
           secondaryLayout={false}
           sideBarList={[
             { sideBarName: "Techstacks", secondaryLayout: false },
+            { sideBarName: "Expert Board", secondaryLayout: true },
             { sideBarName: "News", secondaryLayout: true },
           ]}
           topCard={<UserCard />}
           main={[
-            <div key={0}>
-              <TechStack />
-            </div>,
-            <NewsComponent key={1} />,
+            <TechStack key={0} />,
+            <ExpertBoard key={1} userData={userData} flag={"Non-expert"} />,
+            <NewsComponent key={2} />,
           ]}
           rightTop={[<TrendingChat key={0} />]}
-          rightBottom={[
-            <div key={0}>
-              <UserAddStack />
-            </div>,
-            <>Bottom Manage Expert</>,
-          ]}
+          rightBottom={[<UserAddStack key={0} />, <>Bottom Manage Expert</>]}
         />
       )}
     </>
