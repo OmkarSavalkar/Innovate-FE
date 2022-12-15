@@ -1,4 +1,4 @@
-export const url = `https://modern-fashion-ant.cyclic.app`;
+export const url = `https://connectwell-5f9f8.web.app`;
 
 export const colorScheme = {
   color1: "#051960",
