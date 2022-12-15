@@ -25,6 +25,7 @@ import approvedExperts from "../../../public/Approved.png";
 import Image from "next/image";
 import { approveExperts } from "../../../apis/manager";
 import { setSnackbar } from "../../../side-effects/snackbarRedux";
+import { colorScheme } from "../../../utils/constant";
 
 const ExpertApprovalComponent = (props: any) => {
   const { directExpertOpen, toggleExpert, setToggleExpert } = props;
@@ -114,7 +115,7 @@ const ExpertApprovalComponent = (props: any) => {
               title={
                 <Toolbar
                   sx={{
-                    backgroundColor: "#e4dbff",
+                    backgroundColor: colorScheme.color9,
                     fontFamily: "fantasy",
                     textAlign: "center",
                   }}

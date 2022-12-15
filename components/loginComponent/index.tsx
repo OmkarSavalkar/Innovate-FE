@@ -16,6 +16,7 @@ import Image from "next/image";
 import { postLoginData } from "../../apis/loginSignup";
 import { useAppDispatch } from "../../side-effects/hooks";
 import { setSnackbar } from "../../side-effects/snackbarRedux";
+import { colorScheme } from "../../utils/constant";
 
 const LoginComponent = () => {
   const dispatch = useAppDispatch();
@@ -89,7 +90,12 @@ const LoginComponent = () => {
   };
 
   return (
-    <Box className={style["loginContainer"]}>
+    <Box
+      className={style["loginContainer"]}
+      sx={{
+        backgroundImage: `linear-gradient(to right, ${colorScheme.color1}, ${colorScheme.color4}, ${colorScheme.color8})`,
+      }}
+    >
       <Box className={style["innerBox"]}>
         <Box className={style["formBox"]}>
           <Grid container spacing={{ md: 4 }}>

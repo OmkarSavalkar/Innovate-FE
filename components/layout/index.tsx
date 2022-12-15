@@ -25,6 +25,7 @@ import Image from "next/image";
 import DashboardImage from "../../public/ManagerDashboard.gif";
 import NewsComponent from "../common/newsComponent";
 import DiscussComponent from "../discussComponent";
+import { colorScheme } from "../../utils/constant";
 
 const drawerWidth = 200;
 
@@ -162,7 +163,7 @@ export default function LayoutComponent(props: Props) {
     <Box
       sx={{
         display: "flex",
-        backgroundColor: "#3d156b",
+        backgroundColor: colorScheme.color1,
       }}
     >
       <CssBaseline />
@@ -314,7 +315,7 @@ export default function LayoutComponent(props: Props) {
               <Grid item xs={12}>
                 <Paper
                   sx={{
-                    backgroundColor: "#e4dbff",
+                    backgroundColor: colorScheme.color9,
                     height: "160px",
                     marginLeft: "30px",
                     overflow: "auto",
@@ -357,8 +358,7 @@ export default function LayoutComponent(props: Props) {
               <Grid item md={8}>
                 <Paper
                   sx={{
-                    backgroundImage:
-                      "linear-gradient(to bottom, #3d156b, #772168)",
+                    backgroundImage: `linear-gradient(to bottom, ${colorScheme.color1}, ${colorScheme.color2})`,
                     height: "500px",
                     marginLeft: "30px",
                     padding: "20px",
@@ -371,8 +371,8 @@ export default function LayoutComponent(props: Props) {
               <Grid item md={4}>
                 <Paper
                   sx={{
-                    backgroundImage:
-                      "linear-gradient(to bottom, #cd3f66, #a22965)",
+                    backgroundImage: `linear-gradient(to bottom, ${colorScheme.color5}, ${colorScheme.color7})`,
+
                     height: "240px",
                     marginLeft: "30px",
                     marginBottom: "20px",
@@ -383,8 +383,7 @@ export default function LayoutComponent(props: Props) {
                 </Paper>
                 <Paper
                   sx={{
-                    backgroundImage:
-                      "linear-gradient(to bottom, #ea636c, #faab7b)",
+                    backgroundColor: colorScheme.color5,
                     height: "240px",
                     marginLeft: "30px",
                   }}

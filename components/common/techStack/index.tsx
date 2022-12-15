@@ -18,6 +18,7 @@ import { getTechStackList } from "../../../apis/loginSignup";
 import { useRouter } from "next/router";
 import { setSnackbar } from "../../../side-effects/snackbarRedux";
 import { useAppDispatch } from "../../../side-effects/hooks";
+import { colorScheme } from "../../../utils/constant";
 
 const TechStack = () => {
   const [techList, setTechList] = useState<any>([]);
@@ -87,7 +88,7 @@ const TechStack = () => {
               setSearchKeyword(e.target.value);
             }}
             sx={{
-              backgroundColor: "#e4dbff",
+              backgroundColor: colorScheme.color9,
               border: "1px solid white",
               padding: "0px 8px",
               "& ::placeholder": {
@@ -133,8 +134,7 @@ const TechStack = () => {
                     aspectRatio: "18 / 9",
                     "&:hover": {
                       color: "white",
-                      backgroundImage:
-                        "linear-gradient(to bottom, #ea636c, #faab7b)",
+                      backgroundImage: `linear-gradient(to bottom, ${colorScheme.color5}, ${colorScheme.color4})`,
                     },
                     backgroundColor: "#edf0ee",
                   }}

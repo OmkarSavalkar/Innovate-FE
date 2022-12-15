@@ -4,7 +4,6 @@
   align-items: center;
   min-height: 100vh;
   flex-direction: column;
-  background-image: linear-gradient(to right, #3d156b, #df3562, #feb97e);
 }
 .innerBox {
   position: relative;

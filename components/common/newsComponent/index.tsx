@@ -13,6 +13,7 @@ import {
 import { getNews } from "../../../apis/dashboardApis";
 import { useAppDispatch } from "../../../side-effects/hooks";
 import { setSnackbar } from "../../../side-effects/snackbarRedux";
+import { colorScheme } from "../../../utils/constant";
 
 const NewsComponent = () => {
   const [newsData, setNewsData] = useState<any>([]);
@@ -46,7 +47,7 @@ const NewsComponent = () => {
       >
         <Typography
           sx={{
-            backgroundImage: "linear-gradient(to bottom, #cd3f66, #a22965)",
+            backgroundImage: `linear-gradient(to bottom, ${colorScheme.color1}, ${colorScheme.color4})`,
             borderRadius: "15px",
             margin: "0 5px",
             padding: "2px 15px",
@@ -62,7 +63,7 @@ const NewsComponent = () => {
         </Typography>
         <Typography
           sx={{
-            backgroundImage: "linear-gradient(to bottom, #cd3f66, #a22965)",
+            backgroundImage: `linear-gradient(to bottom, ${colorScheme.color1}, ${colorScheme.color4})`,
             borderRadius: "15px",
             margin: "0 5px",
             padding: "2px 15px",
@@ -78,7 +79,7 @@ const NewsComponent = () => {
         </Typography>
         <Typography
           sx={{
-            backgroundImage: "linear-gradient(to bottom, #cd3f66, #a22965)",
+            backgroundImage: `linear-gradient(to bottom, ${colorScheme.color1}, ${colorScheme.color4})`,
             borderRadius: "15px",
             margin: "0 5px",
             padding: "2px 15px",
@@ -166,8 +167,7 @@ const NewsComponent = () => {
                       sx={{
                         "&:hover": {
                           borderRadius: "18px",
-                          backgroundImage:
-                            "linear-gradient(to bottom, #cd3f66, #a22965)",
+                          backgroundImage: `linear-gradient(to bottom, ${colorScheme.color1}, ${colorScheme.color4})`,
                           color: "white",
                           transition: "0.5s",
                         },

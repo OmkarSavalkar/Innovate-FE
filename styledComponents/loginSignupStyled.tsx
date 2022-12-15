@@ -1,5 +1,6 @@
 import { keyframes } from "@emotion/react";
 import styled from "@emotion/styled";
+import { colorScheme } from "../utils/constant";
 
 export const LoginSignupContainer = styled.div`
   display: flex;
@@ -7,7 +8,13 @@ export const LoginSignupContainer = styled.div`
   align-items: center;
   min-height: 100vh;
   flex-direction: column;
-  background-image: linear-gradient(to right, #3d156b, #df3562, #feb97e);
+
+  background-image: linear-gradient(
+    to right,
+    ${colorScheme.color1},
+    ${colorScheme.color4},
+    ${colorScheme.color8}
+  );
 `;
 
 const animate = keyframes`

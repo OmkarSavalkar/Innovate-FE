@@ -13,6 +13,7 @@ import {
   Toolbar,
 } from "@mui/material";
 import styles from "./index.module.css";
+import { colorScheme } from "../../../utils/constant";
 
 const AppreciationCard = (props: any) => {
   const { handleAppreciation } = props;
@@ -55,7 +56,7 @@ const AppreciationCard = (props: any) => {
               <CardContent
                 sx={{
                   paddingTop: "5px",
-                  bgcolor: "#e4dbff",
+                  bgcolor: colorScheme.color9,
                   margin: "20px",
                   textAlign: "center",
                   overflow: "auto",
@@ -93,7 +94,7 @@ const AppreciationCard = (props: any) => {
                 size="small"
                 color="primary"
                 variant="contained"
-                sx={{ bgcolor: "#3d156b" }}
+                sx={{ bgcolor: colorScheme.color1 }}
                 onClick={() => {
                   handleAppreciation();
                   handleClose();

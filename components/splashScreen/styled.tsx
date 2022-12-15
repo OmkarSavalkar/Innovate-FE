@@ -1,7 +1,13 @@
 import styled from "@emotion/styled";
+import { colorScheme } from "../../utils/constant";
 
 export const Container = styled.div`
-  background-image: linear-gradient(to right, #3d156b, #df3562, #feb97e);
+  background-image: linear-gradient(
+    to right,
+    ${colorScheme.color1},
+    ${colorScheme.color4},
+    ${colorScheme.color8}
+  );
   height: 100vh;
 `;
 

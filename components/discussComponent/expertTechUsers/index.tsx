@@ -21,6 +21,7 @@ import { styled } from "@mui/material/styles";
 import { useRouter } from "next/router";
 import { useAppDispatch } from "../../../side-effects/hooks";
 import { setSnackbar } from "../../../side-effects/snackbarRedux";
+import { colorScheme } from "../../../utils/constant";
 
 const ExpertTechUsers = (props: any) => {
   const { item, currentTechObjId, firstItemTechObjId } = props;
@@ -126,7 +127,7 @@ const ExpertTechUsers = (props: any) => {
             sx={{
               padding: "0px 16px 0px 16px",
               marginRight: "10px",
-              backgroundImage: "linear-gradient(to bottom, #ea636c, #faab7b)",
+              backgroundImage: `linear-gradient(to bottom, ${colorScheme.color1}, ${colorScheme.color4})`,
               borderRadius: "10px",
             }}
           >
@@ -140,7 +141,7 @@ const ExpertTechUsers = (props: any) => {
               setSearchUser(e.target.value);
             }}
             sx={{
-              backgroundColor: "#e4dbff",
+              backgroundColor: colorScheme.color9,
               border: "2px solid white",
               padding: "0px 8px",
               "& ::placeholder": {
@@ -207,16 +208,19 @@ const ExpertTechUsers = (props: any) => {
                       }}
                     >
                       <div className={style["card-content"]}>
-                        <div className={style["avatar-background"]}>
+                        <Box
+                          className={style["avatar-background"]}
+                          sx={{ backgroundColor: colorScheme.color7 }}
+                        >
                           <Avatar
                             sx={{
-                              backgroundColor: "#3d156b",
+                              backgroundColor: colorScheme.color1,
                               margin: "0 auto",
                             }}
                           >
                             {item?.fullName[0]}
                           </Avatar>
-                        </div>
+                        </Box>
                         <Typography
                           variant="h5"
                           component={"p"}
@@ -281,7 +285,7 @@ const ExpertTechUsers = (props: any) => {
               sx={{
                 margin: "20px auto",
                 color: "white",
-                backgroundColor: "#3d156b",
+                backgroundColor: colorScheme.color1,
                 padding: "8px",
                 borderRadius: "20px",
               }}

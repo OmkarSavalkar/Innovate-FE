@@ -23,6 +23,7 @@ import { useAppDispatch } from "../../../side-effects/hooks";
 import { setSnackbar } from "../../../side-effects/snackbarRedux";
 import AppreciationCard from "../apprecationCard";
 import { appreciateExpert } from "../../../apis/expert";
+import { colorScheme } from "../../../utils/constant";
 const ChatComponent = () => {
   const router = useRouter();
   const [expertList, setExpertList] = useState<any>([]);
@@ -155,7 +156,9 @@ const ChatComponent = () => {
           <Paper
             sx={{
               backgroundColor:
-                router.query.from === "expertTechUser" ? "#D3F5CE" : "#b0d3d7",
+                router.query.from === "expertTechUser"
+                  ? colorScheme.color9
+                  : colorScheme.color5_1,
               height: "150px",
               overflow: "auto",
               marginBottom: "20px",
@@ -228,11 +231,11 @@ const ChatComponent = () => {
                         backgroundColor:
                           router.query.from === "expertTechUser"
                             ? selectedExpert._id === expert._id
-                              ? "#00AFB9"
-                              : "#9ae2e6"
+                              ? colorScheme.color6
+                              : colorScheme.color9
                             : selectedExpert._id === expert._id
-                            ? "#bca9f5"
-                            : "#e4dbff",
+                            ? "#b0d3d7"
+                            : colorScheme.color5_1,
                       }}
                       onClick={() => handleSelectedExpert(expert)}
                     >
@@ -248,12 +251,16 @@ const ChatComponent = () => {
                       </Typography>
                       <Chip
                         label={
-                          expert?.availability == "true"
+                          expert?.availability == "true" ||
+                          expert?.availability == true
                             ? "Available"
                             : "Unavailable"
                         }
                         color={
-                          expert?.availability == "true" ? "success" : "error"
+                          expert?.availability == "true" ||
+                          expert?.availability == true
+                            ? "success"
+                            : "error"
                         }
                       />
                       {expert._id !== loggedInUser._id && (
@@ -279,7 +286,7 @@ const ChatComponent = () => {
                 sx={{
                   backgroundColor:
                     router.query.from === "expertTechUser"
-                      ? "#D3F5CEbb"
+                      ? "#cb98edcc"
                       : "#b0d3d793",
                   height: "300px",
                   width: "300px",
@@ -291,7 +298,7 @@ const ChatComponent = () => {
                   sx={{
                     backgroundColor:
                       router.query.from === "expertTechUser"
-                        ? "#D3F5CEd8"
+                        ? "#cb98eddd"
                         : "#b0d3d7c0",
                     height: "200px",
                     width: "200px",
@@ -307,7 +314,7 @@ const ChatComponent = () => {
                       borderRadius: "50%",
                       backgroundColor:
                         router.query.from === "expertTechUser"
-                          ? "#D3F5CE"
+                          ? colorScheme.color6
                           : "#b0d3d7",
                       backgroundImage:
                         router.query.from === "expertTechUser"
@@ -325,7 +332,7 @@ const ChatComponent = () => {
                   sx={{
                     backgroundColor:
                       router.query.from === "expertTechUser"
-                        ? "#D3F5CE"
+                        ? colorScheme.color6
                         : "#b0d3d7",
                   }}
                 >
@@ -341,7 +348,7 @@ const ChatComponent = () => {
                   sx={{
                     backgroundColor:
                       router.query.from === "expertTechUser"
-                        ? "#D3F5CE"
+                        ? colorScheme.color6
                         : "#b0d3d7",
                   }}
                 >
@@ -359,7 +366,7 @@ const ChatComponent = () => {
                   sx={{
                     backgroundColor:
                       router.query.from === "expertTechUser"
-                        ? "#D3F5CE"
+                        ? colorScheme.color6
                         : "#b0d3d7",
                   }}
                 >
@@ -380,8 +387,8 @@ const ChatComponent = () => {
                 sx={{
                   backgroundColor:
                     router.query.from === "expertTechUser"
-                      ? "#9ae2e6"
-                      : "#e4dbff",
+                      ? colorScheme.color9
+                      : colorScheme.color5_1,
                   maxHeight: "450px",
                   overflow: "auto",
                   listStyle: "none",
@@ -413,10 +420,10 @@ const ChatComponent = () => {
                               backgroundColor:
                                 router.query.from === "expertTechUser"
                                   ? chatItem.userName === loggedInUser.fullName
-                                    ? "#00AFB9"
+                                    ? colorScheme.color6
                                     : "white"
                                   : chatItem.userName === loggedInUser.fullName
-                                  ? "#bca9f5"
+                                  ? colorScheme.color5
                                   : "white",
                               borderRadius: "20px",
                               padding: "10px",

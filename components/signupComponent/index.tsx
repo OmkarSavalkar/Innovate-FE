@@ -23,6 +23,7 @@ import {
 } from "../../apis/loginSignup";
 import { useAppDispatch } from "../../side-effects/hooks";
 import { setSnackbar } from "../../side-effects/snackbarRedux";
+import { colorScheme } from "../../utils/constant";
 
 const SignupComponent = () => {
   const router = useRouter();
@@ -129,7 +130,12 @@ const SignupComponent = () => {
     setSignupRole(role);
   };
   return (
-    <Box className={styles["signupContainer"]}>
+    <Box
+      className={styles["signupContainer"]}
+      sx={{
+        backgroundImage: `linear-gradient(to right, ${colorScheme.color1}, ${colorScheme.color4}, ${colorScheme.color8})`,
+      }}
+    >
       <Box className={styles["innerBox"]}>
         <Box className={styles["formBox"]}>
           {signupRole === "" ? (
