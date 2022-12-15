@@ -1,4 +1,4 @@
-export const url = `https://connectwell-5f9f8.web.app`;
+export const url = `https://xconnect-9t40.onrender.com`;
 
 export const colorScheme = {
   color1: "#051960",
