@@ -24,6 +24,8 @@ import { setSnackbar } from "../../../side-effects/snackbarRedux";
 import AppreciationCard from "../apprecationCard";
 import { appreciateExpert } from "../../../apis/expert";
 import { colorScheme } from "../../../utils/constant";
+import PersonPinCircleIcon from "@mui/icons-material/PersonPinCircle";
+
 const ChatComponent = () => {
   const router = useRouter();
   const [expertList, setExpertList] = useState<any>([]);
@@ -82,8 +84,9 @@ const ChatComponent = () => {
   const handleSendChat = () => {
     let tempChat = chat;
     tempChat.push({
-      userName: loggedInUser.fullName,
+      userName: loggedInUser?.fullName,
       date: new Date(),
+      location: loggedInUser?.location,
       chatData: currentChat,
     });
     let payload = {
@@ -379,6 +382,25 @@ const ChatComponent = () => {
                     </Typography>
                   </Tooltip>
                 </Box>
+                <Box
+                  className={styles["box4"]}
+                  sx={{
+                    backgroundColor:
+                      router.query.from === "expertTechUser"
+                        ? colorScheme.color6
+                        : "#b0d3d7",
+                  }}
+                >
+                  <Typography variant="h5" fontFamily="fantasy">
+                    <PersonPinCircleIcon sx={{ marginRight: "5px" }} />
+                    Location
+                  </Typography>
+                  <Tooltip title={selectedExpert.location}>
+                    <Typography variant="body1">
+                      {selectedExpert?.location}
+                    </Typography>
+                  </Tooltip>
+                </Box>
               </Box>
             </Grid>
             <Grid item xs={12}>
@@ -438,10 +460,10 @@ const ChatComponent = () => {
                                 color: "rebeccapurple",
                               }}
                             >
-                              {chatItem.userName}
+                              {chatItem?.userName}
                             </Typography>
                             <Typography variant="body2">
-                              {chatItem.chatData}
+                              {chatItem?.chatData}
                             </Typography>
                             <Typography
                               variant="caption"
@@ -450,7 +472,21 @@ const ChatComponent = () => {
                                 color: "rebeccapurple",
                               }}
                             >
-                              {moment.utc(chatItem.date).local().format("L LT")}
+                              {moment
+                                .utc(chatItem?.date)
+                                .local()
+                                .format("L LT")}
+                              <Typography
+                                variant="body2"
+                                component={"span"}
+                                sx={{
+                                  color: "blue",
+                                  marginLeft: "4px",
+                                }}
+                              >
+                                <PersonPinCircleIcon sx={{ height: "15px" }} />
+                                {chatItem?.location}
+                              </Typography>
                             </Typography>
                           </Box>
                         </Grid>

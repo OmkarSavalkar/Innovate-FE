@@ -49,7 +49,9 @@ const SignupComponent = () => {
   const [password, setPassword] = useState<string>("");
   const [confirmPassword, setConfirmPassword] = useState<string>("");
   const [summary, setSummary] = useState<string>("");
+  const [location, setLocation] = useState<string>("");
   const formReference = useRef<any>(null);
+
   useEffect(() => {
     getManagerList()
       .then((response: any) => {
@@ -78,6 +80,7 @@ const SignupComponent = () => {
         );
       });
   }, []);
+
   const handleSignupExpert = () => {
     if (formReference.current.reportValidity()) {
       let tempTechStackId: any = [];
@@ -90,6 +93,7 @@ const SignupComponent = () => {
         password: password,
         techStackId: tech,
         summary: summary,
+        location: location,
       };
       postSignUpData(payload)
         .then((response: any) => {
@@ -112,7 +116,6 @@ const SignupComponent = () => {
               })
             );
           }
-
           router.push("/login");
         })
         .catch((error: any) => {
@@ -126,9 +129,11 @@ const SignupComponent = () => {
         });
     }
   };
+
   const handleSetRole = (role: string) => {
     setSignupRole(role);
   };
+
   return (
     <Box
       className={styles["signupContainer"]}
@@ -297,6 +302,22 @@ const SignupComponent = () => {
                 </Grid>
                 <Grid item xs={12} lg={3}>
                   <TextField
+                    label="Location"
+                    type={"text"}
+                    aria-label="summmary Input"
+                    variant="standard"
+                    required
+                    fullWidth
+                    value={location}
+                    onChange={(e) => setLocation(e.target.value)}
+                    sx={{
+                      marginTop: "5px",
+                      marginBottom: "5px",
+                    }}
+                  />
+                </Grid>
+                <Grid item xs={12} lg={3}>
+                  <TextField
                     label="Set Password"
                     type={"password"}
                     aria-label="password Input"
@@ -311,7 +332,7 @@ const SignupComponent = () => {
                     }}
                   />
                 </Grid>
-                <Grid item xs={12} lg={3}>
+                {/* <Grid item xs={12} lg={3}>
                   <TextField
                     label="Confirm Password"
                     type={"password"}
@@ -326,7 +347,7 @@ const SignupComponent = () => {
                       marginBottom: "5px",
                     }}
                   />
-                </Grid>
+                </Grid> */}
                 {signupRole === "Expert" && (
                   <Grid item xs={12} lg={6}>
                     <Autocomplete
@@ -354,32 +375,34 @@ const SignupComponent = () => {
                     />
                   </Grid>
                 )}
-                {signupRole === "Expert" && (
-                  <Grid item xs={12}>
-                    <TextField
-                      label="Summary"
-                      type={"text"}
-                      aria-label="summmary Input"
-                      variant="outlined"
-                      multiline
-                      rows={3}
-                      required
-                      fullWidth
-                      value={summary}
-                      onChange={(e) => setSummary(e.target.value)}
-                      sx={{
-                        marginTop: "5px",
-                        marginBottom: "5px",
-                      }}
-                    />
-                  </Grid>
-                )}
+                {/* {signupRole === "Expert" && ( */}
+                <Grid item xs={12}>
+                  <TextField
+                    label="Summary"
+                    type={"text"}
+                    aria-label="summmary Input"
+                    variant="outlined"
+                    multiline
+                    rows={3}
+                    required
+                    fullWidth
+                    value={summary}
+                    onChange={(e) => setSummary(e.target.value)}
+                    sx={{
+                      marginTop: "5px",
+                      marginBottom: "5px",
+                    }}
+                  />
+                </Grid>
+                {/* )} */}
                 <Grid item xs={12}>
                   <Button
                     className={styles["loginButton"]}
                     onClick={() => handleSignupExpert()}
                   >
-                    Signup
+                    {signupRole === "Expert"
+                      ? "Signup as Expert"
+                      : "Signup as User"}
                   </Button>
                 </Grid>
               </Grid>

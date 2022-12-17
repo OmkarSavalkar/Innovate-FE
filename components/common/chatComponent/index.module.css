@@ -16,7 +16,7 @@
   height: 100px;
   width: 350px;
   border-radius: 40px;
-  transform: translate(60%, -240%);
+  transform: translate(50%, -265%);
   position: relative;
   white-space: nowrap;
   overflow: hidden;
@@ -27,7 +27,7 @@
   height: 100px;
   width: 350px;
   border-radius: 40px;
-  transform: translate(80%, -200%);
+  transform: translate(75%, -255%);
   position: relative;
   white-space: nowrap;
   overflow: hidden;
@@ -38,7 +38,18 @@
   height: 100px;
   width: 350px;
   border-radius: 40px;
-  transform: translate(60%, -150%);
+  transform: translate(75%, -245%);
+  position: relative;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 10px;
+}
+.box4 {
+  height: 100px;
+  width: 350px;
+  border-radius: 40px;
+  transform: translate(50%, -235%);
   position: relative;
   white-space: nowrap;
   overflow: hidden;
