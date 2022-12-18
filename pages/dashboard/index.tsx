@@ -39,7 +39,6 @@ const Dashboard = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    console.log("data", data);
     let totalExpert =
       data?.data?.pendingApproval && data?.data?.approvedExperts
         ? [...data?.data?.pendingApproval, ...data?.data?.approvedExperts]

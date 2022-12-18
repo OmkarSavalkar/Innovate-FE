@@ -14,24 +14,33 @@ import { getNews } from "../../../apis/dashboardApis";
 import { useAppDispatch } from "../../../side-effects/hooks";
 import { setSnackbar } from "../../../side-effects/snackbarRedux";
 import { colorScheme } from "../../../utils/constant";
+import technologyNews from "../../../utils/constant/newsJSON/technologyNews.json";
+import businessNews from "../../../utils/constant/newsJSON/businessNews.json";
+import scienceNews from "../../../utils/constant/newsJSON/scienceNews.json";
 
 const NewsComponent = () => {
   const [newsData, setNewsData] = useState<any>([]);
   const [newsCategory, setNewsCategory] = useState<string>("technology");
   const dispatch = useAppDispatch();
+
   useEffect(() => {
     getNews(newsCategory)
       .then((res) => {
         setNewsData(res.data.articles);
       })
       .catch((error) => {
-        dispatch(
-          setSnackbar({
-            isSnackbarOpen: true,
-            snackbarMessage: "Something went wrong, please try again later.",
-            snackbarType: "Error",
-          })
-        );
+        newsCategory == "technology"
+          ? setNewsData(technologyNews?.articles)
+          : newsCategory == "business"
+          ? setNewsData(businessNews?.articles)
+          : setNewsData(scienceNews?.articles);
+        // dispatch(
+        //   setSnackbar({
+        //     isSnackbarOpen: true,
+        //     snackbarMessage: "Something went wrong, please try again later.",
+        //     snackbarType: "Error",
+        //   })
+        // );
       });
   }, [newsCategory]);
 

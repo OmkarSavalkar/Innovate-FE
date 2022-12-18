@@ -1,0 +1,656 @@
+{
+  "status": "ok",
+  "totalResults": 455,
+  "articles": [
+    {
+      "source": {
+        "id": "reuters",
+        "name": "Reuters"
+      },
+      "author": null,
+      "title": "Keystone cleanup turns remote Kansas valley into a small town - Reuters",
+      "description": "Farmer Bill Pannbacker got a call earlier this month from a representative from TC Energy Corp , telling him that its Keystone Pipeline, which runs through his farmland in rural Kansas, had suffered an oil leak.",
+      "url": "https://www.reuters.com/world/us/keystone-cleanup-turns-remote-kansas-valley-into-small-town-2022-12-18/",
+      "urlToImage": "https://www.reuters.com/resizer/CuQHUgbcpX-MdFlG3gvkWv85soE=/1200x628/smart/filters:quality(80)/cloudfront-us-east-2.images.arcpublishing.com/reuters/OJXIXT37JVP7FNJKFOAWCXFM3I.jpg",
+      "publishedAt": "2022-12-18T06:09:00Z",
+      "content": "WASHINGTON, Kan., Dec 18 (Reuters) - Farmer Bill Pannbacker got a call earlier this month from a representative from TC Energy Corp , telling him that its Keystone Pipeline, which runs through his fa… [+3624 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "YouTube"
+      },
+      "author": null,
+      "title": "Elon Musk Reinstates Twitter Accounts Of Suspended Journalists - India Today",
+      "description": "On Thursday, Musk removed a number of tech journalists from the website, including CNN's Donie O'Sullivan, Drew Harwell, and Ryan Mac of the New York Times, ...",
+      "url": "https://www.youtube.com/watch?v=mRf04Y-1HIY",
+      "urlToImage": "https://i.ytimg.com/vi/mRf04Y-1HIY/maxresdefault.jpg",
+      "publishedAt": "2022-12-18T05:27:38Z",
+      "content": null
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "New Zealand Herald"
+      },
+      "author": "Lane Nichols",
+      "title": "ANZ stands by refund decision after $31000 spent on customer's stolen cards - New Zealand Herald",
+      "description": "Bank believes she likely disclosed her password somehow or made it easy to guess.",
+      "url": "https://www.nzherald.co.nz/nz/anz-stands-by-refund-decision-after-31000-spent-on-customers-stolen-cards/S54L3KN7TREWFKVPSG2MX2AG2I/",
+      "urlToImage": "https://www.nzherald.co.nz/resizer/cpUFL7D0vD89TuO-L-y13AkwugA=/1200x675/smart/filters:quality(70)/cloudfront-ap-southeast-2.images.arcpublishing.com/nzme/Y22W33PNQFHJ3D2JG7X6NAMDEA.jpg",
+      "publishedAt": "2022-12-18T05:26:43Z",
+      "content": "Heritage Law director David Liu believes ANZ's fraud detection measures failed his mother. Photo / SuppliedAn Auckland lawyer plans to sue ANZ Bank following its refusal to reimburse $31,000 to his m… [+5329 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "YouTube"
+      },
+      "author": null,
+      "title": "NHTSA opens probe into GM's self-driving 'cruise' unit following major accidents - Yahoo Finance",
+      "description": "#GeneralMotors #GM #yahoofinance This segment originally aired on December 16, 2022.The National Highway Traffic Safety Administration (NHTSA) has opened a p...",
+      "url": "https://www.youtube.com/watch?v=g91IgC2XhwQ",
+      "urlToImage": "https://i.ytimg.com/vi/g91IgC2XhwQ/hqdefault.jpg",
+      "publishedAt": "2022-12-18T05:00:24Z",
+      "content": null
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Livemint"
+      },
+      "author": "Pooja Sitaram Jaiswar",
+      "title": "KFin Tech's ₹1,500 cr IPO to open tomorrow. Subscribe or not? | Mint - Mint",
+      "description": "Of the total IPO size, 75% of the issue is reserved for qualified institutional buyers, while 15% will be allocated to non-institutional investors and the remaining 10% will be kept for retail individual investors.",
+      "url": "https://www.livemint.com/market/ipo/kfin-tech-s-rs-1-500-cr-ipo-to-open-tomorrow-subscribe-or-not-11671337436234.html",
+      "urlToImage": "https://images.livemint.com/img/2022/12/18/600x338/fusion_microfinance_ipo_1668233476171_1671337457605_1671337457605.jpeg",
+      "publishedAt": "2022-12-18T04:28:20Z",
+      "content": "Digital financial services provider, KFin Technologies is set to launch its initial public offering of 1,500 crore on December 19 (Monday). Subscriptions will be allowed till December 21. The public … [+5558 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "YouTube"
+      },
+      "author": null,
+      "title": "Experts Discuss The Financialization Of Savings For Investors | Indianomics | CNBC-TV18 - CNBC-TV18",
+      "description": "Bank deposits still dominate the saver's mind space, accounting for a kitty of Rs 170 lakh crore against 135 lakh crore. But there is a steady migration from...",
+      "url": "https://www.youtube.com/watch?v=FXdTHM5RFzs",
+      "urlToImage": "https://i.ytimg.com/vi/FXdTHM5RFzs/maxresdefault.jpg",
+      "publishedAt": "2022-12-18T03:45:00Z",
+      "content": null
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Livemint"
+      },
+      "author": "Alka Jain",
+      "title": "Cars Price Hike: Here's a list of vehicles getting expensive from Jan 2023 | Mint - Mint",
+      "description": "Honda may increase price of its vehicles by up to  ₹30,000. Check out the full list here.",
+      "url": "https://www.livemint.com/auto-news/cars-price-hike-here-s-a-list-of-vehicles-getting-expensive-from-jan-2023-11671332733893.html",
+      "urlToImage": "https://images.livemint.com/img/2022/12/18/600x338/cars_1671333955619_1671333955756_1671333955756.jpg",
+      "publishedAt": "2022-12-18T03:35:36Z",
+      "content": "As 2023 is coming in, vehicles in India will get expensive. Leading auto manufacturers in India have announced price hikes on a range of models starting next month. The decision is aimed to offset th… [+1827 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "YouTube"
+      },
+      "author": null,
+      "title": "East Bay shoppers find plenty of room at malls week before Christmas - KPIX CBS SF Bay Area",
+      "description": "With one week to go before Christmas, shoppers at Sunvalley Shopping Center in Concord enjoyed a leisurely day of retail exploration. John Ramos reports. (12...",
+      "url": "https://www.youtube.com/watch?v=Uw8WIBiLFNI",
+      "urlToImage": "https://i.ytimg.com/vi/Uw8WIBiLFNI/hqdefault.jpg",
+      "publishedAt": "2022-12-18T03:21:05Z",
+      "content": null
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Moneycontrol"
+      },
+      "author": "Moneycontrol News",
+      "title": "On Swiggy, Bengaluru customer ordered groceries worth Rs 16 lakh this year - Moneycontrol",
+      "description": "How India Swiggy'd 2022: The food delivery platform's year-end report reveals interesting figures.",
+      "url": "https://www.moneycontrol.com/news/trends/on-swiggy-bengaluru-customer-ordered-groceries-worth-over-rs-16-lakh-this-year-9721531.html",
+      "urlToImage": "https://images.moneycontrol.com/static-mcnews/2022/12/swiggy-delivery-person-AFP-770x435.jpg",
+      "publishedAt": "2022-12-18T02:36:00Z",
+      "content": "Swiggy has loads of loyal customers across the country, who have spent thousands of rupees, and even lakhs, this year ordering food and groceries on the platform.\r\nSwiggy has revealed interesting fac… [+1463 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "The Punch"
+      },
+      "author": null,
+      "title": "Digital banking can increase financial inclusion –Bank CEO - Punch Newspapers",
+      "description": "The Managing Director/Chief Executive Officer, Wema Bank Plc, Ademola Adebise, has said the advancement of technology and digital banking can play a big role in driving financial inclusion in the country.",
+      "url": "https://punchng.com/digital-banking-can-increase-financial-inclusion-bank-ceo/",
+      "urlToImage": "https://cdn.punchng.com/wp-content/uploads/2016/10/10204355/mobile-banking.jpg",
+      "publishedAt": "2022-12-18T02:22:25Z",
+      "content": "The Managing Director/Chief Executive Officer, Wema Bank Plc, Ademola Adebise, has said the advancement of technology and digital banking can play a big role in driving financial inclusion in the cou… [+912 chars]"
+    },
+    {
+      "source": {
+        "id": "abc-news-au",
+        "name": "ABC News (AU)"
+      },
+      "author": "ABC News",
+      "title": "Former FTX CEO Sam Bankman-Fried to reverse decision on contesting extradition - ABC News",
+      "description": "Sam Bankman-Fried is expected to appear in court in the Bahamas on Monday to reverse his decision to contest extradition to the United States, where he faces fraud charges, a person familiar with the matter said.",
+      "url": "https://www.abc.net.au/news/2022-12-18/sam-bankman-fried-to-reverse-decision-on-contesting-extradition/101785966",
+      "urlToImage": "https://live-production.wcms.abc-cdn.net.au/1f79da1e50d95f1d82b7439383f7f543?impolicy=wcms_crop_resize&cropH=2813&cropW=5000&xPos=0&yPos=469&width=862&height=485",
+      "publishedAt": "2022-12-18T02:19:19Z",
+      "content": "Former FTX chief executive Sam Bankman-Fried is expected to appear in court in the Bahamas on Monday to reverse his decision to contest extradition to the United States, a person familiar with the ma… [+4017 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Moneycontrol"
+      },
+      "author": "Sunil Shankar Matkar",
+      "title": "Dalal Street Week Ahead | 10 key factors that will keep traders busy - Moneycontrol",
+      "description": "After recent corrections from record high levels, the market is expected to be largely volatile and rangebound in the coming week, with focus mostly on global cues given the lack of domestic triggers, experts said",
+      "url": "https://www.moneycontrol.com/news/business/markets/dalal-street-week-ahead-10-key-factors-that-will-keep-traders-busy-13-9722891.html",
+      "urlToImage": "https://images.moneycontrol.com/static-mcnews/2022/11/market-data2-770x433.jpg",
+      "publishedAt": "2022-12-18T02:17:48Z",
+      "content": "Selling pressure sustained with bears tightening their grip over Dalal Street in the week ended December 16. The hawkish tone with hints of more rate hikes to control inflation by Federal Reserve aft… [+9253 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "YouTube"
+      },
+      "author": null,
+      "title": "Holiday shopping rush comes amid rising prices - CBS Evening News",
+      "description": "With Christmas just a week away, Americans are rushing to complete their holiday shopping and shipping amid a surge in prices due to inflation. Danya Bacchus...",
+      "url": "https://www.youtube.com/watch?v=HLG6Hw4Tx_s",
+      "urlToImage": "https://i.ytimg.com/vi/HLG6Hw4Tx_s/maxresdefault.jpg",
+      "publishedAt": "2022-12-18T02:02:39Z",
+      "content": null
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Fox Business"
+      },
+      "author": "Sarah Rumpf",
+      "title": "Elon Musk says journalists 'think they're better than everyone else' amid suspension controversy - Fox Business",
+      "description": "Elon Musk commented on Twitter's suspension of several journalists saying that journalists, \"think they're better than everyone else.\"",
+      "url": "https://www.foxbusiness.com/technology/elon-musk-says-journalists-think-theyre-better-than-everyone-else-amid-suspension-controversy",
+      "urlToImage": "https://a57.foxnews.com/static.foxbusiness.com/foxbusiness.com/content/uploads/2022/10/0/0/GettyImages-1242798529-1.jpg?ve=1&tl=1",
+      "publishedAt": "2022-12-18T02:00:07Z",
+      "content": "Elon Musk commented on this week's controversy after the social media company suspended the accounts of several journalists who shared information pertaining to the location of the billionaires where… [+2260 chars]"
+    },
+    {
+      "source": {
+        "id": "bbc-news",
+        "name": "BBC News"
+      },
+      "author": "https://www.facebook.com/bbcnews",
+      "title": "Singapore's crypto ambitions shaken by FTX collapse - BBC",
+      "description": "Users call for more regulation after state fund writes off investment in fallen cryptocurrency exchange.",
+      "url": "https://www.bbc.co.uk/news/business-63898729",
+      "urlToImage": "https://ichef.bbci.co.uk/news/1024/branded_news/B6F9/production/_127814864_gettyimages-883887340.jpg",
+      "publishedAt": "2022-12-18T01:54:37Z",
+      "content": "There was a time when it seemed as though Singapore would become a global centre for cryptocurrency.\r\nAuthorities had signalled an early interest in harnessing blockchain technology. That, coupled wi… [+6330 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Daily Mail"
+      },
+      "author": "Reporter",
+      "title": "Marks and sparks fly as M&S boss is forced to step in to row back on controversial teacake ban - Daily Mail",
+      "description": "The boss of Marks & Spencer has stepped in to reverse a ban on the store's cafes selling teacakes after 11am.",
+      "url": "https://www.dailymail.co.uk/news/article-11550413/Marks-sparks-fly-M-S-boss-forced-step-row-controversial-teacake-ban.html",
+      "urlToImage": "https://i.dailymail.co.uk/1s/2022/12/18/01/65694757-0-image-a-100_1671328200222.jpg",
+      "publishedAt": "2022-12-18T01:52:00Z",
+      "content": "The boss of Marks &amp; Spencer has stepped in to reverse a ban on the stores cafes selling teacakes after 11am. \r\nUpset that they couldnt have them with their afternoon tea as usual, customers took … [+1607 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "New York Post"
+      },
+      "author": "Fox Business",
+      "title": "Amtrak unveils new trains that will replace aging fleet - New York Post ",
+      "description": "Amtrak on Thursday released details of its new Airo trains, which will operate on routes across the country beginning in 2026.",
+      "url": "https://nypost.com/2022/12/17/amtrak-reveals-new-airo-trains-to-replace-old-rolling-stock/",
+      "urlToImage": "https://nypost.com/wp-content/uploads/sites/2/2022/12/amtrakairo-comp-1.jpg?quality=75&strip=all&w=1024",
+      "publishedAt": "2022-12-18T01:31:00Z",
+      "content": "Amtrak on Thursday released details of its new Airo trains, which will operate on routes across the country beginning in 2026. \r\nThe routes include the Amtrak Northeast Regional, Empire Service, Virg… [+2255 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Forbes"
+      },
+      "author": "Ramsey Qubein",
+      "title": "66 Exciting Hotel Openings Around The World This Winter - Forbes",
+      "description": "Travelers have dozens of new hotels to look forward to in 2023 no matter where in the world they go. From boutique hotels to grand-scale resorts, these new accommodations are opening in December, January or February.",
+      "url": "https://www.forbes.com/sites/ramseyqubein/2022/12/17/66-exciting-hotel-openings-around-the-world-this-winter/",
+      "urlToImage": "https://imageio.forbes.com/specials-images/imageserve/639dca4e0c9ded47c38cea87/0x0.jpg?format=jpg&crop=1458,819,x1,y0,safe&width=1200",
+      "publishedAt": "2022-12-18T01:26:58Z",
+      "content": "The new iconic architecture in Doha's Lusail district is home to two Accor brands, Fairmont and ... [+] Raffles.\r\nAccor\r\nTravelers have dozens of new hotels to look forward to in 2023 no matter where… [+16242 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "YouTube"
+      },
+      "author": null,
+      "title": "Small businesses see surge in sales heading into Christmas week - KSDK News",
+      "description": "This weekend is your last chance to buy final Christmas gifts for your loved ones, before they close up for the holidays. Right now small businesses are seei...",
+      "url": "https://www.youtube.com/watch?v=i0alEmL40tw",
+      "urlToImage": "https://i.ytimg.com/vi/i0alEmL40tw/hqdefault.jpg",
+      "publishedAt": "2022-12-18T01:15:09Z",
+      "content": null
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Business Wire"
+      },
+      "author": null,
+      "title": "35% Cashback Weekend at Juicy Stakes Casino - Business Wire",
+      "description": "A wild weekend, a wild week, a wild month. It’s all going on at Juicy Stakes Casino at the moment, with three offers to look forward to – including a",
+      "url": "https://www.businesswire.com/news/home/20221217005034/en/35-Cashback-Weekend-at-Juicy-Stakes-Casino",
+      "urlToImage": "https://mms.businesswire.com/media/20221217005034/en/1668104/23/JSLogo.jpg",
+      "publishedAt": "2022-12-18T01:05:00Z",
+      "content": "ST JOHNS, Antigua--(BUSINESS WIRE)--A wild weekend, a wild week, a wild month. Its all going on atJuicy Stakes Casino at the moment, with three offers to look forward to including a cool cashback off… [+2102 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "CNBC"
+      },
+      "author": "Reuters",
+      "title": "Taiwan to fine Foxconn for unauthorized China investment - CNBC",
+      "description": "Taiwan has turned a wary eye on China's ambition to boost its semiconductor industry and is tightening legislation to prevent what it says is China stealing its chip technology.",
+      "url": "https://www.cnbc.com/2022/12/18/taiwan-to-fine-foxconn-for-unauthorized-china-investment.html",
+      "urlToImage": "https://image.cnbcfm.com/api/v1/image/107168030-1671324527296-gettyimages-535492242-qs100526shenzhen026.jpeg?v=1671324977&w=1920&h=1080",
+      "publishedAt": "2022-12-18T00:56:00Z",
+      "content": "Taiwan's government said on Saturday it would fine Foxconn, the world's largest contract electronics maker, for an unauthorized investment in a Chinese chip maker even after the Taiwanese firm said i… [+3067 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "YouTube"
+      },
+      "author": null,
+      "title": "Rocket Lab facility at Wallops Flight Facility in Virginia - VideoFromSpace",
+      "description": "Learn about the Rocket Lab facility at Wallops Flight Facility in Virginia. Credit: Rocket Lab",
+      "url": "https://www.youtube.com/watch?v=BFfvnG2eps0",
+      "urlToImage": "https://i.ytimg.com/vi/BFfvnG2eps0/hqdefault.jpg",
+      "publishedAt": "2022-12-18T00:25:35Z",
+      "content": null
+    },
+    {
+      "source": {
+        "id": "abc-news-au",
+        "name": "ABC News (AU)"
+      },
+      "author": "ABC News",
+      "title": "Goldman Sachs planning to cut up to 4,000 employees as Wall Street lay-offs intensify - ABC News",
+      "description": "The multinational investment bank is preparing to cut thousands of employees to navigate a difficult economic environment, a source familiar with the move says.",
+      "url": "https://www.abc.net.au/news/2022-12-18/goldman-sachs-job-cuts-planned-lay-off-4000-employees/101785680",
+      "urlToImage": "https://live-production.wcms.abc-cdn.net.au/917b10f8003193a8e6ff6d91e9b15918?impolicy=wcms_crop_resize&cropH=728&cropW=1295&xPos=0&yPos=68&width=862&height=485",
+      "publishedAt": "2022-12-18T00:13:21Z",
+      "content": "Goldman Sachs is preparing to cut thousands of employees to navigate a difficult economic environment, a source familiar with the move says.\r\nKey points:\r\n<ul><li>Up to 4,000 employees are expected t… [+1653 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "YouTube"
+      },
+      "author": null,
+      "title": "'Mild' recession expected in 2023 | NJ Business Beat - NJ Spotlight News",
+      "description": "Inflation is still a major issue and interest rates are on the rise. Economists have been using the dreaded R word: recession. However, some believe this rec...",
+      "url": "https://www.youtube.com/watch?v=Z3NzAF9wcOc",
+      "urlToImage": "https://i.ytimg.com/vi/Z3NzAF9wcOc/maxresdefault.jpg",
+      "publishedAt": "2022-12-18T00:00:10Z",
+      "content": null
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "CNBC"
+      },
+      "author": "Leslie Josephs",
+      "title": "American Airlines is dropping regional carrier Mesa, citing financial and operational problems - CNBC",
+      "description": "American Airlines said its final flight with Arizona-based Mesa Air will be on April 3.",
+      "url": "https://www.cnbc.com/2022/12/17/american-airlines-is-dropping-regional-carrier-mesa-citing-financial-and-operational-problems.html",
+      "urlToImage": "https://image.cnbcfm.com/api/v1/image/106452300-1584639277794gettyimages-1207206871.jpeg?v=1671321650&w=1920&h=1080",
+      "publishedAt": "2022-12-18T00:00:00Z",
+      "content": "American Airlines said Saturday that it will drop Mesa Air for some of its regional flying, citing concerns about its partner's financial and operational problems, issues that are tied to a rise in c… [+2880 chars]"
+    },
+    {
+      "source": {
+        "id": "reuters",
+        "name": "Reuters"
+      },
+      "author": null,
+      "title": "Intel delaying German factory start, wants more subsidies, Volksstimme reports - Reuters",
+      "description": "Intel Corp <a href=\"https://www.reuters.com/companies/INTC.O\" target=\"_blank\">(INTC.O)</a> has backed away from its original target of opening a chip factory in the eastern German city of Magdeburg in the first half of 2023, regional newspaper Volksstimme rep…",
+      "url": "https://www.reuters.com/technology/intel-delaying-german-factory-start-wants-more-subsidies-volksstimme-2022-12-17/",
+      "urlToImage": "https://www.reuters.com/resizer/oql1qx6qSkUFdLNmTd5ZvyA3C8E=/1200x628/smart/filters:quality(80)/cloudfront-us-east-2.images.arcpublishing.com/reuters/SIVMUZZFKJIMROCY63625TDJLE.jpg",
+      "publishedAt": "2022-12-17T23:59:00Z",
+      "content": "BERLIN, Dec 18 (Reuters) - Intel Corp (INTC.O) has backed away from its original target of opening a chip factory in the eastern German city of Magdeburg in the first half of 2023, regional newspaper… [+1305 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "East Idaho News"
+      },
+      "author": "Nathaniel Meyersohn, CNN",
+      "title": "'Out of control': No one knows how much to tip - East Idaho News",
+      "description": "(CNN) — A new checkout trend is sweeping across America, making for an increasingly awkward experience: digital tip jars. You order a coffee, an ice cream, a salad or a slice of pizza and pay with your credit card or phone. Then, an employee standing behind t…",
+      "url": "https://www.eastidahonews.com/2022/12/out-of-control-no-one-knows-how-much-to-tip/",
+      "urlToImage": "https://s3-us-west-2.amazonaws.com/assets.eastidahonews.com/wp-content/uploads/2022/12/Digital_Tip_Jar.jpg",
+      "publishedAt": "2022-12-17T23:43:00Z",
+      "content": null
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "CNA"
+      },
+      "author": null,
+      "title": "Intel delaying German factory start, wants more subsidies - Volksstimme - CNA",
+      "description": "BERLIN : Intel Corp has backed away from its original target of opening a chip factory in the eastern German city of Magdeburg in the first half of 2023, regional newspaper Volksstimme reported, saying the semiconductor giant wanted more public subsidies.The …",
+      "url": "https://www.channelnewsasia.com/business/intel-delaying-german-factory-start-wants-more-subsidies-volksstimme-reports-3152856",
+      "urlToImage": "https://onecms-res.cloudinary.com/image/upload/s--njdxPqZ5--/fl_relative,g_south_east,l_one-cms:core:watermark:reuters,w_0.1/f_auto,q_auto/c_fill,g_auto,h_676,w_1200/v1/one-cms/core/2022-12-17t234253z_1_lynxmpeibg08s_rtroptp_3_davos-meeting.jpg?itok=YZeDrbi2",
+      "publishedAt": "2022-12-17T23:42:53Z",
+      "content": "BERLIN : Intel Corp has backed away from its original target of opening a chip factory in the eastern German city of Magdeburg in the first half of 2023, regional newspaper Volksstimme reported, sayi… [+1170 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "CNBC"
+      },
+      "author": "Rohan Goswami, MacKenzie Sigalos",
+      "title": "Sam Bankman-Fried will now surrender himself for extradition before Bahamian court Monday: Source - CNBC",
+      "description": "Founder and former FTX CEO Sam Bankman-Fried will not contest extradition to the U.S. in an about face just days after being remanded to Bahamas prison.",
+      "url": "https://www.cnbc.com/2022/12/17/ftx-founder-sam-bankman-fried-will-not-contest-us-extradition-in-alleged-fraud-case-source-says.html",
+      "urlToImage": "https://image.cnbcfm.com/api/v1/image/107165899-1671021462752-gettyimages-1245594554-AFP_333M8ZY.jpeg?v=1671320089&w=1920&h=1080",
+      "publishedAt": "2022-12-17T23:34:49Z",
+      "content": "FTX founder and former CEO Sam Bankman-Fried will no longer contest extradition to the U.S., an about-face just days after he was remanded to Bahamian jail pending a hearing, a person familiar with t… [+2026 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "9News"
+      },
+      "author": "Richard Wood",
+      "title": "Ending 'gas dependency' key to slashing power bills, grid chief says - 9News",
+      "description": "<p>A﻿ustralia must accelerate its transition to renewable energy if it wants to avoid future price shocks, the head of the Australian Energy Market Operator (AEMO) warned today.</p>",
+      "url": "https://www.9news.com.au/national/renewable-energy-sources-key-to-reducing-power-bills-emo-chief-says/8ffbc352-c676-4742-b5af-1188cf3730df",
+      "urlToImage": "https://imageresizer.static9.net.au/T0aBSCaxlLG3nmQUGkpXMZFbaNM=/1200x628/smart/https%3A%2F%2Fprod.static9.net.au%2Ffs%2F005019ed-192e-40f2-9a50-1fd033f201fe",
+      "publishedAt": "2022-12-17T23:27:26Z",
+      "content": "Property News: Sunny playground where the growth is only just beginning - domain.com.au"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "YouTube"
+      },
+      "author": null,
+      "title": "What happens to clothes, bags and toys when they get recycled? - CNA",
+      "description": "Ever wondered what happens to your unwanted clothes, bags and toys after you drop them off for recycling? We followed their journey from yellow recycling bin...",
+      "url": "https://www.youtube.com/watch?v=nu0MAevJFLI",
+      "urlToImage": "https://i.ytimg.com/vi/nu0MAevJFLI/maxresdefault.jpg",
+      "publishedAt": "2022-12-17T23:15:00Z",
+      "content": null
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Teslarati"
+      },
+      "author": "Johnna Crider",
+      "title": "Tesla Semi for Frito Lay spotted cruising down the highway - TESLARATI",
+      "description": "A Tesla Semi that was recently delivered to PepsiCo and Frito-Lay was seen cruising down the highway over the weekend.",
+      "url": "https://www.teslarati.com/tesla-semi-frito-lay-highway/",
+      "urlToImage": "https://www.teslarati.com/wp-content/uploads/2022/12/Tesla-Semi-for-Frito-Lay-spotted-cruising-down-the-highway.png",
+      "publishedAt": "2022-12-17T23:13:45Z",
+      "content": "A Tesla Semi that was recently delivered to PepsiCo and Frito-Lay was seen cruising down the highway over the weekend. The all-electric Class 8 semi-truck was captured on video by a member of the Tes… [+2046 chars]"
+    },
+    {
+      "source": {
+        "id": "mashable",
+        "name": "Mashable"
+      },
+      "author": "Chance Townsend",
+      "title": "Reinstated journalists on Twitter must delete tweets, and still don't have access to Twitter Spaces - Mashable",
+      "description": "Surprise: This issue was not resolved in a tidy fashion.",
+      "url": "https://mashable.com/article/reinstated-twitter-journalists-spaces-deletion",
+      "urlToImage": "https://helios-i.mashable.com/imagery/articles/069XdbrmSfoxTa6mmsmRPke/hero-image.fill.size_1200x675.v1671313270.jpg",
+      "publishedAt": "2022-12-17T22:58:25Z",
+      "content": null
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "YouTube"
+      },
+      "author": null,
+      "title": "Mortgage rates fall for fifth straight week - CBS Pittsburgh",
+      "description": "The average rate for a 30-year fixed mortgage is now 6.31%.",
+      "url": "https://www.youtube.com/watch?v=cvwsM3A2IAU",
+      "urlToImage": "https://i.ytimg.com/vi/cvwsM3A2IAU/maxresdefault.jpg",
+      "publishedAt": "2022-12-17T22:45:23Z",
+      "content": null
+    },
+    {
+      "source": {
+        "id": "fortune",
+        "name": "Fortune"
+      },
+      "author": "Steve Mollman",
+      "title": "Sam Bankman-Fried will now reverse his decision to fight extradition to the U.S.: Report - Fortune",
+      "description": "The FTX founder was arrested on Monday in the Bahamas and denied bail, with the judge deeming him a flight risk.",
+      "url": "https://fortune.com/2022/12/17/ftx-sam-bankman-fried-to-reverse-decision-to-fight-extradition-report/",
+      "urlToImage": "https://content.fortune.com/wp-content/uploads/2022/12/GettyImages-1245594206-1-e1671316848883.jpg?resize=1200,600",
+      "publishedAt": "2022-12-17T22:45:00Z",
+      "content": "Sam Bankman-Fried could soon be headed for a U.S. prison to face fraud charges. The former CEO of FTXthe cryptocurrency exchange that went abruptly bankrupt last monthis currently being held in a jai… [+2381 chars]"
+    },
+    {
+      "source": {
+        "id": "news-com-au",
+        "name": "News.com.au"
+      },
+      "author": "Ed Bourke",
+      "title": "Alarm sounded on deadly Christmas toys - news.com.au",
+      "description": "<p>Christmas decorations and small children&rsquo;s toys are under heavy scrutiny as parents are warned to make sure none of the items on their trees or in stockings have been recalled.</p>",
+      "url": "https://www.news.com.au/lifestyle/parenting/parents-warned-of-dangerous-festive-ornaments-and-toys-after-more-product-recalls/news-story/72436afe725a22cc73a0a8b85b7ff4a7",
+      "urlToImage": "https://content.api.news/v3/images/bin/8507288acf18803b14a18278221c246d",
+      "publishedAt": "2022-12-17T22:33:44Z",
+      "content": "Christmas decorations and small children’s toys are under heavy scrutiny as parents are warned to make sure none of the items on their trees or in stockings have been recalled.\r\nAussie parents are be… [+1996 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "CNA"
+      },
+      "author": null,
+      "title": "Meta staff came to Singapore on employment passes only to be retrenched months later - CNA",
+      "description": "Two employees who were laid off in the Facebook parent's global cuts tell CNA how they are scrambling to find jobs before their short-term visit passes expire.",
+      "url": "https://www.channelnewsasia.com/singapore/meta-facebook-staff-laid-retrenched-employment-passes-3149551",
+      "urlToImage": "https://onecms-res.cloudinary.com/image/upload/s--0McUIz90--/fl_relative,g_south_east,l_one-cms:core:watermark:ap_data-1,w_0.1/f_auto,q_auto/c_fill,g_auto,h_676,w_1200/v1/one-cms/core/meta_results_46458.jpg?itok=PsyXdV7y",
+      "publishedAt": "2022-12-17T22:05:00Z",
+      "content": "Employees in Meta's Singapore office, which is home to its Asia-Pacific headquarters, were notified of the layoffs in the early hours of Nov 10. \r\nMs Susmita Sahu, a technical sourcer in Meta's recru… [+2148 chars]"
+    },
+    {
+      "source": {
+        "id": "news-com-au",
+        "name": "News.com.au"
+      },
+      "author": null,
+      "title": "When the shops are open this Christmas - news.com.au",
+      "description": "<p>The festive season is well and truly upon us and it&rsquo;s important to know when and where you can go to get last-minute shopping done over the holiday break. </p>",
+      "url": "https://www.news.com.au/finance/business/retail/all-the-dates-you-need-to-know-for-what-shops-are-open-over-christmas/news-story/9dd72cf3bc9a76a09ff4562a3bd7f76d",
+      "urlToImage": "https://content.api.news/v3/images/bin/10d2aa1837355768f3f092b36d455f19",
+      "publishedAt": "2022-12-17T22:02:07Z",
+      "content": "The festive season is well and truly upon us and it’s important to know when and where you can go to get last-minute shopping done over the holiday break. \r\nAs Christmas and New Year’s Day both fall … [+8638 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "OilPrice.com"
+      },
+      "author": "Rystad Energy",
+      "title": "Grid Bottlenecks Could Derail Europe's Renewable Energy Boom - OilPrice.com",
+      "description": "Europe's renewable industry is booming, but the region needs to double down on grid investments in order to meet its decarbonization goals",
+      "url": "https://oilprice.com/Alternative-Energy/Renewable-Energy/Grid-Bottlenecks-Could-Derail-Europes-Renewable-Energy-Boom.html",
+      "urlToImage": "https://d32r1sh890xpii.cloudfront.net/article/718x300/2022-12-16_6nzx1gd74i.jpg",
+      "publishedAt": "2022-12-17T22:00:00Z",
+      "content": "The pace of the energy…\r\nIndia has managed to avoid…\r\nThe global energy transition has…\r\nBy Rystad Energy - Dec 17, 2022, 4:00 PM CSTEurope’s energy transition ambitions face several challenges, but … [+10502 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Cointelegraph"
+      },
+      "author": "Ana Paula Pereira",
+      "title": "Sam Bankman-Fried seeks to reverse decision on contesting extradition: Report - Cointelegraph",
+      "description": "Sam Bankaman-Fried is expected to appear in court in the Bahamas to reverse decision about contesting extradition.",
+      "url": "https://cointelegraph.com/news/sam-bankman-fried-seeks-to-reverse-decision-on-contesting-extradition-report",
+      "urlToImage": "https://images.cointelegraph.com/cdn-cgi/image/format=auto,onerror=redirect,quality=90,width=1200/https://s3.cointelegraph.com/uploads/2022-12/40ffe577-7e0b-439a-921b-f5f24a26477a.jpg",
+      "publishedAt": "2022-12-17T21:54:27Z",
+      "content": "Sam Bankman-Fried, former FTX CEO, has reportedly reconsidered his earlier decision to contest extradition and is expected to appear in court in the Bahamas on Dec. 19 to seek a reversal, Reuters rep… [+2040 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "U.Today"
+      },
+      "author": null,
+      "title": "Binance Coin (BNB) Price Analysis for December 17 - U.Today",
+      "description": "Has Binance Coin (BNB) found local bottom yet?",
+      "url": "https://u.today/binance-coin-bnb-price-analysis-for-december-17",
+      "urlToImage": "https://u.today/sites/default/files/styles/twitter/public/2022-12/28026.jpg",
+      "publishedAt": "2022-12-17T21:35:53Z",
+      "content": "Disclaimer: The opinion expressed here is not investment advice it is provided for informational purposes only. It does not necessarily reflect the opinion of U.Today. Every investment and all tradin… [+1219 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Motorbiscuit.com"
+      },
+      "author": "Dan Mayfield",
+      "title": "Does the New Ferrari Pursosangue SUV Actually Make Sense as an SUV? - MotorBiscuit",
+      "description": "Ferrari calls the Pursoangue an SUV. But in the real world is it an SUV?",
+      "url": "https://www.motorbiscuit.com/does-the-new-ferrari-pursosangue-suv-actually-make-sense-as-an-suv/",
+      "urlToImage": "https://www.motorbiscuit.com/wp-content/uploads/2022/12/12_rear_34_2_a_HR_A4.jpg?w=1200",
+      "publishedAt": "2022-12-17T21:34:26Z",
+      "content": "A lot has been written about the new Ferrari Pursangue SUV. It has a V-12 engine, seating for four, a real hatch, and even all-wheel drive. But how does it stack up against other SUVs? Does it make s… [+3220 chars]"
+    },
+    {
+      "source": {
+        "id": "reuters",
+        "name": "Reuters"
+      },
+      "author": null,
+      "title": "JP Morgan signs deal for stake in fintech Viva Wallet for over $800 million - Reuters",
+      "description": "JP Morgan <a href=\"https://www.reuters.com/companies/JPM.N\" target=\"_blank\">(JPM.N)</a> has signed a deal to buy a 48.5% stake in Athens-based payments fintech Viva Wallet for more than $800 million, a person with knowledge of the matter told Reuters on Satur…",
+      "url": "https://www.reuters.com/markets/deals/jp-morgan-signs-deal-stake-fintech-viva-wallet-over-800-mln-source-2022-12-17/",
+      "urlToImage": "https://www.reuters.com/resizer/wNJSSQWMPYxSnTwlp09uW1b1ekw=/1200x628/smart/filters:quality(80)/cloudfront-us-east-2.images.arcpublishing.com/reuters/2QDLOLGWPBJXJMNNZS7L3TM7PM.jpg",
+      "publishedAt": "2022-12-17T21:27:00Z",
+      "content": "ATHENS, Dec 17 (Reuters) - JP Morgan (JPM.N) has signed a deal to buy a 48.5% stake in Athens-based payments fintech Viva Wallet for more than $800 million, a person with knowledge of the matter told… [+861 chars]"
+    },
+    {
+      "source": {
+        "id": "techcrunch",
+        "name": "TechCrunch"
+      },
+      "author": "Greg Kumparak",
+      "title": "Twitter battles all things ElonJet, SBF gets arrested, and OpenAI tries to figure out watermarking - TechCrunch",
+      "description": "Our top stories this week include the arrest of Sam Bankman-Fried, iOS 16.2, and Twitter's battle against accounts that track Elon's jet",
+      "url": "https://techcrunch.com/2022/12/17/twitter-battles-all-things-elonjet-sbf-gets-arrested-and-openai-tries-to-figure-out-watermarking/",
+      "urlToImage": "https://techcrunch.com/wp-content/uploads/2022/10/twitter-bird-with-elon-musk-head.jpg?resize=1200,645",
+      "publishedAt": "2022-12-17T21:16:08Z",
+      "content": "Hello, hello! Greg here again with Week in Review, the newsletter where we quickly recap the most read TechCrunch stories from the past seven days. Been too busy to read tech news? WiR should leave y… [+4279 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Forbes"
+      },
+      "author": "Tom Aspray",
+      "title": "Two Seasonal Trends To Watch In 2023 - Forbes",
+      "description": "The Viper Report’s Tom Aspray, a long time follower of seasonal analysis, is aware of the most common mistakes made by traders and investors. He shares his methodology for two markets with strong seasonal patterns that he thinks should be monitored in 2023.",
+      "url": "https://www.forbes.com/sites/tomaspray/2022/12/17/two-seasonal-trends-to-watch-in-2023/",
+      "urlToImage": "https://imageio.forbes.com/specials-images/imageserve/639e2e60faa5f083828cea7f/0x0.jpg?format=jpg&width=1200",
+      "publishedAt": "2022-12-17T21:11:44Z",
+      "content": "A young man jumps between 2022 and 2023 \r\ngetty\r\nAs part of last weeks discussion of the technical warnings ahead of the CPI Report and the FOMC meeting, I discussed the current seasonal assumptions … [+4316 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Fox Business"
+      },
+      "author": "Julia Musto",
+      "title": "Former Disney chief Bob Chapek ousted after CFO worked behind his back, report say - Fox Business",
+      "description": "Former Disney CEO Bob Chapek was reportedly ousted and replaced following actions by the company's Chief Financial Officer, Christine McCarthy, and other executives.",
+      "url": "https://www.foxbusiness.com/business-leaders/former-disney-chief-bob-chapek-ousted-cfo-worked-behind-his-back-reports",
+      "urlToImage": "https://a57.foxnews.com/static.foxbusiness.com/foxbusiness.com/content/uploads/2022/12/0/0/CHAPEK-1.jpg?ve=1&tl=1",
+      "publishedAt": "2022-12-17T21:09:02Z",
+      "content": "Former Disney chief executive Bob Chapek was reportedly ousted following actions by the company's chief financial officer, who believed he was \"incompetent.\" \r\nIn a new report, The Wall Street Journa… [+4704 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Daily Mail"
+      },
+      "author": "Harriet Alexander",
+      "title": "Sam Bankman-Fried WON'T contest extradition to US - Daily Mail",
+      "description": "Sam Bankman-Fried will not contest his extradition to the US, as a surprising picture emerged of the co-chief executive of FTX Digital Markets, the company's subsidiary in the Bahamas.",
+      "url": "https://www.dailymail.co.uk/news/article-11549621/Sam-Bankman-Fried-WONT-contest-extradition-1bn-FTX-crypto-fraud-charges.html",
+      "urlToImage": "https://i.dailymail.co.uk/1s/2022/12/17/21/65689679-0-image-a-116_1671311886775.jpg",
+      "publishedAt": "2022-12-17T21:07:55Z",
+      "content": "Former FTX CEO Sam Bankman-Fried has backtracked on his decision to challenge his extradition from the Bahamas to the United States to face fraud charges, and will appear in court in the Bahamas on M… [+5189 chars]"
+    },
+    {
+      "source": {
+        "id": "the-wall-street-journal",
+        "name": "The Wall Street Journal"
+      },
+      "author": "Heather Somerville",
+      "title": "TuSimple Plans Layoffs That Could Cut at Least Half Its Workforce Next Week - WSJ - The Wall Street Journal",
+      "description": "Self-driving truck company also plans to scale back autonomous driving testing",
+      "url": "https://www.wsj.com/articles/tusimple-plans-layoffs-that-could-cut-at-least-half-its-workforce-next-week-11671245596",
+      "urlToImage": "https://images.wsj.net/im-687713/social",
+      "publishedAt": "2022-12-17T20:23:00Z",
+      "content": "Self-driving trucking company TuSimple Holdings Inc. plans to cut potentially at least half of its workforce next week, people familiar with the matter said, as it scales back efforts to build and te… [+276 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Daily Hive"
+      },
+      "author": "National Trending Staff",
+      "title": "Canada's single-use plastics ban starts next week | Canada - Daily Hive",
+      "description": "Are you ready for it? ♻️👀",
+      "url": "https://dailyhive.com/canada/canada-single-use-plastics-ban",
+      "urlToImage": "https://images.dailyhive.com/20221217115357/plastic-500x258.jpg",
+      "publishedAt": "2022-12-17T20:21:00Z",
+      "content": "You’ll soon be hard-pressed to find plastic checkout bags and plastic forks in Canada.\r\nThe federal government announced earlier this year that it would ban the manufacture and import of single-use p… [+2282 chars]"
+    },
+    {
+      "source": {
+        "id": "abc-news-au",
+        "name": "ABC News (AU)"
+      },
+      "author": "Iskhandar Razak",
+      "title": "The cost of Christmas lunch has risen. Here's what's more expensive — and cheaper - ABC News",
+      "description": "The price of making a Christmas pudding or pavlova alongside a home-made roast and bread rolls will cost the average Australian several dollars more per person this year.",
+      "url": "https://www.abc.net.au/news/2022-12-18/food-prices-soar-around-christmas-cost-of-living-pressures/101780942",
+      "urlToImage": "https://live-production.wcms.abc-cdn.net.au/a5c715bccf590a1afc21b6dd8d363ef3?impolicy=wcms_crop_resize&cropH=2268&cropW=4032&xPos=0&yPos=105&width=862&height=485",
+      "publishedAt": "2022-12-17T20:08:24Z",
+      "content": "The price of making a Christmas pudding or pavlova alongside a home-made roast and bread rolls will cost the average Australian several dollars more per person this year.\r\nKey points:\r\n<ul><li>Deakin… [+5679 chars]"
+    }
+  ]
+}
