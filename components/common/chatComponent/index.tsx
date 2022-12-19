@@ -25,7 +25,7 @@ import AppreciationCard from "../apprecationCard";
 import { appreciateExpert } from "../../../apis/expert";
 import { colorScheme } from "../../../utils/constant";
 import PersonPinCircleIcon from "@mui/icons-material/PersonPinCircle";
-
+import ReplayIcon from "@mui/icons-material/Replay";
 const ChatComponent = () => {
   const router = useRouter();
   const [expertList, setExpertList] = useState<any>([]);
@@ -42,6 +42,7 @@ const ChatComponent = () => {
     JSON.parse(sessionStorage.getItem("user") || "")
   );
   const [techName, setTechName] = useState<String>("");
+  const [refresh, setRefresh] = useState<boolean>(false);
   const dispatch = useAppDispatch();
   useEffect(() => {
     router.query.techId &&
@@ -155,6 +156,15 @@ const ChatComponent = () => {
         }}
         columnSpacing={2}
       >
+        <Toolbar>
+          <IconButton
+            onClick={() => {
+              setRefreshChat(!refreshChat);
+            }}
+          >
+            <ReplayIcon />
+          </IconButton>
+        </Toolbar>
         <Grid item xs={12}>
           <Paper
             sx={{
