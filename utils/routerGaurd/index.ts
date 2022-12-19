@@ -6,7 +6,13 @@ export const RouteGuard = ({ children }: any) => {
   const [pathAllowed, setPathAllowed] = useState(false);
 
   let isPublicPath = (path: any) => {
-    const publicPaths = ["/", "/login", "/recoverPassword", "/signup"];
+    const publicPaths = [
+      "/",
+      "/login",
+      "/recoverPassword",
+      "/signup",
+      "/chatScreen",
+    ];
     return publicPaths.includes(path);
   };
 
