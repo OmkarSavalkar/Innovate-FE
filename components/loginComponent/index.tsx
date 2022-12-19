@@ -104,7 +104,7 @@ const LoginComponent = () => {
               md={6}
               className={style["image-grid"]}
               sx={{
-                backgroundImage: `url(https://connectwell-5f9f8.web.app/LoginImage.jpg)`,
+                backgroundImage: `url(https://connectwell-2022.web.app/LoginImage.jpg)`,
                 backgroundSize: "contain",
                 backgroundRepeat: "no-repeat",
                 backgroundPosition: "center",

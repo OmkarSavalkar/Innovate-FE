@@ -101,7 +101,7 @@ const ForgetComponent = (props: any) => {
                 item
                 md={6}
                 sx={{
-                  backgroundImage: `url(https://connectwell-5f9f8.web.app/reset.jpg)`,
+                  backgroundImage: `url(https://connectwell-2022.web.app/reset.jpg)`,
                   backgroundSize: "contain",
                   backgroundRepeat: "no-repeat",
                   backgroundPosition: "center",

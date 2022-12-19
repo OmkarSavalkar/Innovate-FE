@@ -25,7 +25,7 @@ const DiscussComponent = (props: any) => {
               style={{
                 width: "100%",
                 height: "100vh",
-                backgroundImage: `url(https://connectwell-5f9f8.web.app/forumBackground.png)`,
+                backgroundImage: `url(https://connectwell-2022.web.app/forumBackground.png)`,
                 borderRadius: "30px",
                 backgroundSize: "cover",
                 padding: "2px",

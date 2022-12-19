@@ -146,8 +146,8 @@ const ChatComponent = () => {
               : null,
           backgroundImage:
             expertList !== undefined && expertList.length !== 0
-              ? `url(https://connectwell-5f9f8.web.app/ChatBox.png)`
-              : `url(https://connectwell-5f9f8.web.app/NoExpertsFound.png)`,
+              ? `url(https://connectwell-2022.web.app/ChatBox.png)`
+              : `url(https://connectwell-2022.web.app/NoExpertsFound.png)`,
           backgroundSize: "contain",
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
@@ -321,8 +321,8 @@ const ChatComponent = () => {
                           : "#b0d3d7",
                       backgroundImage:
                         router.query.from === "expertTechUser"
-                          ? `url(https://connectwell-5f9f8.web.app/expertGroupChat.png)`
-                          : `url(https://connectwell-5f9f8.web.app/ChatExperts.jpg)`,
+                          ? `url(https://connectwell-2022.web.app/expertGroupChat.png)`
+                          : `url(https://connectwell-2022.web.app/ChatExperts.jpg)`,
                       backgroundSize: "contain",
                       backgroundRepeat: "no-repeat",
                       backgroundPosition: "center",

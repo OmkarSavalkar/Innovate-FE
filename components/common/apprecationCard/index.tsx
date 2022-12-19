@@ -47,7 +47,7 @@ const AppreciationCard = (props: any) => {
                   width: "150px",
                   height: "150px",
                   transform: "translate(180%, 46%)",
-                  backgroundImage: `url(https://connectwell-5f9f8.web.app/appreciationCard.png)`,
+                  backgroundImage: `url(https://connectwell-2022.web.app/appreciationCard.png)`,
                   backgroundSize: "contain",
                   backgroundRepeat: "no-repeat",
                   backgroundPosition: "center",

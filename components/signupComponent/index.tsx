@@ -152,7 +152,7 @@ const SignupComponent = () => {
                   <CardMedia
                     component="img"
                     height="300"
-                    image="https://connectwell-5f9f8.web.app/User.jpg"
+                    image="https://connectwell-2022.web.app/User.jpg"
                     alt="Paella dish"
                   />
                   <CardContent>
@@ -199,7 +199,7 @@ const SignupComponent = () => {
                   <CardMedia
                     component="img"
                     height="300"
-                    image="https://connectwell-5f9f8.web.app/Expert.jpg"
+                    image="https://connectwell-2022.web.app/Expert.jpg"
                     alt="Paella dish"
                   />
                 </Card>
