@@ -93,11 +93,32 @@ const ExpertApprovalComponent = (props: any) => {
         exclusive
         onChange={handleToggleExpert}
         aria-label="toogle expert"
+        sx={{
+          border: "2px solid white",
+        }}
       >
-        <ToggleButton value="pending" aria-label="pending approvals">
+        <ToggleButton
+          value="pending"
+          aria-label="pending approvals"
+          sx={{
+            "&.Mui-selected, &.Mui-selected:hover": {
+              color: colorScheme.color1,
+              backgroundColor: "white",
+            },
+          }}
+        >
           Pending Approvals
         </ToggleButton>
-        <ToggleButton value="approved" aria-label="approved experts">
+        <ToggleButton
+          value="approved"
+          aria-label="approved experts"
+          sx={{
+            "&.Mui-selected, &.Mui-selected:hover": {
+              color: colorScheme.color1,
+              backgroundColor: "white",
+            },
+          }}
+        >
           Approved Experts
         </ToggleButton>
       </ToggleButtonGroup>

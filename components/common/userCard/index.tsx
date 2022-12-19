@@ -88,7 +88,7 @@ const UserCard = () => {
           sx={{ fontFamily: "fantasy", padding: "20px 0px 0px 20px" }}
         >{`Hi, ${userData.fullName}`}</Typography>
         <Typography variant="h6" sx={{ padding: "0px 0px 0px 20px" }}>
-          Welcome to connect well
+          Welcome to Connect Well
         </Typography>
       </Grid>
       {userData.signupRole === "Expert" && (
