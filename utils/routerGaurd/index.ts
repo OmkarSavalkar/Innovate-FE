@@ -3,16 +3,10 @@ import { useRouter } from "next/router";
 
 export const RouteGuard = ({ children }: any) => {
   const router = useRouter();
-  const [pathAllowed, setPathAllowed] = useState(false);
+  const [pathAllowed, setPathAllowed] = useState(true);
 
   let isPublicPath = (path: any) => {
-    const publicPaths = [
-      "/",
-      "/login",
-      "/recoverPassword",
-      "/signup",
-      "/chatScreen",
-    ];
+    const publicPaths = ["/", "/login", "/recoverPassword", "/signup"];
     return publicPaths.includes(path);
   };
 
